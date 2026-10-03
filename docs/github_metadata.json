@@ -1,0 +1,21 @@
+{
+  "description": "An experimental holdout benchmark of target-specific HT-SELEX models, with family leakage controls, canonical RNA structure ablation and measured local resources. Neural comparison awaits hosted runs and licence resolution.",
+  "topics": [
+    "aptamer",
+    "ht-selex",
+    "rna",
+    "sequence-analysis",
+    "secondary-structure",
+    "viennarna",
+    "machine-learning",
+    "benchmark",
+    "bioinformatics",
+    "computational-biology",
+    "nucleic-acids",
+    "selex",
+    "reproducibility",
+    "python",
+    "bash"
+  ],
+  "status": "prepared_local_metadata_no_remote_configured"
+}
