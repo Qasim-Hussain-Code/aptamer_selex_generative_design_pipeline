@@ -1,0 +1,7 @@
+stage	start_timestamp	elapsed_seconds	peak_rss_bytes	peak_observed_disk_bytes	selection
+splits	2026-10-03T14:20:28.782330+00:00	9.510	79626240	481935015	successful_execution_containing_scientific_manifest_update
+baselines	2026-10-03T14:20:38.669186+00:00	24.918	205045760	480953658	successful_execution_containing_scientific_manifest_update
+secondary	2026-10-03T14:21:03.978232+00:00	29.962	44023808	480954283	successful_execution_containing_scientific_manifest_update
+ablation	2026-10-03T14:21:36.382794+00:00	25.520	211431424	480972943	successful_execution_containing_scientific_manifest_update
+candidates	2026-10-03T14:22:02.330454+00:00	48.516	145911808	481134004	successful_execution_containing_scientific_manifest_update
+evaluation	2026-10-03T14:22:52.606838+00:00	25.406	131330048	481052970	successful_execution_containing_scientific_manifest_update

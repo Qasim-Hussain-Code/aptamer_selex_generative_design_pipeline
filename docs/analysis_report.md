@@ -1,184 +1,266 @@
-# Executed local analysis report
+# Aptamer SELEX analysis report
 
 ## Summary
 
-TG2's grouped test set has 1 negative sequence among 15 sequences. Its prevalence baseline is 0.933 average precision (AP), compared with 0.926 for the SELEX-trained k-mer model. Integrin's grouped k-mer AP is 0.744; observed enrichment is 0.875. The latter uses test-sequence counts and is an observational reference. Adding canonical-RNA structural features changes integrin ridge AP by +0.0031, with a family-bootstrap interval spanning zero. The Markov null generated 100,000 unique candidates across all target-seed runs and recovered 0 exact test sequences and 0 positive test families. RaptGen has a hosted job but no returned run. AptaDiff is excluded pending explicit repository licensing and an authorized adapter. The largest observed local footprint is 0.546 GB, including the environment and temporary files. Sources: [summary](results/summary.tsv), [metrics](results/evaluation_metrics.tsv), [generation](results/generation_statistics.tsv), [resources](logs/resource_usage.tsv).
+This benchmark tests sequence ranking and generation against published SPR assay labels for TG2 and integrin alpha V beta 3, holding out families at 80% edit identity. SELEX enrichment-ridge average precision (AP) is 0.926 and 0.744, against constant-frequency baselines of 0.933 and 0.600. Integrin observed enrichment reaches 0.875 using test-sequence read counts. Matched exact-only exclusion changes ridge AP by -0.0143 for TG2 and +0.0457 for integrin; both paired intervals include zero. Across 10 target-seed runs, the Markov model produces 100,000 candidates with 10,000 unique sequences per run, recovering no exact test sequence or positive test family. Structure changes integrin ridge AP by +0.0031, with an interval spanning zero. Peak sampled disk use is 0.546 GB. TG2 has only 1 negative among 15 test sequences. RaptGen training is unrun; AptaDiff licensing and neural aggregation remain unresolved. [Summary tables](../results/summary.tsv), [evaluation metrics](../results/evaluation_metrics.tsv) and [paired comparisons](../results/paired_differences.tsv) contain the measurements.
 
 ## Background
 
-Aptamers bind through a molecular conformation formed by their sequence and chemical context. SELEX repeatedly partitions molecules and amplifies survivors. HT-SELEX sequences those pools. Read abundance can reflect selection, PCR bias or a bottleneck; it is not an independent affinity measurement. A model trained on target-specific selection data can learn that distribution. A different target without such data is a different scientific problem.
+Aptamers are nucleic-acid molecules whose sequence-dependent folds can recognize a target. SELEX repeatedly selects a library against that target and amplifies the retained molecules; HT-SELEX adds sequencing across rounds. Read abundance reflects selection, amplification bias and sampling, so enrichment can differ from experimentally measured affinity. A variable region of length L has 4^L possible nucleotide sequences, far more than the 6,031 and 12,250 distinct final-round sequences observed here.
 
-Related sequences can share motifs and appear on both sides of a sequence split. Here, exact edit-distance components define families at an arbitrary preregistered identity of 80%. Indels count. Secondary structure supplies an intramolecular folding proxy; a predicted tertiary fold or model ranking does not establish binding. **This pipeline does not claim that an aptamer can be reliably designed for an arbitrary target from its protein sequence or structure alone.**
+A selection-trained generator learns the sampled sequence distribution and its biases for a particular target and protocol. Its probability score does not validate binding. This benchmark asks whether that information ranks independently assayed sequences after related training sequences have been excluded. Close relatives across a split can make sequence memorization appear to generalize; holding out families tests a more demanding form of transfer within these target-specific datasets.
+
+Secondary structure constrains which nucleotides are paired and which remain available for recognition. The ablation tests whether those descriptors add information to sequence features. Tertiary prediction requires long-range packing and target-interaction assumptions that are less established for modified aptamers; a predicted fold alone supplies no functional validation. No tertiary model runs here, and the canonical-RNA approximation does not reproduce the libraries' modified chemistry exactly.
+
+Families are connected components of global edit identity, with insertions and deletions included. The primary threshold of 80% was fixed before model evaluation; 70% and 90% are retained as sensitivity analyses. The threshold is arbitrary. This pipeline does not claim that an aptamer can be reliably designed for an arbitrary target from its protein sequence or structure alone.
 
 ## Data
 
-| Target / accession | Rounds processed | Raw reads | Retained reads | Discarded reads | Assays retained / excluded | Primary test / families |
-| --- | --- | --- | --- | --- | --- | --- |
-| tg2 / DRA009383 | 9 | 840620 | 650294 | 190326 | 30 / 0 | 15 / 6 |
-| integrin / DRA009384 | 4 | 467095 | 306561 | 160534 | 48 / 0 | 25 / 24 |
+| Target / accession | Rounds | Raw reads | Retained reads | Rejected reads | Assays retained / excluded |
+| --- | --- | --- | --- | --- | --- |
+| TG2 / DRA009383 | 0-8 | 840,620 | 650,294 | 190,326 | 30 / 0 |
+| Integrin alpha V beta 3 / DRA009384 | 3-6 | 467,095 | 306,561 | 160,534 | 48 / 0 |
 
-These RNA libraries contain 2'-fluoro pyrimidines. The primary supplement defines transcribed-strand primer filters and permits length intervals around the nominal library lengths. No assay sequence was excluded for an indel. Every rejection class is retained in [preprocessing counts](results/preprocessing_counts.tsv). Reads were not subsampled. Training-pool capping excluded 0 eligible TG2 sequences and 59 eligible integrin sequences before family construction; the selected pools contain 1893 and 2500 sequences. The primary family rule then excludes 83 and 298 pool members, respectively, from generator fitting.
+TG2 variable regions have a nominal length of 30 nt and a retained interval of 25-35 nt; integrin regions have a nominal length of 40 nt and a retained interval of 35-45 nt. Both libraries contain 2'-fluoro pyrimidines. All public reads were processed, with no read subsampling. The final processed rounds contain 6,031 unique TG2 sequences and 12,250 unique integrin sequences. Counts and rejection classes for each round are recorded in [preprocessing QC](../results/preprocessing_counts.tsv).
 
-The RaptRanker primary supplement provides original Positive/Negative labels and continuous end-of-injection SPR response in RU. We preserve both and introduce no binary cutoff. [Ground-truth audit](results/ground_truth_audit.tsv) and [each original measurement](config/ground_truth_manifest.tsv) retain provenance. [RaptRanker](https://doi.org/10.1093/nar/gkaa484) establishes the target identities. The ENA mirror provides the DDBJ-submitted study and experiment records.
+After primer and length filtering, the final rounds retain 6,031 distinct TG2 sequences and 12,250 integrin sequences ([QC counts](../results/preprocessing_counts.tsv)).
 
-[AptaDiff](https://pmc.ncbi.nlm.nih.gov/articles/PMC11491854/) distinguishes its IGFBP3/PTK7 datasets A/B from public TG2/integrin C/D in Table 1, while its availability sentence assigns the DRA accessions to A/B. Repository primer and length measurements support keeping these biological datasets distinct. The accession sentence and A/B public accessions remain unresolved. Four inspected repository data files are excluded from benchmark training; the official complete rounds are used instead. Details remain in [data provenance](results/data_provenance.tsv).
+![Read counts and unique sequences across the TG2 and integrin SELEX rounds](../figures/02_dataset_composition.png)
+
+Figure 2. Raw reads, retained reads and unique retained sequences for every processed round. TG2 rounds 0-8 and integrin rounds 3-6 are retained, including late TG2 rounds omitted from the original RaptRanker ranking analysis.
+
+The 78 assay records come directly from RaptRanker Supplementary Tables S4/S5. Original Positive/Negative labels and end-of-injection SPR responses in response units (RU) are preserved. No new binary cutoff was introduced, and no assay was excluded for an indel. The [ground-truth manifest](../config/ground_truth_manifest.tsv) records each source measurement and its provenance. Public reads and reference inputs were retrieved on 2026-10-03 (Asia/Taipei); exact URLs, checksums and retrieval timestamps are in the [download manifest](../results/download_manifest.tsv).
+
+AptaDiff Table 1 identifies its datasets A/B as IGFBP3/PTK7 and its public datasets C/D as TG2/integrin, while its data-availability sentence associates the DRA accessions with A/B. The accession records and repository primer checks support the TG2/integrin mapping used here. Ambiguous repository inputs are excluded; the original contradiction remains in [data provenance](../results/data_provenance.tsv).
+
+There is also a literal integrin primer-boundary discrepancy: the article's PCR forward primer ends in `CAGAA`, while Supplementary Table S3's computational filter ends in `CAGAAG`. Processing follows S3, and assay strings follow S5. Exact count lookup and sequence recovery depend on this convention. Primer definitions and the rationale are recorded in [dataset configuration](../config/datasets.tsv) and [methods](../docs/methods.md).
 
 ## Pipeline
 
-`bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes` measures free space, preserves an external reserve and writes project.conf. Source checks and installation precede sequencing. `bash scripts/04_fetch_selex.sh` downloads one file, checks size and MD5, counts with SQLite, verifies compact output and deletes raw input. The measured pilot supplies the [disk projection](results/disk_projection.tsv).
+The workflow installs the pinned CPU environment, verifies primary sources, resolves sequencing rounds from experiment metadata, then downloads and processes one FASTQ file at a time. Each file is checked against the provider's size, MD5 and read count. Retained variable regions are counted with SQLite, compact outputs are reconciled against QC totals, and the raw file is removed. Hashes of configuration, scientific code, inputs and outputs control analysis restarts.
 
-`bash run_all.sh --mode core --from 06` reconstructs ground truth, families, baselines, structure, candidates and statistics. Every stage uses the resource wrapper. Configuration and output hashes govern restart decisions. The scientific definitions and alternatives are explained in [methods](docs/methods.md) and the [score dictionary](docs/score_dictionary.md).
+The executed workflow evaluates local SELEX fits and canonical-RNA ablations, while neural branches remain without returned results ([figure manifest](../results/figure_manifest.tsv)).
 
-The grouped primary arm excludes every test family from training. The matched exact-only diagnostic shares the same assay test IDs and allows their relatives in training. It is stored as `random` but is not an independent random partition. A separate `naive_sequence_random` arm provides that partition. It was added after the first local run to correct this diagnostic definition; no performance-driven seed selection occurred. Its test cases differ, so its difference from the primary arm is not a paired leakage estimate. Both diagnostics remain visible. The family-aware audits have zero exact and family overlaps.
+![Workflow from public sequencing reads through family exclusion, baselines, structure and experimental evaluation](../figures/01_pipeline.png)
 
-The complete local data flow ends at fixed experimental test cases; missing neural jobs are shown explicitly.
+Figure 1. Data processing and evaluation workflow. Experimental responses are isolated from SELEX-only fits and generation. The neural branches have no measured results in this repository.
 
-![Pipeline](../figures/01_pipeline.png)
+Late-round sequences observed at least twice are selected by seeded hash, with a cap of 2,500 sequences per target. This retains 1,893 TG2 sequences and 2,500 integrin sequences; the cap excludes 0 and 59 eligible sequences, respectively. The family-aware primary split then removes 83 TG2 and 298 integrin pool members from fitting. Within the selected pool and assay-sequence graph, both primary targets have zero exact and family overlaps between training and test.
+
+Three split definitions are recorded in the [split manifest](../config/split_manifest.tsv):
+
+- `family` holds out assay families and excludes their relatives from fitting.
+- `random` is a matched exact-only exclusion diagnostic using the same test sequences as `family`; it is not an independent random partition.
+- `naive_sequence_random` partitions assay sequences independently by seeded hash and permits relatives in training. This arm was added after the first local run to correct the diagnostic definition, without selecting a seed or metric for performance.
+
+The ridge model predicts final-versus-previous-round log2 enrichment. The logistic model instead uses labels from training assays. Both fit feature scaling on their training data only. Hyperparameters, seeds, score definitions and structural descriptors are recorded in [benchmark configuration](../config/benchmark.yml), [methods](../docs/methods.md) and the [score dictionary](../docs/score_dictionary.md).
+
+After installation, `source scripts/lib.sh` selects the project interpreter and defines the resource-measured `stage` command. Individual commands below require the inputs from preceding stages; `run_all.sh` supplies that order and acquires the reference inputs.
+
+| Stage | Inputs, outputs and decision | Command | Recorded time / RSS / disk |
+| --- | --- | --- | --- |
+| 00 configure | Host resources -> project.conf; enforce memory, disk and thread limits. | `bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes` | 1.427 s / 29.3 MB / 0.484 GB |
+| 01 sources | Acquired publications and repository metadata -> provenance and licence records; establish source identity. | `stage sources scripts/01_verify_sources.py --offline` | 1.731 s / 35.5 MB / 0.483 GB |
+| 02 install | Pinned package versions -> CPU environment; keep dependency and chemistry assumptions explicit. | `bash scripts/02_install.sh` | 190.033 s / 182.9 MB / 0.546 GB |
+| 03 metadata | Accessions and experiment XML -> run manifest; resolve rounds from source evidence. | `stage metadata scripts/03_fetch_metadata.py` | 0.945 s / 6.2 MB / 0.484 GB |
+| 04/05 reads | One FASTQ at a time -> verified compact counts and QC; displayed time is cached validation, with per-round processing listed separately. | `bash scripts/04_fetch_selex.sh --target all` | 0.936 s / 6.2 MB / 0.484 GB |
+| 06 assays | Supplement S4/S5 -> assay manifest; preserve original labels and SPR units. | `stage ground_truth scripts/06_build_ground_truth.py` | 2.395 s / 53.1 MB / 0.481 GB |
+| 07 splits | Late-round pool and assays -> family partitions; exclude test relatives before fitting. | `stage splits scripts/07_build_splits.py` | 9.510 s / 79.6 MB / 0.482 GB |
+| 08 baselines | Training counts and permitted assays -> fixed sequence fits and scores; retain exposure-matched baselines. | `stage baselines scripts/08_baselines.py` | 24.918 s / 205.0 MB / 0.481 GB |
+| 09 structure | Complete assay constructs -> canonical-RNA descriptors; approximate intramolecular structure. | `stage secondary scripts/09_secondary_structure.py` | 29.962 s / 44.0 MB / 0.481 GB |
+| 10 GPU jobs | Training-only exports -> pinned RaptGen job bundles; isolate held-out assay responses. | `stage gpu_jobs scripts/10_prepare_gpu_jobs.py` | 1.351 s / 62.6 MB / 0.484 GB |
+| 11 import | Hosted return files -> hash-checked artifacts; no production return exists. | `bash scripts/import_remote.sh --directory remote/returned/tg2_family --job remote/bundles/raptgen_tg2_family/job.json` | Not run |
+| 13 ablation | Sequence and structure features -> matched held-out scores; test incremental information. | `stage ablation scripts/13_structure_ablation.py` | 25.520 s / 211.4 MB / 0.481 GB |
+| 12 generation / scores | Local models -> fixed-budget Markov candidates, novelty and merged local scores; neural joins remain absent. | `stage candidates scripts/12_score_candidates.py` | 48.516 s / 145.9 MB / 0.481 GB |
+| 14 tertiary | Optional settings -> explicit exclusion record; no tertiary result is evaluated. | `stage tertiary scripts/14_optional_tertiary.py` | 0.914 s / 6.2 MB / 0.484 GB |
+| 15 evaluation | Fixed test scores -> metrics and family-bootstrap intervals; separate discrimination from sequence coverage. | `stage evaluation scripts/15_evaluate.py` | 25.406 s / 131.3 MB / 0.481 GB |
+| 16 figures | Retained tables -> PNG/PDF figures; show all measured arms and unavailable neural branches. | `stage figures scripts/16_figures.py` | 8.464 s / 239.5 MB / 0.484 GB |
+| 17 report | Measured tables and prose template -> README, Markdown and HTML reports; trace numerical claims. | `stage report scripts/write_report.py` | 1.201 s / 37.0 MB / 0.484 GB |
+| 18 final audit | Verified workflow records -> final audit; only this subprocess is measured here. Run the complete scripts/18_verify.sh first. | `stage verification scripts/verify_repository.py --clean-clone-status passed` | 15.701 s / 84.1 MB / 0.484 GB |
+
+Commands run from the repository root. The [stage execution table](../results/pipeline_stage_summary.tsv) joins these inputs, outputs and decisions to measured elapsed time, sampled RSS and sampled project size. It identifies successful scientific executions where a manifest is available; other rows use the latest recorded attempt and label that basis. Downloads are measured per FASTQ, and hosted import has no production execution. Resource rows describe the recorded execution, including cache reuse where declared.
 
 ## Results
 
-Held-out AP must be judged against prevalence. TG2 has only one negative test sequence, so a high AP gives weak evidence of discrimination.
+### Experimental discrimination
 
-| Method | TG2 grouped AP (95% interval) | Integrin grouped AP (95% interval) |
+| Primary panel | Test sequences | Positive / negative | Independent test families |
+| --- | --- | --- | --- |
+| TG2 | 15 | 14 / 1 | 6 |
+| Integrin alpha V beta 3 | 25 | 15 / 10 | 24 |
+
+| Method | TG2 AP (95% interval) | Integrin AP (95% interval) |
 | --- | --- | --- |
-| frequency | 0.933 (0.692 to 0.957) | 0.600 (0.400 to 0.792) |
-| enrichment | 0.933 (0.692 to 0.957) | 0.600 (0.400 to 0.792) |
-| kmer_ridge | 0.926 (0.639 to 0.965) | 0.744 (0.526 to 0.971) |
-| markov | 0.870 (0.782 to 0.910) | 0.745 (0.524 to 0.920) |
-| kmer_logistic | 0.957 (0.748 to 0.992) | 0.568 (0.380 to 0.862) |
-| kmer_structure_ridge | 0.926 (0.642 to 0.965) | 0.747 (0.533 to 0.974) |
-| kmer_structure_logistic | 0.957 (0.748 to 0.992) | 0.574 (0.382 to 0.860) |
-| frequency_observed | 0.955 (0.825 to 0.982) | 0.765 (0.549 to 0.945) |
-| enrichment_observed | 0.957 (0.844 to 0.983) | 0.875 (0.702 to 0.977) |
+| Training frequency lookup | 0.933 (0.692 to 0.957) | 0.600 (0.400 to 0.792) |
+| Training enrichment lookup | 0.933 (0.692 to 0.957) | 0.600 (0.400 to 0.792) |
+| SELEX enrichment ridge | 0.926 (0.639 to 0.965) | 0.744 (0.526 to 0.971) |
+| Markov log probability per nt | 0.870 (0.782 to 0.910) | 0.745 (0.524 to 0.920) |
+| Assay-label logistic | 0.957 (0.748 to 0.992) | 0.568 (0.380 to 0.862) |
+| SELEX ridge + structure | 0.926 (0.642 to 0.965) | 0.747 (0.533 to 0.974) |
+| Assay logistic + structure | 0.957 (0.748 to 0.992) | 0.574 (0.382 to 0.860) |
+| Observed frequency | 0.955 (0.825 to 0.982) | 0.765 (0.549 to 0.945) |
+| Observed enrichment | 0.957 (0.844 to 0.983) | 0.875 (0.702 to 0.977) |
 
-`frequency_observed` and `enrichment_observed` query original read counts. Exact-lookup `frequency` and `enrichment` use filtered training counts and become constant after exact test exclusion. Neither constant score is hidden. The ridge model predicts SELEX enrichment; logistic fitting uses training assay labels only. Its output is an uncalibrated decision function, not a probability or KD. Full AUROC, rank correlations, top-ranked precision and undefined-score statuses are in [evaluation metrics](results/evaluation_metrics.tsv).
+The exact-lookup frequency and enrichment baselines become constant after test-sequence exclusion, so their AP equals test prevalence. `frequency_observed` and `enrichment_observed` query original read counts, including counts of test sequences. Their exposure differs from that of the held-out models. Ridge scores predict selection enrichment; logistic scores are uncalibrated decision functions. Neither is a KD estimate.
 
-The same k-mer model has different performance under the independent naive partition and the controlled exclusion diagnostic.
+Intervals resample sequence families for 2,000 replicates with one fixed fitted model. TG2 retains 1,314 two-class resamples and excludes 686 single-class resamples; integrin retains 2,000. The intervals are conditional on retaining both classes and exclude refitting uncertainty. TG2 has only 6 independent test families. [Bootstrap records](../results/bootstrap_intervals.tsv) preserve the undefined counts; secondary endpoints, including AUROC, response rank correlations and top-ranked precision, remain in [evaluation metrics](../results/evaluation_metrics.tsv).
 
-| Target | Independent naive random AP | Matched exact-only AP | Family AP |
+On the primary panels, ridge AP is 0.926 for TG2 and 0.744 for integrin; TG2's 0.933 prevalence exceeds its ridge AP ([metrics](../results/evaluation_metrics.tsv)).
+
+![Precision-recall curves for the family-held-out experimental TG2 and integrin panels](../figures/04_experimental_discrimination.png)
+
+Figure 4. Precision-recall curves on the primary experimental panels. Observed frequency and enrichment are exposed references. The high positive prevalence of the TG2 panel limits what its AP can establish about discrimination.
+
+### Split comparisons
+
+| Target | Split | Test sequences | Positive fraction | Ridge AP |
+| --- | --- | --- | --- | --- |
+| TG2 | Independent sequence partition | 15 | 0.800 | 0.739 |
+| TG2 | Matched exact-only exclusion | 15 | 0.933 | 0.912 |
+| TG2 | Family exclusion | 15 | 0.933 | 0.926 |
+| Integrin alpha V beta 3 | Independent sequence partition | 24 | 0.750 | 0.898 |
+| Integrin alpha V beta 3 | Matched exact-only exclusion | 25 | 0.600 | 0.789 |
+| Integrin alpha V beta 3 | Family exclusion | 25 | 0.600 | 0.744 |
+
+The independent sequence split changes both the test cases and their prevalence. Its AP difference from the family split therefore does not isolate leakage. The matched exact-only diagnostic keeps the test cases fixed. Its ridge AP difference from the family-aware fit is -0.0143 for TG2 (95% interval -0.0663 to +0.1111) and +0.0457 for integrin (-0.0612 to +0.1292). Neither paired interval resolves a directional effect at the primary threshold.
+
+Matched exact-only exclusion changes ridge AP by -0.0143 for TG2 and +0.0457 for integrin, with both paired intervals spanning zero ([paired differences](../results/paired_differences.tsv)).
+
+![Average precision under independent sequence splitting, matched exact-only exclusion and family exclusion](../figures/03_random_vs_family.png)
+
+Figure 3. AP and 95% family-bootstrap intervals for all three split definitions. Observational references use the same full-count readouts on the matched test cases. The independent sequence partition has a different case mix.
+
+### Generation and novelty
+
+The Markov model uses read-weighted first-order transitions, add-one smoothing and the training length distribution. Generation seeds are 11, 23, 37, 53, 71. Each target-seed run requests 10,000 unique candidates, and all 10 runs attain that budget. The reported total is the sum of within-run uniqueness; cross-run overlap was not quantified. No exact test sequence or positive test family was recovered.
+
+Recovery is defined by an edit-identity edge to an assayed test sequence at the primary threshold. A positive test family contains at least one sequence with an original Positive label. This measures coverage of known sequence neighborhoods; it does not establish binding by an untested candidate. Per-seed outputs and budgets are recorded in [generation statistics](../results/generation_statistics.tsv), [budget curves](../results/generation_budget_curves.tsv) and [seed variation](../results/seed_variance.tsv).
+
+All generation seeds recover zero positive test families at every retained budget for both targets ([budget curves](../results/generation_budget_curves.tsv)).
+
+![Positive experimental test-family recovery across fixed Markov generation budgets](../figures/05_generation_budget.png)
+
+Figure 5. Positive test-family recovery at 100, 500, 1,000, 5,000, 10,000 unique candidates per run. All five seed curves coincide at zero for both targets.
+
+Median nearest-training edit identity is 0.600 across TG2 seeds and 0.600 across integrin seeds ([novelty distributions](../results/novelty_distribution.tsv)).
+
+![Maximum training-sequence edit identity versus Markov log probability per nucleotide](../figures/06_novelty_ranking.png)
+
+Figure 6. The first 500 candidates from each seed, or 2,500 points per target, plotted against their nearest identity to the filtered training pool. The vertical axis is Markov log probability per nucleotide, not an experimental activity measurement. Full novelty distributions are summarized in [novelty tables](../results/novelty_distribution.tsv).
+
+### Secondary structure
+
+ViennaRNA 2.7.2 folds the assay construct, including constant regions and excluding the poly(A) tether, at 37 C. Sequence-only models are compared with the same models plus MFE, base-pair count, paired fraction and ensemble diversity. The primary ridge AP changes are +0.0000 for TG2 (95% interval -0.0074 to +0.0084) and +0.0031 for integrin (-0.0207 to +0.0259). These fixed fits show no clear AP improvement. They do not test whether structure is biologically irrelevant.
+
+Adding structure changes primary ridge AP by +0.0000 for TG2 and +0.0031 for integrin, without a resolved paired improvement ([ablation comparisons](../results/paired_differences.tsv)).
+
+![Average precision for sequence-only and sequence-plus-secondary-structure models](../figures/07_structure_ablation.png)
+
+Figure 7. Sequence-only and sequence-plus-structure AP with 95% family-bootstrap intervals on identical experimental test cases. Paired AP differences are recorded separately in [ablation comparisons](../results/paired_differences.tsv). Canonical-RNA folding is a proxy for the modified molecules.
+
+### Resources and verification
+
+The largest sampled local footprint is 0.546 GB, against a 13 GB ceiling. The largest measured process-tree RSS is 239.5 MB; minimum sampled free space is 16.167 GB. The footprint includes the environment, project caches, temporary files and Git data. Sampling can miss brief peaks, and initial RSS measurements unavailable under the first sampler remain in the history.
+
+| Scientific stage | Elapsed s | Peak sampled RSS MB | Peak sampled project GB |
 | --- | --- | --- | --- |
-| tg2 | 0.739 | 0.912 | 0.926 |
-| integrin | 0.898 | 0.789 | 0.744 |
+| splits | 9.510 | 79.6 | 0.482 |
+| baselines | 24.918 | 205.0 | 0.481 |
+| secondary | 29.962 | 44.0 | 0.481 |
+| ablation | 25.520 | 211.4 | 0.481 |
+| candidates | 48.516 | 145.9 | 0.481 |
+| evaluation | 25.406 | 131.3 | 0.481 |
 
-![Split comparison](../figures/03_random_vs_family.png)
+These timings are the most recent successful executions that updated the scientific stage manifests; cached validation and skip times are excluded. Complete attempts, including failures and restarts, are preserved in [resource records](../logs/resource_usage.tsv) and [failure records](../logs/failures.tsv).
 
-The grouped precision-recall curves include the observational references and preserve the losing local methods.
+Across logged attempts, sampled RSS stays at or below 239.5 MB and project size at or below 0.546 GB ([resource records](../logs/resource_usage.tsv)).
 
-![Experimental discrimination](../figures/04_experimental_discrimination.png)
+![Latest per-stage elapsed times and maximum sampled memory and disk across execution attempts](../figures/08_resources.png)
 
-Processing retains the full round trajectory, including later TG2 rounds that the original RaptRanker analysis excluded because negative-labelled sequences amplified.
+Figure 8. Latest elapsed time per stage, which includes cached reruns, alongside maximum sampled RSS and project footprint across attempts. These elapsed times are not cold-start fitting costs. The [full-size PNG](../figures/08_resources.png) and [PDF](../figures/08_resources.pdf) preserve readable stage labels.
 
-![Dataset composition](../figures/02_dataset_composition.png)
-
-Structure-minus-sequence ridge changes are tg2: +0.0000 (95% -0.0074 to +0.0084); integrin: +0.0031 (95% -0.0207 to +0.0259). These are paired comparisons on identical test cases with sequence-family bootstrap resampling; they exclude training uncertainty.
-
-![Structure ablation](../figures/07_structure_ablation.png)
-
-The Markov null recovers no positive experimental test family at the configured budgets in this run. All generation seeds remain in the denominator.
-
-![Generation budget](../figures/05_generation_budget.png)
-
-Novelty is measured against the actual filtered training pool. The plotted points are the first fixed subset from each seed; full distributions and nearest sequences remain in generated data.
-
-![Novelty and ranking](../figures/06_novelty_ranking.png)
-
-At the sensitivity threshold, an integrin assay-supervised fit lacks both training classes and is excluded in the grouped arm, including its structural variant. Both exclusions are logged. Two optional methods, AptaDiff and InstructNA, have unclear repository licensing. RaptGen is not executed because no hosted result has returned. No tertiary method runs. These unavailable results cannot support an architectural comparison.
-
-The largest observed local footprint stays below the configured ceiling. Initial installation RSS was not captured by the first wrapper version; that row remains marked unavailable. Subsequent stages use the corrected process sampler. [Failure records](logs/failures.tsv) retain the metadata-route failures, test-fixture repair and any failed stage. The largest measured stage RSS is 237.1 MB and the minimum observed free space is 17.385 GB. RSS and disk are sampled, so brief peaks may be missed.
-
-![Resource profile](../figures/08_resources.png)
-
-| Stage | Latest elapsed s | Peak RSS MB | Observed project GB |
-| --- | --- | --- | --- |
-| references | 0.903 | 6.1 | 0.483 |
-| metadata | 0.889 | 6.2 | 0.483 |
-| install | 190.033 | 182.9 | 0.546 |
-| software | 2.413 | 70.8 | 0.481 |
-| ground_truth | 0.908 | 6.2 | 0.483 |
-| preprocess_integrin_3 | 66.264 | 35.8 | 0.468 |
-| preprocess_integrin_4 | 2.545 | 35.1 | 0.464 |
-| preprocess_integrin_5 | 2.140 | 34.3 | 0.462 |
-| preprocess_integrin_6 | 1.267 | 33.2 | 0.459 |
-| preprocess_tg2_0 | 39.352 | 35.3 | 0.469 |
-| preprocess_tg2_1 | 11.075 | 35.5 | 0.464 |
-| preprocess_tg2_2 | 1.685 | 34.6 | 0.459 |
-| preprocess_tg2_3 | 3.211 | 35.6 | 0.465 |
-| preprocess_tg2_4 | 2.235 | 35.4 | 0.462 |
-| preprocess_tg2_5 | 2.198 | 34.1 | 0.464 |
-| preprocess_tg2_6 | 1.507 | 32.6 | 0.463 |
-| preprocess_tg2_7 | 1.146 | 32.0 | 0.461 |
-| preprocess_tg2_8 | 1.264 | 32.3 | 0.464 |
-| fetch | 0.921 | 4.1 | 0.483 |
-| sources | 1.731 | 35.5 | 0.483 |
-| splits | 0.897 | 6.1 | 0.483 |
-| inspect_raptgen | 1.504 | 34.0 | 0.466 |
-| baselines | 1.974 | 107.4 | 0.483 |
-| secondary | 0.890 | 6.2 | 0.483 |
-| ablation | 0.917 | 6.2 | 0.483 |
-| candidates | 1.315 | 44.6 | 0.483 |
-| evaluation | 1.757 | 112.3 | 0.483 |
-| tertiary | 0.919 | 6.2 | 0.483 |
-| tests | 2.819 | 139.0 | 0.483 |
-| resolve | 0.891 | 6.2 | 0.483 |
-| gpu_jobs | 1.360 | 63.2 | 0.483 |
-| figures | 4.686 | 237.1 | 0.483 |
-| generation_qc | 1.359 | 34.3 | 0.480 |
-| report | 0.901 | 6.2 | 0.483 |
-| configure | 1.318 | 29.1 | 0.483 |
-| bootstrap_sources | 0.907 | 6.2 | 0.483 |
-| full_preflight | 0.946 | 6.2 | 0.483 |
-| clean_clone | 5.485 | 198.3 | 0.501 |
-| verification | 6.007 | 84.2 | 0.483 |
+The recorded test suite has 54 passing tests, 0 failures and 0 skipped tests. Clean-clone smoke and test checks, shellcheck, restart validation, numerical traceability and leakage checks are recorded in the [verification audit](../results/verification.tsv). Full-mode refusal is documented separately from passing local checks.
 
 ## Repository structure
 
 ```text
-config/       fixed decisions, primer design, assay and split manifests
-scripts/      numbered stages, shared resource wrapper, plotting and reporting
-remote/       pinned RaptGen job and explicit AptaDiff blocker
-results/      compact measurements, provenance, predictions and uncertainty
-../figures/      scripted PNG and PDF figures
-logs/         resources, failures, restart hashes and verification
-data/         ignored raw, compact, generated and external data
-tests/        synthetic end-to-end, scientific and artifact checks
-docs/         methods, score definitions and the executed report
+config/       benchmark decisions, primer design, assay and split manifests
+scripts/      numbered stages, resource controls, analysis and reporting
+remote/       RaptGen job wrapper and AptaDiff execution blocker
+results/      compact measurements, predictions, provenance and uncertainty
+figures/      PNG and PDF outputs generated from result tables
+logs/         resources, failures, restart manifests and verification
+data/         ignored sequencing, external, generated and remote artifacts
+tests/        synthetic workflow, scientific checks and artifact validation
+docs/         methods, score definitions, README template and analysis report
 ```
 
 ## Usage
 
-Resource context: 16 GB RAM, maximum 13.0 GB local footprint. Bash, Git and Python are required. The local environment has no CUDA toolkit, GPU PyTorch installation or neural checkpoint. Git Bash was used on Windows; Linux and WSL can use the same shell scripts with a compatible Python interpreter.
+16 GB RAM, maximum 13.0 GB local project footprint, with a 1 GB external free-space reserve. Run from the repository root with Git, Bash 4 or later and a compatible Python interpreter. The recorded Windows environment used Python 3.13.11, Git Bash 5.2.37 and the versions in [requirements-lock.txt](../config/requirements-lock.txt). The local environment contains no GPU PyTorch installation or neural checkpoint.
+
+For a fresh installation, set `BOOTSTRAP_PYTHON` to the intended Python executable if the interpreter on `PATH` is unsuitable. For example, on a Linux or WSL installation with Python 3.13 available:
 
 ```bash
-# Set PYTHON or BOOTSTRAP_PYTHON to a supported interpreter when PATH is ambiguous.
-bash scripts/02_install.sh
+BOOTSTRAP_PYTHON=python3.13 bash scripts/02_install.sh
 bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes
 bash run_all.sh --mode smoke
 bash run_all.sh --mode core
+bash scripts/18_verify.sh
+```
+
+The smoke workflow uses synthetic reads and requires no public-data download or GPU. The core workflow retrieves both public datasets, runs the local analysis and writes the reports. To resume from prepared upstream outputs:
+
+```bash
 bash run_all.sh --mode core --from 10
-# Execute and return hosted jobs as described in remote/README.md.
-bash scripts/import_remote.sh --directory remote/returned/tg2_family   --job remote/bundles/raptgen_tg2_family/job.json
+```
+
+`--target tg2` or `--target integrin` limits retrieval; the comparison still requires processed data from both targets. `--from` requires the preceding validated inputs. Primary data acquisition is independent of the synthetic clean-clone check; final verification reuses provider-validated compact counts rather than downloading every FASTQ again.
+
+For hosted RaptGen work, prepare the jobs locally, then copy the selected bundle and tracked remote wrapper to the host:
+
+```bash
+# Local preparation; measured stage resources are in pipeline_stage_summary.tsv.
+source scripts/lib.sh
+stage gpu_jobs scripts/10_prepare_gpu_jobs.py
+# On the hosted Linux GPU machine:
+conda env create -f remote/raptgen/environment.yml
+conda activate raptgen_published
+bash remote/raptgen/run_remote.sh remote/bundles/raptgen_tg2_family output/tg2_family
+# After copying the listed return files back to the local repository:
+bash scripts/import_remote.sh --directory remote/returned/tg2_family \
+  --job remote/bundles/raptgen_tg2_family/job.json
+```
+
+Repeat for both targets and the matched diagnostic as described in [remote execution](../remote/README.md). These hosted commands are prepared and have no measured production run. After returned artifacts, licensing and neural aggregation are resolved, full evaluation would run with:
+
+```bash
 bash run_all.sh --mode full --gpu-mode hosted --from 11
 bash scripts/18_verify.sh
 ```
 
-The smoke test uses synthetic reads and requires no public-data download or GPU. The latest measured times and disk footprints are listed above. Resource summaries describe the logged rows present when the report started; their count is recorded in summary.tsv. Full mode explicitly refuses missing or excluded neural arms and the unfinished neural aggregation. Read [HANDOVER.md](HANDOVER.md) for the exact remaining tasks. `--target` limits retrieval; the comparative analysis requires processed data for both targets. A from-stage restart requires the preceding validated files. The report is [HTML](results/report.html), with [Markdown source](docs/analysis_report.md); Quarto is optional.
+Full mode currently refuses those unresolved requirements. [HANDOVER.md](../HANDOVER.md) lists them explicitly. The analysis is also available as [Markdown](../docs/analysis_report.md) and [HTML](../results/report.html); Quarto is optional. README prose is maintained in [the reporting template](../docs/readme_template.md), with numbers inserted from measured tables.
 
 ## Limitations
 
-The independent test measurements are few, especially independent TG2 families. I am least confident in TG2 binary discrimination because its test partition has only one negative. The family threshold is arbitrary and its sensitivity changes exclusion and training-class availability. Hash capping can omit informative late-round sequences. Read counts are affected by amplification and selection biases. Reported bootstrap intervals exclude refitting and model selection uncertainty.
+Only two targets are evaluated. TG2 discrimination is the least certain result: one negative sequence and 6 independent families provide little information about false-positive ranking. The published assay panels are selected candidates, not random samples of the entire sequence space. Bootstrap intervals describe the fixed test panels and fits; they exclude training-set and hyperparameter uncertainty. Family definitions are arbitrary, and pool capping restricts the neighborhood graph. At the 70% sensitivity threshold, integrin's grouped assay-supervised fit has only one training class; that fit and its structural variant are excluded and logged.
 
-Canonical RNA folding does not reproduce the chemistry of 2'-fluoro-modified RNA exactly. MFE concerns intramolecular folding. None of the generated candidates has a new wet-lab assay. Neural environments are legacy stacks; hosted training and artifact return remain unverified. AptaDiff's licence contradiction blocks its implementation. Tertiary prediction is disabled and contributes no evidence. This run does not establish reliable aptamer design for a target without target-specific selection or functional data.
+Amplification and selection bias can enter both learned scores and generated sequences; generative log probability measures resemblance to that distribution rather than affinity. Canonical-RNA parameters do not reproduce 2'-fluoro chemistry exactly. No generated candidate has a new wet-lab assay. Hosted GPU dependence and legacy neural environments remain unvalidated, and neural evaluation is unfinished. AptaDiff's paper declares MIT while its inspected repository has no licence file; InstructNA likewise lacks clear repository and weight terms. Both are excluded. Tertiary prediction is disabled and supplies no evidence here. These results do not establish reliable aptamer design without target-specific selection or functional data.
 
 ## Data availability
 
-The public accessions are DRA009383 and DRA009384. [Run metadata](results/selex_manifest.tsv) records every remote FASTQ, provider checksum, file size and explicit round evidence. [Download provenance](results/download_manifest.tsv) supplies retrieval timestamps and local hashes. The primary supplement is fetched from the publisher's linked PDF and parsed directly. Retained compact scientific tables are tracked; raw reads, derived count tables, primary PDFs, large generation tables and model weights are not. The Bash commands above regenerate them. Inspection date and local run date are recorded in the manifests rather than inferred from filenames.
+Public sequencing accessions are [DRA009383](https://www.ebi.ac.uk/ena/browser/view/PRJDB9110) and [DRA009384](https://www.ebi.ac.uk/ena/browser/view/PRJDB9111), retrieved on 2026-10-03 (Asia/Taipei). DDBJ-submitted INSDC metadata is resolved through the ENA Portal API and experiment XML; FASTQs use the exact provider URLs in [run metadata](../results/selex_manifest.tsv). That table records provider checksums, expected sizes, read counts and round-assignment evidence. [Download provenance](../results/download_manifest.tsv) records local hashes and timestamps. The primary supplement is retrieved from the publisher and parsed directly. `bash run_all.sh --mode core` regenerates these inputs and derived results.
+
+Compact results and derived assay records are tracked. Raw FASTQs, compact sequencing counts, original PDFs, complete generated candidate tables, environments and model weights are ignored by Git and regenerated through the Bash workflow. Retained result tables support inspection without downloading the sequencing inputs. Resource summaries are snapshots of the log rows available when the report started; [run_summary.tsv](../results/run_summary.tsv) records the snapshot size.
 
 ## Citation
 
-Primary literature: [RaptRanker](https://doi.org/10.1093/nar/gkaa484), [RaptGen](https://doi.org/10.1038/s43588-022-00249-6), [AptaDiff](https://doi.org/10.1093/bib/bbae517), and the discussed, excluded [InstructNA](https://doi.org/10.1038/s43588-026-00965-3). Software references: [ViennaRNA](https://www.tbi.univie.ac.at/RNA/), [NumPy](https://numpy.org/citing-numpy/), [SciPy](https://scipy.org/citing-scipy/), [scikit-learn](https://jmlr.org/papers/v12/pedregosa11a.html), [Matplotlib](https://matplotlib.org/stable/project/citing.html), and [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz). Families use this repository's exact graph construction and RapidFuzz global edit distances; VSEARCH is not a dependency. Sources and checks are in [citations](results/citations.tsv) and [software provenance](results/software_manifest.tsv).
+The dataset and experimental evaluation originate from [RaptRanker](https://doi.org/10.1093/nar/gkaa484). Model references are [RaptGen](https://doi.org/10.1038/s43588-022-00249-6), [AptaDiff](https://doi.org/10.1093/bib/bbae517) and the excluded optional method [InstructNA](https://doi.org/10.1038/s43588-026-00965-3). Upstream commits, source checks and exclusions are recorded in [citations](../results/citations.tsv) and [software provenance](../results/software_manifest.tsv).
+
+Software references are [ViennaRNA](https://www.tbi.univie.ac.at/RNA/), [NumPy](https://numpy.org/citing-numpy/), [SciPy](https://scipy.org/citing-scipy/), [scikit-learn](https://jmlr.org/papers/v12/pedregosa11a.html), [Matplotlib](https://matplotlib.org/stable/project/citing.html) and [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz). Family construction uses this repository's exact connected-component algorithm and RapidFuzz global edit distances.
 
 ## Licence
 
-Original repository code is MIT under the configured author's identity. RaptGen is MIT and is installed separately only on the hosted path. AptaDiff's paper declares MIT, but its inspected repository lacks a licence file; its executable arm is excluded. InstructNA also lacks a clear repository licence and is excluded. ViennaRNA has its own custom licence with attribution and redistribution conditions. These terms are not replaced by this repository's MIT licence. No pretrained weight licence is assumed.
+Repository code is released under the [MIT licence](../LICENSE), copyright Qasim Hussain. Dependencies, upstream implementations, datasets and pretrained weights retain their own terms; this licence does not replace them. RaptGen is MIT and is installed separately on the hosted path. ViennaRNA has a custom licence with attribution and redistribution conditions. No pretrained weights are redistributed.
 
-The RaptRanker article and supplement have their own CC-BY-NC terms. The original PDF and upstream datasets are not redistributed. Derived factual assay fields are attributed, with terms recorded in [data terms](results/data_terms.tsv). All installed dependency and licence records retain the date checked. The current evidence ends at the local baselines and canonical-RNA ablation.
+The RaptRanker article and supplement carry CC-BY-NC terms. The original PDF and sequencing inputs are not redistributed here. Derived factual assay fields are attributed to the supplement, and [data terms](../results/data_terms.tsv) are recorded separately from the code licence. Software and data terms were checked on 2026-10-03; installed dependency terms are recorded in [licence metadata](../results/transitive_licences.tsv).

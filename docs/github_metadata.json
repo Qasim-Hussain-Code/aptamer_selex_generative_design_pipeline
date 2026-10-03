@@ -1,5 +1,5 @@
 {
-  "description": "An experimental holdout benchmark of target-specific HT-SELEX models, with family leakage controls, canonical RNA structure ablation and measured local resources. Neural comparison awaits hosted runs and licence resolution.",
+  "description": "Family-held-out aptamer benchmark on two public HT-SELEX datasets, with experimental discrimination, a Markov generation baseline, and canonical-RNA structure ablation.",
   "topics": [
     "aptamer",
     "ht-selex",
@@ -17,5 +17,7 @@
     "python",
     "bash"
   ],
-  "status": "prepared_local_metadata_no_remote_configured"
+  "status": "github_repository_configured",
+  "repository": "https://github.com/Qasim-Hussain-Code/aptamer_selex_generative_design_pipeline",
+  "visibility": "public"
 }

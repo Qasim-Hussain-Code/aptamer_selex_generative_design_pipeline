@@ -1,4 +1,4 @@
-Configured budget 13000000000 bytes, free 17672740864 bytes, reserve 1000000000 bytes
+Configured budget 13000000000 bytes, free 16649297920 bytes, reserve 1000000000 bytes
 ViennaRNA 2.7.2 None Disclaimer and Copyright
         
         The programs, library and source code 
@@ -17,7 +17,7 @@ shellcheck_py 0.11.0.1 None MIT
 raptgen c4986ca9fa439b9389916c05829da4ff9c30d6f3 {'key': 'mit', 'name': 'MIT License', 'spdx_id': 'MIT', 'url': 'https://api.github.com/licenses/mit', 'node_id': 'MDc6TGljZW5zZTEz'}
 aptadiff ff2719c7840c18d2b912fd9fa4953ca5bd0f5602 None
 instructna 89b1e68e130620f5fe76458683d7f5f98404f81a None
-Primary references, licence exclusions and biological provenance recorded
+sources: hashes validated, skipping
 Validated metadata for 13 FASTQ files; no sequence download yet
 fetch integrin round 3: counts and input metadata validated, skipping
 fetch integrin round 4: counts and input metadata validated, skipping
@@ -43,7 +43,7 @@ scores: hashes validated, skipping
 Optional tertiary arm disabled by preregistered configuration
 evaluation: hashes validated, skipping
 ......................................................                   [100%]
-54 passed in 1.50s
+54 passed in 1.61s
 Rendered eight figures; neural methods are absent because no artifacts have returned
-README and executed report written from actual outputs; no neural result invented
+README and analysis report written from measured tables
 Completed core workflow. Run bash scripts/18_verify.sh for the independent audit.
