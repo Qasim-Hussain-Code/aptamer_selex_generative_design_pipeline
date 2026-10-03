@@ -1,0 +1,4 @@
+name: aptadiff_preflight_only
+# No source is installed while the repository lacks an explicit software licence.
+dependencies:
+  - python=3.8
