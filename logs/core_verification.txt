@@ -1,4 +1,4 @@
-Configured budget 13000000000 bytes, free 16649297920 bytes, reserve 1000000000 bytes
+Configured budget 13000000000 bytes, free 16605900800 bytes, reserve 1000000000 bytes
 ViennaRNA 2.7.2 None Disclaimer and Copyright
         
         The programs, library and source code 
@@ -43,7 +43,7 @@ scores: hashes validated, skipping
 Optional tertiary arm disabled by preregistered configuration
 evaluation: hashes validated, skipping
 ......................................................                   [100%]
-54 passed in 1.61s
+54 passed in 1.83s
 Rendered eight figures; neural methods are absent because no artifacts have returned
 README and analysis report written from measured tables
 Completed core workflow. Run bash scripts/18_verify.sh for the independent audit.

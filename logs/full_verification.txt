@@ -1,4 +1,4 @@
-Configured budget 13000000000 bytes, free 16648450048 bytes, reserve 1000000000 bytes
+Configured budget 13000000000 bytes, free 16605569024 bytes, reserve 1000000000 bytes
 Traceback (most recent call last):
   File "C:\Users\User\Documents\Structural_Biology\aptamer_selex_generative_design_pipeline\scripts\full_preflight.py", line 28, in <module>
     main()

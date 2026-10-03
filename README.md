@@ -59,23 +59,23 @@ After installation, `source scripts/lib.sh` selects the project interpreter and 
 
 | Stage | Inputs, outputs and decision | Command | Recorded time / RSS / disk |
 | --- | --- | --- | --- |
-| 00 configure | Host resources -> project.conf; enforce memory, disk and thread limits. | `bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes` | 1.427 s / 29.3 MB / 0.484 GB |
+| 00 configure | Host resources -> project.conf; enforce memory, disk and thread limits. | `bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes` | 1.408 s / 28.6 MB / 0.485 GB |
 | 01 sources | Acquired publications and repository metadata -> provenance and licence records; establish source identity. | `stage sources scripts/01_verify_sources.py --offline` | 1.731 s / 35.5 MB / 0.483 GB |
 | 02 install | Pinned package versions -> CPU environment; keep dependency and chemistry assumptions explicit. | `bash scripts/02_install.sh` | 190.033 s / 182.9 MB / 0.546 GB |
-| 03 metadata | Accessions and experiment XML -> run manifest; resolve rounds from source evidence. | `stage metadata scripts/03_fetch_metadata.py` | 0.945 s / 6.2 MB / 0.484 GB |
-| 04/05 reads | One FASTQ at a time -> verified compact counts and QC; displayed time is cached validation, with per-round processing listed separately. | `bash scripts/04_fetch_selex.sh --target all` | 0.936 s / 6.2 MB / 0.484 GB |
+| 03 metadata | Accessions and experiment XML -> run manifest; resolve rounds from source evidence. | `stage metadata scripts/03_fetch_metadata.py` | 0.973 s / 6.2 MB / 0.485 GB |
+| 04/05 reads | One FASTQ at a time -> verified compact counts and QC; displayed time is cached validation, with per-round processing listed separately. | `bash scripts/04_fetch_selex.sh --target all` | 0.966 s / 4.1 MB / 0.485 GB |
 | 06 assays | Supplement S4/S5 -> assay manifest; preserve original labels and SPR units. | `stage ground_truth scripts/06_build_ground_truth.py` | 2.395 s / 53.1 MB / 0.481 GB |
 | 07 splits | Late-round pool and assays -> family partitions; exclude test relatives before fitting. | `stage splits scripts/07_build_splits.py` | 9.510 s / 79.6 MB / 0.482 GB |
 | 08 baselines | Training counts and permitted assays -> fixed sequence fits and scores; retain exposure-matched baselines. | `stage baselines scripts/08_baselines.py` | 24.918 s / 205.0 MB / 0.481 GB |
 | 09 structure | Complete assay constructs -> canonical-RNA descriptors; approximate intramolecular structure. | `stage secondary scripts/09_secondary_structure.py` | 29.962 s / 44.0 MB / 0.481 GB |
-| 10 GPU jobs | Training-only exports -> pinned RaptGen job bundles; isolate held-out assay responses. | `stage gpu_jobs scripts/10_prepare_gpu_jobs.py` | 1.351 s / 62.6 MB / 0.484 GB |
+| 10 GPU jobs | Training-only exports -> pinned RaptGen job bundles; isolate held-out assay responses. | `stage gpu_jobs scripts/10_prepare_gpu_jobs.py` | 1.383 s / 63.3 MB / 0.485 GB |
 | 11 import | Hosted return files -> hash-checked artifacts; no production return exists. | `bash scripts/import_remote.sh --directory remote/returned/tg2_family --job remote/bundles/raptgen_tg2_family/job.json` | Not run |
 | 13 ablation | Sequence and structure features -> matched held-out scores; test incremental information. | `stage ablation scripts/13_structure_ablation.py` | 25.520 s / 211.4 MB / 0.481 GB |
 | 12 generation / scores | Local models -> fixed-budget Markov candidates, novelty and merged local scores; neural joins remain absent. | `stage candidates scripts/12_score_candidates.py` | 48.516 s / 145.9 MB / 0.481 GB |
-| 14 tertiary | Optional settings -> explicit exclusion record; no tertiary result is evaluated. | `stage tertiary scripts/14_optional_tertiary.py` | 0.914 s / 6.2 MB / 0.484 GB |
+| 14 tertiary | Optional settings -> explicit exclusion record; no tertiary result is evaluated. | `stage tertiary scripts/14_optional_tertiary.py` | 0.965 s / 6.2 MB / 0.485 GB |
 | 15 evaluation | Fixed test scores -> metrics and family-bootstrap intervals; separate discrimination from sequence coverage. | `stage evaluation scripts/15_evaluate.py` | 25.406 s / 131.3 MB / 0.481 GB |
-| 16 figures | Retained tables -> PNG/PDF figures; show all measured arms and unavailable neural branches. | `stage figures scripts/16_figures.py` | 8.464 s / 239.5 MB / 0.484 GB |
-| 17 report | Measured result tables -> README, Markdown and HTML reports; trace numerical claims. | `stage report scripts/write_report.py` | 0.934 s / 4.1 MB / 0.484 GB |
+| 16 figures | Retained tables -> PNG/PDF figures; show all measured arms and unavailable neural branches. | `stage figures scripts/16_figures.py` | 5.256 s / 238.8 MB / 0.485 GB |
+| 17 report | Measured result tables -> README, Markdown and HTML reports; trace numerical claims. | `stage report scripts/write_report.py` | 1.160 s / 36.6 MB / 0.484 GB |
 | 18 final audit | Verified workflow records -> final audit; only this subprocess is measured here. Run the complete scripts/18_verify.sh first. | `stage verification scripts/verify_repository.py --clean-clone-status passed` | 13.209 s / 85.0 MB / 0.484 GB |
 
 Commands run from the repository root. The [stage execution table](results/pipeline_stage_summary.tsv) joins these inputs, outputs and decisions to measured elapsed time, sampled RSS and sampled project size. It identifies successful scientific executions where a manifest is available; other rows use the latest recorded attempt and label that basis. Downloads are measured per FASTQ, and hosted import has no production execution. Resource rows describe the recorded execution, including cache reuse where declared.

@@ -46,7 +46,6 @@ README.md	remote/README.md	local_link	PASS
 README.md	HANDOVER.md	local_link	PASS
 README.md	docs/analysis_report.md	local_link	PASS
 README.md	results/report.html	local_link	PASS
-README.md	docs/readme_template.md	local_link	PASS
 README.md	results/selex_manifest.tsv	local_link	PASS
 README.md	results/download_manifest.tsv	local_link	PASS
 README.md	results/run_summary.tsv	local_link	PASS
@@ -55,7 +54,7 @@ README.md	results/software_manifest.tsv	local_link	PASS
 README.md	LICENSE	local_link	PASS
 README.md	results/data_terms.tsv	local_link	PASS
 README.md	results/transitive_licences.tsv	local_link	PASS
-README.md	template rendering	no_unresolved_placeholders	PASS
+README.md	numerical field substitution	no_unresolved_placeholders	PASS
 docs/analysis_report.md	../results/summary.tsv	local_link	PASS
 docs/analysis_report.md	../results/evaluation_metrics.tsv	local_link	PASS
 docs/analysis_report.md	../results/paired_differences.tsv	local_link	PASS
@@ -103,7 +102,6 @@ docs/analysis_report.md	../remote/README.md	local_link	PASS
 docs/analysis_report.md	../HANDOVER.md	local_link	PASS
 docs/analysis_report.md	../docs/analysis_report.md	local_link	PASS
 docs/analysis_report.md	../results/report.html	local_link	PASS
-docs/analysis_report.md	../docs/readme_template.md	local_link	PASS
 docs/analysis_report.md	../results/selex_manifest.tsv	local_link	PASS
 docs/analysis_report.md	../results/download_manifest.tsv	local_link	PASS
 docs/analysis_report.md	../results/run_summary.tsv	local_link	PASS
@@ -112,7 +110,7 @@ docs/analysis_report.md	../results/software_manifest.tsv	local_link	PASS
 docs/analysis_report.md	../LICENSE	local_link	PASS
 docs/analysis_report.md	../results/data_terms.tsv	local_link	PASS
 docs/analysis_report.md	../results/transitive_licences.tsv	local_link	PASS
-docs/analysis_report.md	template rendering	no_unresolved_placeholders	PASS
+docs/analysis_report.md	numerical field substitution	no_unresolved_placeholders	PASS
 results/report.html	../results/summary.tsv	local_link	PASS
 results/report.html	../results/evaluation_metrics.tsv	local_link	PASS
 results/report.html	../results/paired_differences.tsv	local_link	PASS
@@ -160,7 +158,6 @@ results/report.html	../remote/README.md	local_link	PASS
 results/report.html	../HANDOVER.md	local_link	PASS
 results/report.html	../docs/analysis_report.md	local_link	PASS
 results/report.html	../results/report.html	local_link	PASS
-results/report.html	../docs/readme_template.md	local_link	PASS
 results/report.html	../results/selex_manifest.tsv	local_link	PASS
 results/report.html	../results/download_manifest.tsv	local_link	PASS
 results/report.html	../results/run_summary.tsv	local_link	PASS
@@ -169,7 +166,7 @@ results/report.html	../results/software_manifest.tsv	local_link	PASS
 results/report.html	../LICENSE	local_link	PASS
 results/report.html	../results/data_terms.tsv	local_link	PASS
 results/report.html	../results/transitive_licences.tsv	local_link	PASS
-results/report.html	template rendering	no_unresolved_placeholders	PASS
+results/report.html	numerical field substitution	no_unresolved_placeholders	PASS
 README.md	figures/02_dataset_composition.png	png_pdf_pair	PASS
 README.md	figures/01_pipeline.png	png_pdf_pair	PASS
 README.md	figures/04_experimental_discrimination.png	png_pdf_pair	PASS

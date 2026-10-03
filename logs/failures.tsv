@@ -40,3 +40,10 @@ raptgen_integrin_random: missing returned artifacts; bash remote/raptgen/run_rem
 raptgen_tg2_family: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_tg2_family output/raptgen_tg2_family
 raptgen_tg2"	prepare hosted jobs; resolve licence; import verified outputs	blocked
 2026-10-03T16:10:48.783141+00:00	full_preflight	all	C:/Users/User/Documents/Structural_Biology/aptamer_selex_generative_design_pipeline/.venv/Scripts/python.exe scripts/full_preflight.py	RuntimeError	exit=1; RSS sums sampled process tree at 0.2 s; disk sampled at 1 s; short peaks may be missed	stop	blocked
+2026-10-03T16:36:03.822758+00:00	full_preflight	all	GPU artifacts	RuntimeError	"Full mode refused:
+Neural score/recovery aggregation is not yet validated on real returned artifacts. Stage 12 currently merges local methods only; finish and validate the neural evaluator before enabling full mode. See HANDOVER.md.
+raptgen_integrin_family: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_integrin_family output/raptgen_integrin_family
+raptgen_integrin_random: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_integrin_random output/raptgen_integrin_random
+raptgen_tg2_family: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_tg2_family output/raptgen_tg2_family
+raptgen_tg2"	prepare hosted jobs; resolve licence; import verified outputs	blocked
+2026-10-03T16:36:04.226866+00:00	full_preflight	all	C:/Users/User/Documents/Structural_Biology/aptamer_selex_generative_design_pipeline/.venv/Scripts/python.exe scripts/full_preflight.py	RuntimeError	exit=1; RSS sums sampled process tree at 0.2 s; disk sampled at 1 s; short peaks may be missed	stop	blocked
