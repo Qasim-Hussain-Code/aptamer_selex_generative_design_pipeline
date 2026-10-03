@@ -17,6 +17,13 @@ fi
 export PYTHONPATH="$ROOT/scripts${PYTHONPATH:+:$PYTHONPATH}"
 export OMP_NUM_THREADS=${THREADS:-1} OPENBLAS_NUM_THREADS=${THREADS:-1} MKL_NUM_THREADS=${THREADS:-1}
 export PIPELINE_BASH_VERSION="$BASH_VERSION"
+if command -v cygpath >/dev/null 2>&1; then
+    export PIPELINE_BASH_EXECUTABLE
+    PIPELINE_BASH_EXECUTABLE=$(cygpath -am "$BASH")
+else
+    export PIPELINE_BASH_EXECUTABLE="$BASH"
+fi
+export PATH="$ROOT/.venv/Scripts:$ROOT/.venv/bin:$PATH"
 stage() {
     local label=$1
     shift

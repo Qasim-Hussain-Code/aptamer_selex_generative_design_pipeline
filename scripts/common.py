@@ -104,7 +104,10 @@ def file_md5(path):
 
 def settings(root=ROOT):
     import yaml
-    return yaml.safe_load((Path(root) / "config/benchmark.yml").read_text())
+    cfg = yaml.safe_load((Path(root) / "config/benchmark.yml").read_text())
+    if "MASTER_SEED" in os.environ:
+        cfg["master_seed"] = int(os.environ["MASTER_SEED"])
+    return cfg
 
 
 def dataset(target, root=ROOT):
@@ -137,9 +140,28 @@ def guard(extra=0, root=ROOT, safety=1.1):
     return projected
 
 
+STAGE_CODE = {
+    "sources": ["01_verify_sources.py"],
+    "ground_truth": ["06_build_ground_truth.py"],
+    "splits": ["07_build_splits.py", "sequences.py"],
+    "baselines": ["08_baselines.py", "07_build_splits.py", "model_utils.py"],
+    "secondary": ["09_secondary_structure.py"],
+    "ablation": ["13_structure_ablation.py", "08_baselines.py", "model_utils.py"],
+    "generation": ["generation.py", "07_build_splits.py", "sequences.py"],
+    "scores": ["12_score_candidates.py"],
+    "evaluation": ["15_evaluate.py"],
+}
+
+
+def code_hashes(stage, root=ROOT):
+    names = ["common.py"] + STAGE_CODE.get(stage, [])
+    return {name: sha256(Path(root) / "scripts" / name) for name in names}
+
+
 def stamp(stage, inputs, outputs, root=ROOT):
     record = dict(inputs={str(p): sha256(p) for p in inputs},
-                  outputs={str(p): sha256(p) for p in outputs}, time=now())
+                  outputs={str(p): sha256(p) for p in outputs}, configuration=settings(root),
+                  code=code_hashes(stage, root), time=now())
     atomic_text(Path(root) / f"logs/state/{stage}.json", json.dumps(record, indent=2))
 
 
@@ -149,7 +171,7 @@ def completed(stage, inputs, outputs, root=ROOT):
         return False
     try:
         state = json.loads(path.read_text())
-        valid = state["inputs"] == {str(p): sha256(p) for p in inputs} and state["outputs"] == {str(p): sha256(p) for p in outputs}
+        valid = state["inputs"] == {str(p): sha256(p) for p in inputs} and state["outputs"] == {str(p): sha256(p) for p in outputs} and state.get("configuration") == settings(root) and state.get("code") == code_hashes(stage, root)
     except (OSError, ValueError, KeyError):
         return False
     if valid:

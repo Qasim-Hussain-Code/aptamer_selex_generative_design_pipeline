@@ -25,7 +25,8 @@ def main():
         for acc in ["DRA009383", "DRA009384"]:
             query = urllib.parse.urlencode(dict(result="read_run", query=f'submission_accession="{acc}"', fields=fields, format="tsv"))
             fetch("https://www.ebi.ac.uk/ena/portal/api/search?" + query, ROOT / f"data/external/{acc}.ena.tsv")
-            fetch(f"https://ddbj.nig.ac.jp/public/ddbj_database/dra/metadata/DRA009/{acc}/{acc}.submission.xml", ROOT / f"data/external/{acc}.submission.xml")
+            # The direct DDBJ route failed during source inspection. Preserve that failure
+            # record and use the official INSDC mirror rather than retrying a guessed path.
     elif a.part == "supplement":
         url = "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/48/14/10.1093_nar_gkaa484/2/gkaa484_supplemental_file.pdf?Expires=2147483647&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&Signature=oftgbjSTc2kY8tnC9FlAXtizeAEfhTN1Rh-rBDyk~-Gz~u3VsEBszccmYbZDXh7MudW4vuml3eP~RjGVSoSvcyvB~e2eSt7HrKmbIw7nPhso4SW8YNjl8QKeor5z~QGwrGC~IfjiK3E9Iq0pnLLnrDo8b55kT0xHbOF7kPWlvnkqlRxvDxENWu5Kn9KZe0~olRbLr3Joneom~ZHHRwN1u3vcbhZV2F9VINQY~qsx2fMp6TKdxx5nW8n9e0JUrbmCNbTIBH7Us7EX~Bke7aacBm~q4GHhqT0O-VpJJ~g9pCeLD~00YTpBG2Yb0ptiHRPlWHmf4XwJAHPp6ov-WhkutQ__"
         fetch(url, ROOT / "data/external/raptranker_supplement.pdf")
