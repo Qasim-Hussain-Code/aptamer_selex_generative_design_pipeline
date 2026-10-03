@@ -5,11 +5,23 @@ import html
 import json
 import re
 from pathlib import Path
+from datetime import datetime, timedelta, timezone
 from common import ROOT, rows, table, atomic_text, settings, sha256
 
 
 def markdown_table(headers, data):
     return "| " + " | ".join(headers) + " |\n| " + " | ".join(["---"]*len(headers)) + " |\n" + "\n".join("| "+" | ".join(map(str,r))+" |" for r in data)
+
+
+def render_template(template, values):
+    missing=set(re.findall(r"\{\{([a-z0-9_]+)\}\}",template))-set(values)
+    if missing:
+        raise ValueError("Missing README values: "+", ".join(sorted(missing)))
+    for key,value in values.items():
+        template=template.replace("{{"+key+"}}",str(value))
+    if "{{" in template or "}}" in template:
+        raise ValueError("Unresolved README template placeholder")
+    return template
 
 
 def report_html(markdown):
@@ -38,8 +50,13 @@ def report_html(markdown):
         heading=re.match(r"^(#{1,6}) (.+)",line)
         if heading:
             level=len(heading[1]);output.append(f"<h{level}>"+inline(heading[2])+f"</h{level}>");i+=1;continue
+        if line.startswith("- "):
+            items=[]
+            while i<len(lines) and lines[i].startswith("- "):
+                items.append("<li>"+inline(lines[i][2:])+"</li>");i+=1
+            output.append("<ul>"+"".join(items)+"</ul>");continue
         paragraph=[line];i+=1
-        while i<len(lines) and lines[i].strip() and not lines[i].startswith(("#","|","```")):
+        while i<len(lines) and lines[i].strip() and not lines[i].startswith(("#","|","```","- ")):
             paragraph.append(lines[i]);i+=1
         output.append("<p>"+inline(" ".join(paragraph))+"</p>")
     return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Executed local analysis</title><style>body{max-width:1100px;margin:40px auto;padding:0 20px;font:16px/1.6 system-ui;color:#182c3b}img{max-width:100%}pre{overflow:auto;background:#edf2f5;padding:16px}code{font-size:13px}.table{overflow:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #ccd8df;padding:8px}h2{margin-top:40px}a{color:#286181}</style>'+"\n".join(output)+"</html>"
@@ -86,7 +103,7 @@ def main():
              peak_project_bytes=peak,peak_measured_rss_bytes=rss,minimum_free_bytes=minfree,resource_snapshot_rows=len(resources)))
     table(ROOT/"results/summary.tsv",summary)
     table(ROOT/"results/dataset_design.tsv",list(rows(ROOT/"config/datasets.tsv")))
-    run_summary=dict(run="executed_core",unique_markov_candidates=total_candidates,exact_test_recovery=exact_recovery,positive_test_family_recovery=family_recovery,
+    run_summary=dict(run="executed_core",unique_markov_candidates=total_candidates,generation_runs=len(generation),assay_records_retained=sum(int(r["retained"]) for r in truth_audit.values()),exact_test_recovery=exact_recovery,positive_test_family_recovery=family_recovery,
                      primary_family_threshold=primary,bootstrap_replicates=cfg["bootstrap_replicates"],generation_budget=cfg["generation_budget"],
                      generation_seeds=",".join(map(str,cfg["generation_seeds"])),folding_temperature_c=cfg["folding_temperature_c"],resource_snapshot_rows=len(resources))
     table(ROOT/"results/run_summary.tsv",[run_summary])
@@ -142,145 +159,145 @@ def main():
         ("seed_standard_deviation","sample standard deviation across all fixed generation seeds","quantity_units","not_a_binding_score","does not estimate training-seed variance")]
     table(ROOT/"results/score_dictionary.tsv",[dict(score=n,definition=d,units=u,direction=direction,limitations=limit) for n,d,u,direction,limit in definitions])
     st={r["target"]:r for r in summary}
-    ap_table=markdown_table(["Method","TG2 grouped AP (95% interval)","Integrin grouped AP (95% interval)"],[[m,f'{metric("tg2",m):.3f} ({interval("tg2",m)})',f'{metric("integrin",m):.3f} ({interval("integrin",m)})'] for m in ["frequency","enrichment","kmer_ridge","markov","kmer_logistic","kmer_structure_ridge","kmer_structure_logistic","frequency_observed","enrichment_observed"]])
-    split_table=markdown_table(["Target","Independent naive random AP","Matched exact-only AP","Family AP"],[[t,f'{metric(t,"kmer_ridge","naive_sequence_random"):.3f}',f'{metric(t,"kmer_ridge","random"):.3f}',f'{metric(t,"kmer_ridge"):.3f}'] for t in st])
-    data_table=markdown_table(["Target / accession","Rounds processed","Raw reads","Retained reads","Discarded reads","Assays retained / excluded","Primary test / families"],[[f'{t} / '+("DRA009383" if t=="tg2" else "DRA009384"),r["rounds"],r["raw_reads"],r["retained_reads"],r["discarded_reads"],f'{r["assays_retained"]} / {r["assays_excluded"]}',f'{r["test_sequences"]} / {r["test_families"]}'] for t,r in st.items()])
-    last={}
-    for r in resources:last[r["stage"]]=r
-    resource_table=markdown_table(["Stage","Latest elapsed s","Peak RSS MB","Observed project GB"],[[name,r["elapsed_seconds"],f'{int(r["peak_rss_bytes"])/1e6:.1f}' if int(r["peak_rss_bytes"]) else "unavailable",f'{int(r["peak_observed_disk_bytes"])/1e9:.3f}'] for name,r in last.items()])
-    changes="; ".join(f'{t}: {float(delta(t)["difference"]):+.4f} (95% {float(delta(t)["lower_95"]):+.4f} to {float(delta(t)["upper_95"]):+.4f})' for t in st)
-    readme=f'''# Measured selection baselines; neural comparison remains blocked
+    names={"tg2":"TG2", "integrin":"Integrin alpha V beta 3"}
+    design={r["target"]:r for r in rows(ROOT/"config/datasets.tsv")}
+    system=json.loads((ROOT/"results/system.json").read_text())
+    downloads=list(rows(ROOT/"results/download_manifest.tsv"))
+    local_dates=sorted({datetime.fromisoformat(r["retrieval_timestamp"]).astimezone(timezone(timedelta(hours=8))).date().isoformat() for r in downloads})
+    retrieval_date=(local_dates[0] if len(local_dates)==1 else local_dates[0]+" to "+local_dates[-1])+" (Asia/Taipei)"
+    provenance=dict(scope="readme_sources",retrieval_date_taipei=retrieval_date,download_manifest_sha256=sha256(ROOT/"results/download_manifest.tsv"),
+                    python_version=system["packages"]["Python"],bash_version=system["packages"]["Bash"],viennarna_version=system["packages"]["ViennaRNA"])
+    table(ROOT/"results/readme_provenance.tsv",[provenance])
+    primary_ci={t:next(r for r in intervals if r["target"]==t and r["strategy"]=="family" and r["method"]=="kmer_ridge" and float(r["threshold"])==primary) for t in st}
+    split_delta={t:next(r for r in paired if r["target"]==t and r["strategy"]=="random" and r["method"]=="kmer_ridge" and r["comparison"]=="random_minus_family" and float(r["threshold"])==primary) for t in st}
+    late_qc={t:max((r for r in qc if r["target"]==t),key=lambda r:int(r["round"])) for t in st}
+    method_labels={"frequency":"Training frequency lookup", "enrichment":"Training enrichment lookup", "kmer_ridge":"SELEX enrichment ridge", "markov":"Markov log probability per nt", "kmer_logistic":"Assay-label logistic", "kmer_structure_ridge":"SELEX ridge + structure", "kmer_structure_logistic":"Assay logistic + structure", "frequency_observed":"Observed frequency", "enrichment_observed":"Observed enrichment"}
+    ap_table=markdown_table(["Method","TG2 AP (95% interval)","Integrin AP (95% interval)"],[[label,f'{metric("tg2",m):.3f} ({interval("tg2",m)})',f'{metric("integrin",m):.3f} ({interval("integrin",m)})'] for m,label in method_labels.items()])
+    data_table=markdown_table(["Target / accession","Rounds","Raw reads","Retained reads","Rejected reads","Assays retained / excluded"],[[f'{names[t]} / {design[t]["accession"]}',design[t]["rounds"].split(",")[0]+"-"+design[t]["rounds"].split(",")[-1],f'{r["raw_reads"]:,}',f'{r["retained_reads"]:,}',f'{r["discarded_reads"]:,}',f'{r["assays_retained"]} / {r["assays_excluded"]}'] for t,r in st.items()])
+    test_table=markdown_table(["Primary panel","Test sequences","Positive / negative","Independent test families"],[[names[t],r["test_sequences"],f'{r["test_positives"]} / {r["test_negatives"]}',r["test_families"]] for t,r in st.items()])
+    split_labels={"naive_sequence_random":"Independent sequence partition", "random":"Matched exact-only exclusion", "family":"Family exclusion"}
+    split_rows=[]
+    for t in st:
+        for strategy,label in split_labels.items():
+            record=next(r for r in metrics if r["target"]==t and r["strategy"]==strategy and r["method"]=="kmer_ridge" and r["metric"]=="average_precision" and float(r["threshold"])==primary)
+            split_rows.append([names[t],label,record["test_sequences"],f'{metric(t,"kmer_ridge",strategy,"prevalence"):.3f}',f'{float(record["value"]):.3f}'])
+            sources.append(dict(claim_id=f'{t}_{strategy}_test_count',value=record["test_sequences"],source_file="results/evaluation_metrics.tsv",source_row=f'target={t};strategy={strategy};method=kmer_ridge;metric=average_precision;threshold={primary}',source_column="test_sequences",scope="measured"))
+    split_table=markdown_table(["Target","Split","Test sequences","Positive fraction","Ridge AP"],split_rows)
+    executed=[]
+    for stage,state_name in [("splits","splits"),("baselines","baselines"),("secondary","secondary"),("ablation","ablation"),("candidates","generation"),("evaluation","evaluation")]:
+        state_path=ROOT/f"logs/state/{state_name}.json"
+        if not state_path.exists():continue
+        updated=datetime.fromisoformat(json.loads(state_path.read_text())["time"])
+        matches=[r for r in resources if r["stage"]==stage and r["exit_status"]=="0" and datetime.fromisoformat(r["start_timestamp"])<=updated<=datetime.fromisoformat(r["end_timestamp"])]
+        if not matches:continue
+        r=matches[-1]
+        executed.append(dict(stage=stage,start_timestamp=r["start_timestamp"],elapsed_seconds=r["elapsed_seconds"],peak_rss_bytes=r["peak_rss_bytes"],peak_observed_disk_bytes=r["peak_observed_disk_bytes"],selection="successful_execution_containing_scientific_manifest_update"))
+    table(ROOT/"results/readme_resource_summary.tsv",executed)
+    resource_table=markdown_table(["Scientific stage","Elapsed s","Peak sampled RSS MB","Peak sampled project GB"],[[r["stage"],r["elapsed_seconds"],f'{int(r["peak_rss_bytes"])/1e6:.1f}',f'{int(r["peak_observed_disk_bytes"])/1e9:.3f}'] for r in executed])
+    stage_definitions=[
+        ("00 configure","configure","","bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes","Host resources -> project.conf; enforce memory, disk and thread limits."),
+        ("01 sources","sources","sources","stage sources scripts/01_verify_sources.py --offline","Acquired publications and repository metadata -> provenance and licence records; establish source identity."),
+        ("02 install","install","","bash scripts/02_install.sh","Pinned package versions -> CPU environment; keep dependency and chemistry assumptions explicit."),
+        ("03 metadata","metadata","","stage metadata scripts/03_fetch_metadata.py","Accessions and experiment XML -> run manifest; resolve rounds from source evidence."),
+        ("04/05 reads","fetch","","bash scripts/04_fetch_selex.sh --target all","One FASTQ at a time -> verified compact counts and QC; displayed time is cached validation, with per-round processing listed separately."),
+        ("06 assays","ground_truth","ground_truth","stage ground_truth scripts/06_build_ground_truth.py","Supplement S4/S5 -> assay manifest; preserve original labels and SPR units."),
+        ("07 splits","splits","splits","stage splits scripts/07_build_splits.py","Late-round pool and assays -> family partitions; exclude test relatives before fitting."),
+        ("08 baselines","baselines","baselines","stage baselines scripts/08_baselines.py","Training counts and permitted assays -> fixed sequence fits and scores; retain exposure-matched baselines."),
+        ("09 structure","secondary","secondary","stage secondary scripts/09_secondary_structure.py","Complete assay constructs -> canonical-RNA descriptors; approximate intramolecular structure."),
+        ("10 GPU jobs","gpu_jobs","","stage gpu_jobs scripts/10_prepare_gpu_jobs.py","Training-only exports -> pinned RaptGen job bundles; isolate held-out assay responses."),
+        ("11 import","import_remote","","bash scripts/import_remote.sh --directory remote/returned/tg2_family --job remote/bundles/raptgen_tg2_family/job.json","Hosted return files -> hash-checked artifacts; no production return exists."),
+        ("13 ablation","ablation","ablation","stage ablation scripts/13_structure_ablation.py","Sequence and structure features -> matched held-out scores; test incremental information."),
+        ("12 generation / scores","candidates","generation","stage candidates scripts/12_score_candidates.py","Local models -> fixed-budget Markov candidates, novelty and merged local scores; neural joins remain absent."),
+        ("14 tertiary","tertiary","","stage tertiary scripts/14_optional_tertiary.py","Optional settings -> explicit exclusion record; no tertiary result is evaluated."),
+        ("15 evaluation","evaluation","evaluation","stage evaluation scripts/15_evaluate.py","Fixed test scores -> metrics and family-bootstrap intervals; separate discrimination from sequence coverage."),
+        ("16 figures","figures","","stage figures scripts/16_figures.py","Retained tables -> PNG/PDF figures; show all measured arms and unavailable neural branches."),
+        ("17 report","report","","stage report scripts/write_report.py","Measured tables and prose template -> README, Markdown and HTML reports; trace numerical claims."),
+        ("18 final audit","verification","","stage verification scripts/verify_repository.py --clean-clone-status passed","Verified workflow records -> final audit; only this subprocess is measured here. Run the complete scripts/18_verify.sh first.")]
+    stage_records=[]
+    for label,stage,state_name,command,purpose in stage_definitions:
+        matches=[r for r in resources if r["stage"]==stage]
+        basis="latest_recorded_attempt; may_reuse_cache"
+        state_path=ROOT/f"logs/state/{state_name}.json"
+        if state_name and state_path.exists():
+            updated=datetime.fromisoformat(json.loads(state_path.read_text())["time"])
+            actual=[r for r in matches if r["exit_status"]=="0" and datetime.fromisoformat(r["start_timestamp"])<=updated<=datetime.fromisoformat(r["end_timestamp"])]
+            if actual:matches=actual;basis="successful_execution_containing_scientific_manifest_update"
+        r=matches[-1] if matches else None
+        stage_records.append(dict(step=label,stage=stage,command=command,input_output_and_reason=purpose,
+                                  start_timestamp=r["start_timestamp"] if r else "",elapsed_seconds=r["elapsed_seconds"] if r else "not_run",
+                                  peak_rss_bytes=r["peak_rss_bytes"] if r and int(r["peak_rss_bytes"]) else "unavailable",
+                                  peak_observed_disk_bytes=r["peak_observed_disk_bytes"] if r else "not_run",exit_status=r["exit_status"] if r else "not_run",
+                                  selection=basis if r else "no_production_execution"))
+    for r in resources:
+        if r["stage"].startswith("preprocess_"):
+            stage_records.append(dict(step="05 per-round processing",stage=r["stage"],command="invoked serially by scripts/04_fetch_selex.sh",input_output_and_reason="FASTQ -> verified compact round counts; provider identity and read depth checked.",start_timestamp=r["start_timestamp"],elapsed_seconds=r["elapsed_seconds"],peak_rss_bytes=r["peak_rss_bytes"],peak_observed_disk_bytes=r["peak_observed_disk_bytes"],exit_status=r["exit_status"],selection="retained_per_round_attempt"))
+    table(ROOT/"results/pipeline_stage_summary.tsv",stage_records)
+    def stage_resource(record):
+        if record["elapsed_seconds"]=="not_run":return "Not run"
+        mem=f'{int(record["peak_rss_bytes"])/1e6:.1f}' if record["peak_rss_bytes"]!="unavailable" else "unavailable"
+        return f'{record["elapsed_seconds"]} s / {mem} MB / {int(record["peak_observed_disk_bytes"])/1e9:.3f} GB'
+    stage_table=markdown_table(["Stage","Inputs, outputs and decision","Command","Recorded time / RSS / disk"],[[r["step"],r["input_output_and_reason"],"`"+r["command"]+"`",stage_resource(r)] for r in stage_records[:len(stage_definitions)]])
+    novelty=list(rows(ROOT/"results/novelty_distribution.tsv"))
+    median_rows={t:[r for r in novelty if r["target"]==t and r["quantity"]=="maximum_training_identity" and float(r["quantile"])==0.5] for t in st}
+    def median_range(target):
+        numbers=[float(r["value"]) for r in median_rows[target]]
+        return f'{min(numbers):.3f}' if min(numbers)==max(numbers) else f'{min(numbers):.3f}-{max(numbers):.3f}'
+    def formatted_interval(record):
+        return f'{float(record["lower_95"]):+.4f} to {float(record["upper_95"]):+.4f}'
+    values=dict(total_candidates=f'{total_candidates:,}',generation_budget=f'{cfg["generation_budget"]:,}',generation_runs=len(generation),
+                family_threshold=f'{primary:.0%}',integrin_structure_delta=f'{float(delta("integrin")["difference"]):+.4f}',
+                integrin_observed_ap=f'{metric("integrin","enrichment_observed"):.3f}',integrin_ridge_ap=f'{metric("integrin","kmer_ridge"):.3f}',
+                tg2_negatives=st["tg2"]["test_negatives"],tg2_test_count=st["tg2"]["test_sequences"],tg2_ridge_ap=f'{metric("tg2","kmer_ridge"):.3f}',tg2_prevalence=f'{metric("tg2","frequency"):.3f}',integrin_prevalence=f'{metric("integrin","frequency"):.3f}',
+                sensitivity_thresholds=" and ".join(f'{v:.0%}' for v in cfg["threshold_sensitivity"] if v!=primary),
+                data_table=data_table,tg2_nominal_length=design["tg2"]["nominal_length"],integrin_nominal_length=design["integrin"]["nominal_length"],
+                tg2_length_interval=design["tg2"]["minimum_length"]+"-"+design["tg2"]["maximum_length"],integrin_length_interval=design["integrin"]["minimum_length"]+"-"+design["integrin"]["maximum_length"],
+                tg2_late_unique=f'{int(late_qc["tg2"]["unique_sequences"]):,}',integrin_late_unique=f'{int(late_qc["integrin"]["unique_sequences"]):,}',
+                tg2_round_range=design["tg2"]["rounds"].split(",")[0]+"-"+design["tg2"]["rounds"].split(",")[-1],integrin_round_range=design["integrin"]["rounds"].split(",")[0]+"-"+design["integrin"]["rounds"].split(",")[-1],
+                assay_total=sum(int(r["retained"]) for r in truth_audit.values()),retrieval_date=retrieval_date,training_cap=f'{cfg["subsampling"]["training_pool"]:,}',
+                tg2_pool=f'{int(st["tg2"]["selected_pool"]):,}',integrin_pool=f'{int(st["integrin"]["selected_pool"]):,}',tg2_cap_exclusions=st["tg2"]["pool_cap_exclusions"],integrin_cap_exclusions=st["integrin"]["pool_cap_exclusions"],
+                tg2_family_exclusions=st["tg2"]["family_exclusions"],integrin_family_exclusions=st["integrin"]["family_exclusions"],test_table=test_table,ap_table=ap_table,
+                bootstrap_replicates=f'{cfg["bootstrap_replicates"]:,}',tg2_bootstrap_valid=f'{int(primary_ci["tg2"]["bootstrap_valid"]):,}',tg2_bootstrap_undefined=primary_ci["tg2"]["bootstrap_undefined"],integrin_bootstrap_valid=f'{int(primary_ci["integrin"]["bootstrap_valid"]):,}',tg2_test_families=st["tg2"]["test_families"],
+                split_table=split_table,tg2_split_delta=f'{float(split_delta["tg2"]["difference"]):+.4f}',tg2_split_interval=formatted_interval(split_delta["tg2"]),integrin_split_delta=f'{float(split_delta["integrin"]["difference"]):+.4f}',integrin_split_interval=formatted_interval(split_delta["integrin"]),
+                generation_seeds=", ".join(map(str,cfg["generation_seeds"])),curve_budgets=", ".join(f'{n:,}' for n in cfg["generation_curve_budgets"]),
+                viennarna_version=system["packages"]["ViennaRNA"],folding_temperature=f'{cfg["folding_temperature_c"]:g}',tg2_structure_delta=f'{float(delta("tg2")["difference"]):+.4f}',tg2_structure_interval=formatted_interval(delta("tg2")),integrin_structure_interval=formatted_interval(delta("integrin")),
+                peak_project_gb=f'{peak/1e9:.3f}',disk_budget_gb="13",peak_rss_mb=f'{rss/1e6:.1f}',minimum_free_gb=f'{minfree/1e9:.3f}',resource_table=resource_table,
+                python_version=system["packages"]["Python"],bash_version=system["packages"]["Bash"].split("(")[0],
+                verification_sentence="Verification is performed with `bash scripts/18_verify.sh`. [Audit records](results/verification.tsv) distinguish local checks from the documented full-mode blocker.")
+    values.update(stage_table=stage_table,tg2_identity_medians=median_range("tg2"),integrin_identity_medians=median_range("integrin"),
+                  licence_checked_dates=", ".join(sorted({r["licence_checked_date"] for r in rows(ROOT/"results/software_manifest.tsv")} | {r["checked_date"] for r in rows(ROOT/"results/data_terms.tsv")})))
+    for t,records in median_rows.items():
+        for r in records:
+            sources.append(dict(claim_id=f'{t}_seed_{r["seed"]}_median_training_identity',value=r["value"],source_file="results/novelty_distribution.tsv",source_row=f'target={t};method={r["method"]};seed={r["seed"]};quantity={r["quantity"]};quantile={r["quantile"]}',source_column="value",scope="full_candidate_distribution"))
+    for r in stage_records:
+        if r["elapsed_seconds"]=="not_run":continue
+        for col in ["elapsed_seconds","peak_rss_bytes","peak_observed_disk_bytes"]:
+            if r[col]=="unavailable":continue
+            sources.append(dict(claim_id=f'pipeline_{r["stage"]}_{r["start_timestamp"]}_{col}',value=r[col],source_file="logs/resource_usage.tsv",source_row=f'stage={r["stage"]};start_timestamp={r["start_timestamp"]}',source_column=col,scope=r["selection"]+"; decimal_MB_GB_for_prose"))
+    test_summary=ROOT/"results/test_summary.tsv"
+    if test_summary.exists():
+        test_record=next(rows(test_summary))
+        values["verification_sentence"]=f'The recorded test suite has {test_record["passed"]} passing tests, {test_record["failed"]} failures and {test_record["skipped"]} skipped tests. Clean-clone smoke and test checks, shellcheck, restart validation, numerical traceability and leakage checks are recorded in the [verification audit](results/verification.tsv). Full-mode refusal is documented separately from passing local checks.'
+        for col in ["passed","failed","skipped"]:
+            sources.append(dict(claim_id="tests_"+col,value=test_record[col],source_file="results/test_summary.tsv",source_row="scope="+test_record["scope"],source_column=col,scope="executed_tests"))
+    for t,row in design.items():
+        for col in ["nominal_length","minimum_length","maximum_length","rounds"]:
+            sources.append(dict(claim_id=t+"_design_"+col,value=row[col],source_file="results/dataset_design.tsv",source_row="target="+t,source_column=col,scope="primary_source_configuration"))
+        r=late_qc[t]
+        sources.append(dict(claim_id=t+"_late_unique_sequences",value=r["unique_sequences"],source_file="results/preprocessing_counts.tsv",source_row=f'target={t};round={r["round"]}',source_column="unique_sequences",scope="measured"))
+    for t,r in primary_ci.items():
+        for col in ["bootstrap_valid","bootstrap_undefined"]:
+            sources.append(dict(claim_id=t+"_primary_"+col,value=r[col],source_file="results/bootstrap_intervals.tsv",source_row=f'target={t};strategy=family;method=kmer_ridge;threshold={primary}',source_column=col,scope="measured"))
+    for col in ["retrieval_date_taipei","python_version","bash_version","viennarna_version"]:
+        sources.append(dict(claim_id=col,value=provenance[col],source_file="results/readme_provenance.tsv",source_row="scope=readme_sources",source_column=col,scope="manifest_or_installed_version"))
+    for r in executed:
+        for col in ["elapsed_seconds","peak_rss_bytes","peak_observed_disk_bytes"]:
+            sources.append(dict(claim_id="scientific_execution_"+r["stage"]+"_"+col,value=r[col],source_file="logs/resource_usage.tsv",source_row=f'stage={r["stage"]};start_timestamp={r["start_timestamp"]}',source_column=col,scope="successful_uncached_execution; decimal_MB_GB_for_prose"))
+    table(ROOT/"results/readme_traceability.tsv",sources)
+    readme=render_template((ROOT/"docs/readme_template.md").read_text(encoding="utf-8"),values)
 
-## Summary
-
-TG2's grouped test set has {st['tg2']['test_negatives']} negative sequence among {st['tg2']['test_sequences']} sequences. Its prevalence baseline is {metric('tg2','frequency'):.3f} average precision (AP), compared with {metric('tg2','kmer_ridge'):.3f} for the SELEX-trained k-mer model. Integrin's grouped k-mer AP is {metric('integrin','kmer_ridge'):.3f}; observed enrichment is {metric('integrin','enrichment_observed'):.3f}. The latter uses test-sequence counts and is an observational reference. Adding canonical-RNA structural features changes integrin ridge AP by {float(delta('integrin')['difference']):+.4f}, with a family-bootstrap interval spanning zero. The Markov null generated {total_candidates:,} unique candidates across all target-seed runs and recovered {exact_recovery} exact test sequences and {family_recovery} positive test families. RaptGen has a hosted job but no returned run. AptaDiff is excluded pending explicit repository licensing and an authorized adapter. The largest observed local footprint is {peak/1e9:.3f} GB, including the environment and temporary files. Sources: [summary](results/summary.tsv), [metrics](results/evaluation_metrics.tsv), [generation](results/generation_statistics.tsv), [resources](logs/resource_usage.tsv).
-
-## Background
-
-Aptamers bind through a molecular conformation formed by their sequence and chemical context. SELEX repeatedly partitions molecules and amplifies survivors. HT-SELEX sequences those pools. Read abundance can reflect selection, PCR bias or a bottleneck; it is not an independent affinity measurement. A model trained on target-specific selection data can learn that distribution. A different target without such data is a different scientific problem.
-
-Related sequences can share motifs and appear on both sides of a sequence split. Here, exact edit-distance components define families at an arbitrary preregistered identity of {primary:.0%}. Indels count. Secondary structure supplies an intramolecular folding proxy; a predicted tertiary fold or model ranking does not establish binding. **This pipeline does not claim that an aptamer can be reliably designed for an arbitrary target from its protein sequence or structure alone.**
-
-## Data
-
-{data_table}
-
-These RNA libraries contain 2'-fluoro pyrimidines. The primary supplement defines transcribed-strand primer filters and permits length intervals around the nominal library lengths. No assay sequence was excluded for an indel. Every rejection class is retained in [preprocessing counts](results/preprocessing_counts.tsv). Reads were not subsampled. Training-pool capping excluded {st['tg2']['pool_cap_exclusions']} eligible TG2 sequences and {st['integrin']['pool_cap_exclusions']} eligible integrin sequences before family construction; the selected pools contain {st['tg2']['selected_pool']} and {st['integrin']['selected_pool']} sequences. The primary family rule then excludes {st['tg2']['family_exclusions']} and {st['integrin']['family_exclusions']} pool members, respectively, from generator fitting.
-
-The RaptRanker primary supplement provides original Positive/Negative labels and continuous end-of-injection SPR response in RU. We preserve both and introduce no binary cutoff. [Ground-truth audit](results/ground_truth_audit.tsv) and [each original measurement](config/ground_truth_manifest.tsv) retain provenance. [RaptRanker](https://doi.org/10.1093/nar/gkaa484) establishes the target identities. The ENA mirror provides the DDBJ-submitted study and experiment records.
-
-[AptaDiff](https://pmc.ncbi.nlm.nih.gov/articles/PMC11491854/) distinguishes its IGFBP3/PTK7 datasets A/B from public TG2/integrin C/D in Table 1, while its availability sentence assigns the DRA accessions to A/B. Repository primer and length measurements support keeping these biological datasets distinct. The accession sentence and A/B public accessions remain unresolved. Four inspected repository data files are excluded from benchmark training; the official complete rounds are used instead. Details remain in [data provenance](results/data_provenance.tsv).
-
-## Pipeline
-
-`bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes` measures free space, preserves an external reserve and writes project.conf. Source checks and installation precede sequencing. `bash scripts/04_fetch_selex.sh` downloads one file, checks size and MD5, counts with SQLite, verifies compact output and deletes raw input. The measured pilot supplies the [disk projection](results/disk_projection.tsv).
-
-`bash run_all.sh --mode core --from 06` reconstructs ground truth, families, baselines, structure, candidates and statistics. Every stage uses the resource wrapper. Configuration and output hashes govern restart decisions. The scientific definitions and alternatives are explained in [methods](docs/methods.md) and the [score dictionary](docs/score_dictionary.md).
-
-The grouped primary arm excludes every test family from training. The matched exact-only diagnostic shares the same assay test IDs and allows their relatives in training. It is stored as `random` but is not an independent random partition. A separate `naive_sequence_random` arm provides that partition. It was added after the first local run to correct this diagnostic definition; no performance-driven seed selection occurred. Its test cases differ, so its difference from the primary arm is not a paired leakage estimate. Both diagnostics remain visible. The family-aware audits have zero exact and family overlaps.
-
-The complete local data flow ends at fixed experimental test cases; missing neural jobs are shown explicitly.
-
-![Pipeline](figures/01_pipeline.png)
-
-## Results
-
-Held-out AP must be judged against prevalence. TG2 has only one negative test sequence, so a high AP gives weak evidence of discrimination.
-
-{ap_table}
-
-`frequency_observed` and `enrichment_observed` query original read counts. Exact-lookup `frequency` and `enrichment` use filtered training counts and become constant after exact test exclusion. Neither constant score is hidden. The ridge model predicts SELEX enrichment; logistic fitting uses training assay labels only. Its output is an uncalibrated decision function, not a probability or KD. Full AUROC, rank correlations, top-ranked precision and undefined-score statuses are in [evaluation metrics](results/evaluation_metrics.tsv).
-
-The same k-mer model has different performance under the independent naive partition and the controlled exclusion diagnostic.
-
-{split_table}
-
-![Split comparison](figures/03_random_vs_family.png)
-
-The grouped precision-recall curves include the observational references and preserve the losing local methods.
-
-![Experimental discrimination](figures/04_experimental_discrimination.png)
-
-Processing retains the full round trajectory, including later TG2 rounds that the original RaptRanker analysis excluded because negative-labelled sequences amplified.
-
-![Dataset composition](figures/02_dataset_composition.png)
-
-Structure-minus-sequence ridge changes are {changes}. These are paired comparisons on identical test cases with sequence-family bootstrap resampling; they exclude training uncertainty.
-
-![Structure ablation](figures/07_structure_ablation.png)
-
-The Markov null recovers no positive experimental test family at the configured budgets in this run. All generation seeds remain in the denominator.
-
-![Generation budget](figures/05_generation_budget.png)
-
-Novelty is measured against the actual filtered training pool. The plotted points are the first fixed subset from each seed; full distributions and nearest sequences remain in generated data.
-
-![Novelty and ranking](figures/06_novelty_ranking.png)
-
-At the sensitivity threshold, an integrin assay-supervised fit lacks both training classes and is excluded in the grouped arm, including its structural variant. Both exclusions are logged. Two optional methods, AptaDiff and InstructNA, have unclear repository licensing. RaptGen is not executed because no hosted result has returned. No tertiary method runs. These unavailable results cannot support an architectural comparison.
-
-The largest observed local footprint stays below the configured ceiling. Initial installation RSS was not captured by the first wrapper version; that row remains marked unavailable. Subsequent stages use the corrected process sampler. [Failure records](logs/failures.tsv) retain the metadata-route failures, test-fixture repair and any failed stage. The largest measured stage RSS is {rss/1e6:.1f} MB and the minimum observed free space is {minfree/1e9:.3f} GB. RSS and disk are sampled, so brief peaks may be missed.
-
-![Resource profile](figures/08_resources.png)
-
-{resource_table}
-
-## Repository structure
-
-```text
-config/       fixed decisions, primer design, assay and split manifests
-scripts/      numbered stages, shared resource wrapper, plotting and reporting
-remote/       pinned RaptGen job and explicit AptaDiff blocker
-results/      compact measurements, provenance, predictions and uncertainty
-figures/      scripted PNG and PDF figures
-logs/         resources, failures, restart hashes and verification
-data/         ignored raw, compact, generated and external data
-tests/        synthetic end-to-end, scientific and artifact checks
-docs/         methods, score definitions and the executed report
-```
-
-## Usage
-
-Resource context: 16 GB RAM, maximum 13.0 GB local footprint. Bash, Git and Python are required. The local environment has no CUDA toolkit, GPU PyTorch installation or neural checkpoint. Git Bash was used on Windows; Linux and WSL can use the same shell scripts with a compatible Python interpreter.
-
-```bash
-# Set PYTHON or BOOTSTRAP_PYTHON to a supported interpreter when PATH is ambiguous.
-bash scripts/02_install.sh
-bash scripts/00_configure.sh --threads 1 --ram 16 --disk 13 --gpu-mode none --yes
-bash run_all.sh --mode smoke
-bash run_all.sh --mode core
-bash run_all.sh --mode core --from 10
-# Execute and return hosted jobs as described in remote/README.md.
-bash scripts/import_remote.sh --directory remote/returned/tg2_family \
-  --job remote/bundles/raptgen_tg2_family/job.json
-bash run_all.sh --mode full --gpu-mode hosted --from 11
-bash scripts/18_verify.sh
-```
-
-The smoke test uses synthetic reads and requires no public-data download or GPU. The latest measured times and disk footprints are listed above. Resource summaries describe the logged rows present when the report started; their count is recorded in summary.tsv. Full mode explicitly refuses missing or excluded neural arms and the unfinished neural aggregation. Read [HANDOVER.md](HANDOVER.md) for the exact remaining tasks. `--target` limits retrieval; the comparative analysis requires processed data for both targets. A from-stage restart requires the preceding validated files. The report is [HTML](results/report.html), with [Markdown source](docs/analysis_report.md); Quarto is optional.
-
-## Limitations
-
-The independent test measurements are few, especially independent TG2 families. I am least confident in TG2 binary discrimination because its test partition has only one negative. The family threshold is arbitrary and its sensitivity changes exclusion and training-class availability. Hash capping can omit informative late-round sequences. Read counts are affected by amplification and selection biases. Reported bootstrap intervals exclude refitting and model selection uncertainty.
-
-Canonical RNA folding does not reproduce the chemistry of 2'-fluoro-modified RNA exactly. MFE concerns intramolecular folding. None of the generated candidates has a new wet-lab assay. Neural environments are legacy stacks; hosted training and artifact return remain unverified. AptaDiff's licence contradiction blocks its implementation. Tertiary prediction is disabled and contributes no evidence. This run does not establish reliable aptamer design for a target without target-specific selection or functional data.
-
-## Data availability
-
-The public accessions are DRA009383 and DRA009384. [Run metadata](results/selex_manifest.tsv) records every remote FASTQ, provider checksum, file size and explicit round evidence. [Download provenance](results/download_manifest.tsv) supplies retrieval timestamps and local hashes. The primary supplement is fetched from the publisher's linked PDF and parsed directly. Retained compact scientific tables are tracked; raw reads, derived count tables, primary PDFs, large generation tables and model weights are not. The Bash commands above regenerate them. Inspection date and local run date are recorded in the manifests rather than inferred from filenames.
-
-## Citation
-
-Primary literature: [RaptRanker](https://doi.org/10.1093/nar/gkaa484), [RaptGen](https://doi.org/10.1038/s43588-022-00249-6), [AptaDiff](https://doi.org/10.1093/bib/bbae517), and the discussed, excluded [InstructNA](https://doi.org/10.1038/s43588-026-00965-3). Software references: [ViennaRNA](https://www.tbi.univie.ac.at/RNA/), [NumPy](https://numpy.org/citing-numpy/), [SciPy](https://scipy.org/citing-scipy/), [scikit-learn](https://jmlr.org/papers/v12/pedregosa11a.html), [Matplotlib](https://matplotlib.org/stable/project/citing.html), and [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz). Families use this repository's exact graph construction and RapidFuzz global edit distances; VSEARCH is not a dependency. Sources and checks are in [citations](results/citations.tsv) and [software provenance](results/software_manifest.tsv).
-
-## Licence
-
-Original repository code is MIT under the configured author's identity. RaptGen is MIT and is installed separately only on the hosted path. AptaDiff's paper declares MIT, but its inspected repository lacks a licence file; its executable arm is excluded. InstructNA also lacks a clear repository licence and is excluded. ViennaRNA has its own custom licence with attribution and redistribution conditions. These terms are not replaced by this repository's MIT licence. No pretrained weight licence is assumed.
-
-The RaptRanker article and supplement have their own CC-BY-NC terms. The original PDF and upstream datasets are not redistributed. Derived factual assay fields are attributed, with terms recorded in [data terms](results/data_terms.tsv). All installed dependency and licence records retain the date checked. The current evidence ends at the local baselines and canonical-RNA ablation.
-'''
     atomic_text(ROOT/"README.md",readme)
-    report=readme.replace("# Measured selection baselines; neural comparison remains blocked", "# Executed local analysis report",1).replace("figures/","../figures/")
+    report="# Aptamer SELEX analysis report\n"+readme.partition("\n")[2]
+    report=re.sub(r"(!?\[[^\]]*\]\()([^)]+)(\))",lambda m:m[1]+(m[2] if re.match(r"https?://|#",m[2]) else "../"+m[2])+m[3],report)
     atomic_text(ROOT/"docs/analysis_report.md",report)
     atomic_text(ROOT/"results/report.html",report_html(readme))
     atomic_text(ROOT/"HANDOVER.md",'''# Remaining external work
@@ -297,8 +314,12 @@ The local artifact importer is implemented and tested, but stage 12 currently me
 
 After the neural licensing/implementation, returned artifacts and aggregation are resolved, resume with `bash run_all.sh --mode full --gpu-mode hosted --from 11`, then run `bash scripts/18_verify.sh`. Full mode currently stops explicitly. The repository is an executed local core benchmark with a documented full-benchmark blocker, not a completed neural comparison or a finished publication claim.
 ''')
-    atomic_text(ROOT/"docs/github_metadata.json",json.dumps(dict(description="An experimental holdout benchmark of target-specific HT-SELEX models, with family leakage controls, canonical RNA structure ablation and measured local resources. Neural comparison awaits hosted runs and licence resolution.",topics=["aptamer","ht-selex","rna","sequence-analysis","secondary-structure","viennarna","machine-learning","benchmark","bioinformatics","computational-biology","nucleic-acids","selex","reproducibility","python","bash"],status="prepared_local_metadata_no_remote_configured"),indent=2))
-    print("README and executed report written from actual outputs; no neural result invented")
+    metadata_path=ROOT/"docs/github_metadata.json"
+    metadata=json.loads(metadata_path.read_text()) if metadata_path.exists() else {}
+    metadata.update(description="Family-held-out aptamer benchmark on two public HT-SELEX datasets, with experimental discrimination, a Markov generation baseline, and canonical-RNA structure ablation.",topics=["aptamer","ht-selex","rna","sequence-analysis","secondary-structure","viennarna","machine-learning","benchmark","bioinformatics","computational-biology","nucleic-acids","selex","reproducibility","python","bash"])
+    metadata.setdefault("status","prepared_local_metadata_no_remote_configured")
+    atomic_text(metadata_path,json.dumps(metadata,indent=2))
+    print("README and analysis report written from measured tables")
 
 
 if __name__=="__main__":

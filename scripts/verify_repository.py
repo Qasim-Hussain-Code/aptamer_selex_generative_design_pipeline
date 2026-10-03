@@ -47,7 +47,20 @@ def main():
     table(ROOT/"results/test_summary.tsv",[dict(passed=tests-failed-skipped,failed=failed,skipped=skipped,scope="local_pytest_and_synthetic_fixture")])
     readme=(ROOT/"README.md").read_text()
     figure_paths=re.findall(r'!\[[^]]*\]\((figures/[^)]+)\)',readme)
-    check(7,"Figures",bool(figure_paths) and all((ROOT/p).exists() for p in figure_paths) and (ROOT/"scripts/16_figures.py").exists(),f"{len(figure_paths)} README figures exist; scripted PNG and PDF outputs")
+    publication=[]
+    for name in ["README.md","docs/analysis_report.md","results/report.html"]:
+        document=ROOT/name
+        content=document.read_text(encoding="utf-8")
+        links=re.findall(r'(?:href|src)="([^\"]+)"',content) if document.suffix==".html" else re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',content)
+        for link in links:
+            if re.match(r"[a-z]+:|#",link):continue
+            resolved=(document.parent/link.split("#",1)[0]).resolve()
+            publication.append(dict(document=name,target=link,check="local_link",status="PASS" if resolved.is_file() and resolved.is_relative_to(ROOT) else "FAIL"))
+        publication.append(dict(document=name,target="template rendering",check="no_unresolved_placeholders",status="PASS" if "{{" not in content and "}}" not in content else "FAIL"))
+    for path in figure_paths:
+        publication.append(dict(document="README.md",target=path,check="png_pdf_pair",status="PASS" if (ROOT/path).is_file() and (ROOT/path).with_suffix(".pdf").is_file() else "FAIL"))
+    table(ROOT/"results/readme_publication_audit.tsv",publication)
+    check(7,"Figures and report links",len(set(figure_paths))==8 and all(r["status"]=="PASS" for r in publication) and (ROOT/"scripts/16_figures.py").exists(),f"{len(figure_paths)} README figures with PNG/PDF pairs; {len(publication)} document link and rendering checks")
     trace=list(rows(ROOT/"results/readme_traceability.tsv"))
     trace_ok=True
     for r in trace:

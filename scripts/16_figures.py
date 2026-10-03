@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from sklearn.metrics import precision_recall_curve
 from common import ROOT, rows, table, settings
 
@@ -38,6 +39,7 @@ def main():
         for field,label in [("raw_reads","Raw"),("retained_reads","Retained"),("unique_sequences","Unique")]:
             ax.plot(x,[int(r[field]) for r in data],"o-",label=label)
         ax.set(title=target,xlabel="SELEX round",ylabel="Reads or unique sequences")
+        ax.set_xticks(x)
         ax.legend(frameon=False)
     fig.tight_layout();save(fig,"02_dataset_composition")
     metrics=list(rows(ROOT/"results/evaluation_metrics.tsv"))
@@ -73,8 +75,11 @@ def main():
     for ax,target in zip(axes,["tg2","integrin"]):
         for seed in cfg["generation_seeds"]:
             data=[r for r in curves if r["target"]==target and int(r["seed"])==seed]
-            ax.plot([int(r["budget"]) for r in data],[int(r["positive_family_recovery"]) for r in data],"o-",label=str(seed))
+            ax.plot([int(r["budget"]) for r in data],[int(r["positive_family_recovery"]) for r in data],"o-",label=str(seed),clip_on=False)
         ax.set(title=target,xlabel="Unique Markov candidates",ylabel="Recovered positive test families",xscale="log")
+        maximum=max(int(r["positive_family_recovery"]) for r in curves if r["target"]==target)
+        ax.set_ylim(0,max(1,maximum+1))
+        ax.yaxis.set_major_locator(MaxNLocator(integer=True))
         ax.legend(title="Generation seed",fontsize=7,frameon=False)
     fig.tight_layout();save(fig,"05_generation_budget")
     fig,axes=plt.subplots(1,2,figsize=(10,3.2))
