@@ -29,7 +29,7 @@ def main():
     check(2,"Core workflow",core.exists() and "Completed core workflow" in core.read_text(errors="replace"),"Bash core command completed; provider data hashes reused, no FASTQ redownload during final verification")
     full=ROOT/"logs/full_verification.txt"
     refused=full.exists() and "Full mode refused" in full.read_text(errors="replace")
-    check(3,"Full workflow state",refused,"Full mode refuses absent RaptGen artifacts and AptaDiff licence/adapter blocker; no neural metrics",status="DOCUMENTED" if refused else None)
+    check(3,"Full workflow state",refused,"Full mode refuses absent RaptGen artifacts, AptaDiff licence/adapter blocker and unfinished neural aggregation; no neural metrics",status="DOCUMENTED" if refused else None)
     state=list((ROOT/"logs/state").glob("*.json"))
     valid=0
     for path in state:
@@ -100,7 +100,8 @@ def main():
     generations=list(rows(ROOT/"results/generation_statistics.tsv"))
     seeds={int(r["seed"]) for r in generations}
     failed_seeds=[f'{r["target"]}/{r["seed"]}' for r in generations if r["status"]!="complete"]
-    check(16,"Seed audit",seeds==set(cfg["generation_seeds"]) and not failed_seeds,f"Configured/executed Markov generation seeds {sorted(seeds)}; failed seeds {failed_seeds}; neural training seeds not executed")
+    target_seeds={t:[int(r["seed"]) for r in generations if r["target"]==t] for t in ["tg2","integrin"]}
+    check(16,"Seed audit",all(sorted(v)==sorted(cfg["generation_seeds"]) for v in target_seeds.values()) and not failed_seeds,f"Configured Markov generation seeds {sorted(seeds)}; executed by target {target_seeds}; failed seeds {failed_seeds}; neural training seeds not executed")
     resource=list(rows(ROOT/"logs/resource_usage.tsv"))
     peak=max(int(r["peak_observed_disk_bytes"]) for r in resource)
     current=disk_bytes()

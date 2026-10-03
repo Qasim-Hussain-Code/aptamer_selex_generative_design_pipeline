@@ -39,7 +39,7 @@ def main():
                      generation_settings="standard_normal_2D_prior; upstream_PHMM_sampler" if method == "raptgen" else "blocked_no_authorized_implementation", keep_checkpoints=False)
                 atomic_text(dest / "job.json", json.dumps(job,indent=2,sort_keys=True))
                 records.append(dict(method=method,target=target,strategy=strategy,source_commit=src["source_commit"],
-                     bundle=str(dest.relative_to(ROOT)), job_sha256=sha256(dest/"job.json"),
+                     bundle=dest.relative_to(ROOT).as_posix(), job_sha256=sha256(dest/"job.json"),
                      training_data_sha256=sha256(dest/"train.tsv"),test_sequences_sha256=sha256(dest/"test_sequences.tsv"),
                      configuration_hash=job["configuration_hash"], status="prepared_not_executed" if method == "raptgen" else "licence_blocked"))
     table(ROOT / "results/gpu_jobs.tsv", records)
