@@ -18,7 +18,7 @@ tg2_assays_excluded	0	results/summary.tsv	target=tg2	assays_excluded	measured_or
 tg2_peak_project_bytes	546058655	results/summary.tsv	target=tg2	peak_project_bytes	measured_or_manifest_count
 tg2_peak_measured_rss_bytes	239501312	results/summary.tsv	target=tg2	peak_measured_rss_bytes	measured_or_manifest_count
 tg2_minimum_free_bytes	16167313408	results/summary.tsv	target=tg2	minimum_free_bytes	measured_or_manifest_count
-tg2_resource_snapshot_rows	198	results/summary.tsv	target=tg2	resource_snapshot_rows	measured_or_manifest_count
+tg2_resource_snapshot_rows	201	results/summary.tsv	target=tg2	resource_snapshot_rows	measured_or_manifest_count
 integrin_raw_reads	467095	results/summary.tsv	target=integrin	raw_reads	measured_or_manifest_count
 integrin_retained_reads	306561	results/summary.tsv	target=integrin	retained_reads	measured_or_manifest_count
 integrin_discarded_reads	160534	results/summary.tsv	target=integrin	discarded_reads	measured_or_manifest_count
@@ -38,7 +38,7 @@ integrin_assays_excluded	0	results/summary.tsv	target=integrin	assays_excluded	m
 integrin_peak_project_bytes	546058655	results/summary.tsv	target=integrin	peak_project_bytes	measured_or_manifest_count
 integrin_peak_measured_rss_bytes	239501312	results/summary.tsv	target=integrin	peak_measured_rss_bytes	measured_or_manifest_count
 integrin_minimum_free_bytes	16167313408	results/summary.tsv	target=integrin	minimum_free_bytes	measured_or_manifest_count
-integrin_resource_snapshot_rows	198	results/summary.tsv	target=integrin	resource_snapshot_rows	measured_or_manifest_count
+integrin_resource_snapshot_rows	201	results/summary.tsv	target=integrin	resource_snapshot_rows	measured_or_manifest_count
 tg2_family_kmer_ridge_average_precision	0.9260788814360241	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
 tg2_family_kmer_ridge_auroc	0.2857142857142857	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
 tg2_family_kmer_ridge_spearman	-0.08214285714285713	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
@@ -463,7 +463,7 @@ bootstrap_replicates	2000	results/run_summary.tsv	run=executed_core	bootstrap_re
 generation_budget	10000	results/run_summary.tsv	run=executed_core	generation_budget	aggregate_or_configured
 generation_seeds	11,23,37,53,71	results/run_summary.tsv	run=executed_core	generation_seeds	aggregate_or_configured
 folding_temperature_c	37.0	results/run_summary.tsv	run=executed_core	folding_temperature_c	aggregate_or_configured
-resource_snapshot_rows	198	results/run_summary.tsv	run=executed_core	resource_snapshot_rows	aggregate_or_configured
+resource_snapshot_rows	201	results/run_summary.tsv	run=executed_core	resource_snapshot_rows	aggregate_or_configured
 tg2_family_kmer_ridge_ap_lower_95	0.6388888888888888	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
 tg2_family_kmer_ridge_ap_upper_95	0.9652375438888595	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
 tg2_family_frequency_ap_lower_95	0.6923076923076923	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
@@ -671,9 +671,9 @@ resource_figures_peak_observed_disk_bytes	483869522	logs/resource_usage.tsv	stag
 resource_generation_qc_elapsed_seconds	1.359	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_generation_qc_peak_rss_bytes	34299904	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_generation_qc_peak_observed_disk_bytes	479636930	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_report_elapsed_seconds	1.201	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_report_peak_rss_bytes	36966400	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_report_peak_observed_disk_bytes	483849585	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_elapsed_seconds	0.934	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_peak_rss_bytes	4120576	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_peak_observed_disk_bytes	483869712	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_configure_elapsed_seconds	1.427	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T16:10:44.581851+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_configure_peak_rss_bytes	29253632	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T16:10:44.581851+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_configure_peak_observed_disk_bytes	483848537	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T16:10:44.581851+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
@@ -686,15 +686,15 @@ resource_full_preflight_peak_observed_disk_bytes	483851639	logs/resource_usage.t
 resource_clean_clone_elapsed_seconds	7.545	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T16:10:49.193818+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_clean_clone_peak_rss_bytes	203108352	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T16:10:49.193818+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_clean_clone_peak_observed_disk_bytes	502704890	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T16:10:49.193818+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_verification_elapsed_seconds	15.701	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_verification_peak_rss_bytes	84062208	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_verification_peak_observed_disk_bytes	483864093	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_verification_elapsed_seconds	13.209	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_verification_peak_rss_bytes	85000192	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_verification_peak_observed_disk_bytes	484438368	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_readme_review_elapsed_seconds	1.156	logs/resource_usage.tsv	stage=readme_review;start_timestamp=2026-10-03T15:58:01.339342+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_readme_review_peak_rss_bytes	6172672	logs/resource_usage.tsv	stage=readme_review;start_timestamp=2026-10-03T15:58:01.339342+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 resource_readme_review_peak_observed_disk_bytes	483728152	logs/resource_usage.tsv	stage=readme_review;start_timestamp=2026-10-03T15:58:01.339342+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_publication_preflight_elapsed_seconds	6.955	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:14:21.020182+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_publication_preflight_peak_rss_bytes	42688512	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:14:21.020182+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
-resource_publication_preflight_peak_observed_disk_bytes	483865035	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:14:21.020182+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_publication_preflight_elapsed_seconds	7.001	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:17:32.157826+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_publication_preflight_peak_rss_bytes	36581376	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:17:32.157826+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_publication_preflight_peak_observed_disk_bytes	484438772	logs/resource_usage.tsv	stage=publication_preflight;start_timestamp=2026-10-03T16:17:32.157826+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
 tg2_naive_sequence_random_test_count	15	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=average_precision;threshold=0.8	test_sequences	measured
 tg2_random_test_count	15	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=average_precision;threshold=0.8	test_sequences	measured
 tg2_family_test_count	15	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=average_precision;threshold=0.8	test_sequences	measured
@@ -756,12 +756,12 @@ pipeline_evaluation_2026-10-03T14:22:52.606838+00:00_peak_observed_disk_bytes	48
 pipeline_figures_2026-10-03T16:15:22.340763+00:00_elapsed_seconds	8.464	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T16:15:22.340763+00:00	elapsed_seconds	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
 pipeline_figures_2026-10-03T16:15:22.340763+00:00_peak_rss_bytes	239501312	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T16:15:22.340763+00:00	peak_rss_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
 pipeline_figures_2026-10-03T16:15:22.340763+00:00_peak_observed_disk_bytes	483869522	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T16:15:22.340763+00:00	peak_observed_disk_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_report_2026-10-03T16:10:42.655253+00:00_elapsed_seconds	1.201	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	elapsed_seconds	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_report_2026-10-03T16:10:42.655253+00:00_peak_rss_bytes	36966400	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	peak_rss_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_report_2026-10-03T16:10:42.655253+00:00_peak_observed_disk_bytes	483849585	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:10:42.655253+00:00	peak_observed_disk_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_verification_2026-10-03T16:10:57.359128+00:00_elapsed_seconds	15.701	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	elapsed_seconds	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_verification_2026-10-03T16:10:57.359128+00:00_peak_rss_bytes	84062208	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	peak_rss_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
-pipeline_verification_2026-10-03T16:10:57.359128+00:00_peak_observed_disk_bytes	483864093	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:10:57.359128+00:00	peak_observed_disk_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_report_2026-10-03T16:15:31.228387+00:00_elapsed_seconds	0.934	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	elapsed_seconds	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_report_2026-10-03T16:15:31.228387+00:00_peak_rss_bytes	4120576	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	peak_rss_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_report_2026-10-03T16:15:31.228387+00:00_peak_observed_disk_bytes	483869712	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T16:15:31.228387+00:00	peak_observed_disk_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_verification_2026-10-03T16:17:18.466485+00:00_elapsed_seconds	13.209	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	elapsed_seconds	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_verification_2026-10-03T16:17:18.466485+00:00_peak_rss_bytes	85000192	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	peak_rss_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
+pipeline_verification_2026-10-03T16:17:18.466485+00:00_peak_observed_disk_bytes	484438368	logs/resource_usage.tsv	stage=verification;start_timestamp=2026-10-03T16:17:18.466485+00:00	peak_observed_disk_bytes	latest_recorded_attempt; may_reuse_cache; decimal_MB_GB_for_prose
 pipeline_preprocess_integrin_3_2026-10-03T13:11:24.902602+00:00_elapsed_seconds	66.264	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	elapsed_seconds	retained_per_round_attempt; decimal_MB_GB_for_prose
 pipeline_preprocess_integrin_3_2026-10-03T13:11:24.902602+00:00_peak_rss_bytes	35794944	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	peak_rss_bytes	retained_per_round_attempt; decimal_MB_GB_for_prose
 pipeline_preprocess_integrin_3_2026-10-03T13:11:24.902602+00:00_peak_observed_disk_bytes	468169203	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	peak_observed_disk_bytes	retained_per_round_attempt; decimal_MB_GB_for_prose

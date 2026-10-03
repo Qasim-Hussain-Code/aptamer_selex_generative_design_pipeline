@@ -56,7 +56,7 @@ def main():
             if re.match(r"[a-z]+:|#",link):continue
             resolved=(document.parent/link.split("#",1)[0]).resolve()
             publication.append(dict(document=name,target=link,check="local_link",status="PASS" if resolved.is_file() and resolved.is_relative_to(ROOT) else "FAIL"))
-        publication.append(dict(document=name,target="template rendering",check="no_unresolved_placeholders",status="PASS" if "{{" not in content and "}}" not in content else "FAIL"))
+        publication.append(dict(document=name,target="numerical field substitution",check="no_unresolved_placeholders",status="PASS" if "{{" not in content and "}}" not in content else "FAIL"))
     for path in figure_paths:
         publication.append(dict(document="README.md",target=path,check="png_pdf_pair",status="PASS" if (ROOT/path).is_file() and (ROOT/path).with_suffix(".pdf").is_file() else "FAIL"))
     table(ROOT/"results/readme_publication_audit.tsv",publication)

@@ -75,8 +75,8 @@ After installation, `source scripts/lib.sh` selects the project interpreter and 
 | 14 tertiary | Optional settings -> explicit exclusion record; no tertiary result is evaluated. | `stage tertiary scripts/14_optional_tertiary.py` | 0.914 s / 6.2 MB / 0.484 GB |
 | 15 evaluation | Fixed test scores -> metrics and family-bootstrap intervals; separate discrimination from sequence coverage. | `stage evaluation scripts/15_evaluate.py` | 25.406 s / 131.3 MB / 0.481 GB |
 | 16 figures | Retained tables -> PNG/PDF figures; show all measured arms and unavailable neural branches. | `stage figures scripts/16_figures.py` | 8.464 s / 239.5 MB / 0.484 GB |
-| 17 report | Measured tables and prose template -> README, Markdown and HTML reports; trace numerical claims. | `stage report scripts/write_report.py` | 1.201 s / 37.0 MB / 0.484 GB |
-| 18 final audit | Verified workflow records -> final audit; only this subprocess is measured here. Run the complete scripts/18_verify.sh first. | `stage verification scripts/verify_repository.py --clean-clone-status passed` | 15.701 s / 84.1 MB / 0.484 GB |
+| 17 report | Measured result tables -> README, Markdown and HTML reports; trace numerical claims. | `stage report scripts/write_report.py` | 0.934 s / 4.1 MB / 0.484 GB |
+| 18 final audit | Verified workflow records -> final audit; only this subprocess is measured here. Run the complete scripts/18_verify.sh first. | `stage verification scripts/verify_repository.py --clean-clone-status passed` | 13.209 s / 85.0 MB / 0.484 GB |
 
 Commands run from the repository root. The [stage execution table](results/pipeline_stage_summary.tsv) joins these inputs, outputs and decisions to measured elapsed time, sampled RSS and sampled project size. It identifies successful scientific executions where a manifest is available; other rows use the latest recorded attempt and label that basis. Downloads are measured per FASTQ, and hosted import has no production execution. Resource rows describe the recorded execution, including cache reuse where declared.
 
@@ -192,7 +192,7 @@ figures/      PNG and PDF outputs generated from result tables
 logs/         resources, failures, restart manifests and verification
 data/         ignored sequencing, external, generated and remote artifacts
 tests/        synthetic workflow, scientific checks and artifact validation
-docs/         methods, score definitions, README template and analysis report
+docs/         methods, score definitions and analysis report
 ```
 
 ## Usage
@@ -239,7 +239,7 @@ bash run_all.sh --mode full --gpu-mode hosted --from 11
 bash scripts/18_verify.sh
 ```
 
-Full mode currently refuses those unresolved requirements. [HANDOVER.md](HANDOVER.md) lists them explicitly. The analysis is also available as [Markdown](docs/analysis_report.md) and [HTML](results/report.html); Quarto is optional. README prose is maintained in [the reporting template](docs/readme_template.md), with numbers inserted from measured tables.
+Full mode currently refuses those unresolved requirements. [HANDOVER.md](HANDOVER.md) lists them explicitly. The analysis is also available as [Markdown](docs/analysis_report.md) and [HTML](results/report.html); Quarto is optional.
 
 ## Limitations
 
