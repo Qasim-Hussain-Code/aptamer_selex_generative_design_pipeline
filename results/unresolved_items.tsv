@@ -4,3 +4,4 @@ AptaDiff licence	Paper states MIT; repository has no licence file	No upstream so
 InstructNA licence and weights	No repository licence at inspected commit; weight terms and footprint not established	Excluded before code use
 DDBJ direct metadata endpoint	Resource .xml route returned HTML; guessed FTP route returned 404	Use DDBJ-submitted study/experiment records from INSDC ENA mirror; record failures
 RaptGen remote execution	No hosted GPU run or CUDA compatibility test performed	Provide pinned job and validate returned outputs; no neural result claimed
+Data2 forward primer boundary	Main PCR primer ends CAGAA; computational Supplementary Table S3 ends CAGAAG	Use published S3 computational boundary; retain S5 assay strings; record exact-lookup sensitivity without test-driven correction

@@ -1,0 +1,17 @@
+Configured budget 13000000000 bytes, free 17671430144 bytes, reserve 1000000000 bytes
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\Structural_Biology\aptamer_selex_generative_design_pipeline\scripts\full_preflight.py", line 28, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\User\Documents\Structural_Biology\aptamer_selex_generative_design_pipeline\scripts\full_preflight.py", line 24, in main
+    raise err
+RuntimeError: Full mode refused:
+Neural score/recovery aggregation is not yet validated on real returned artifacts. Stage 12 currently merges local methods only; finish and validate the neural evaluator before enabling full mode. See HANDOVER.md.
+raptgen_integrin_family: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_integrin_family output/raptgen_integrin_family
+raptgen_integrin_random: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_integrin_random output/raptgen_integrin_random
+raptgen_tg2_family: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_tg2_family output/raptgen_tg2_family
+raptgen_tg2_random: missing returned artifacts; bash remote/raptgen/run_remote.sh remote/bundles/raptgen_tg2_random output/raptgen_tg2_random
+aptadiff_integrin_family: licence blocker, see remote/aptadiff/BLOCKER.md
+aptadiff_integrin_random: licence blocker, see remote/aptadiff/BLOCKER.md
+aptadiff_tg2_family: licence blocker, see remote/aptadiff/BLOCKER.md
+aptadiff_tg2_random: licence blocker, see remote/aptadiff/BLOCKER.md

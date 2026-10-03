@@ -1,0 +1,94 @@
+{
+  "inputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\held_out_predictions.tsv": "47a6ead690efbbd9a0f6804ebe820f52eded3c5d6e593251aa5856f5208dd110",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\benchmark.yml": "e0d42d0453a94f66bc5eff4a7f3e634c6e38bb88bb030bd00e8533956096b3f0",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\generation_statistics.tsv": "ea6fc119fe29115710d9a1f8bd295a8efd5d3c6260fedf7e5c4b87ff37406187"
+  },
+  "outputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\evaluation_metrics.tsv": "a385df861af0a21ad1993ec4ae06632ed4a135a18a7c3d94d2461a9d7e52280a",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\bootstrap_intervals.tsv": "384ac60281c1d7d991b48a61a3acf4a1158e3f0b724166bf565d88336f31ca25",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\paired_differences.tsv": "f8ac514a731a4a2ec07fc133388a391a27dcc54e2de5d3bb3ba286a4d2e27b39",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\seed_variance.tsv": "451b79a35bf40e0999d5024ef404ba734e2ff5cbc7f0d251b4e6de7ff0448c72"
+  },
+  "configuration": {
+    "master_seed": 1729,
+    "family_threshold": 0.8,
+    "threshold_sensitivity": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "identity_metric": "one_minus_global_levenshtein_over_max_length",
+    "family_method": "exact_connected_components",
+    "family_threshold_rationale": "arbitrary_preregistered_short_RNA_edit_identity_includes_indels",
+    "reverse_complement_equivalence": false,
+    "generation_budget": 10000,
+    "generation_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "generation_max_draws": 1000000,
+    "generation_curve_budgets": [
+      100,
+      500,
+      1000,
+      5000,
+      10000
+    ],
+    "bootstrap_replicates": 2000,
+    "models": [
+      "raptgen",
+      "aptadiff"
+    ],
+    "baselines": [
+      "frequency",
+      "enrichment",
+      "kmer_ridge",
+      "markov"
+    ],
+    "kmer_sizes": [
+      1,
+      2,
+      3
+    ],
+    "ridge_alpha": 10.0,
+    "logistic_c": 0.1,
+    "logistic_max_iter": 2000,
+    "enrichment_pseudocount": 0.5,
+    "structural_features": [
+      "mfe_kcal_mol",
+      "base_pair_count",
+      "paired_fraction",
+      "ensemble_diversity"
+    ],
+    "folding_temperature_c": 37.0,
+    "folding_context": "full_assay_construct_without_polyA_tail",
+    "folding_parameters": "canonical_RNA_Turner_2004_proxy",
+    "assay_endpoint": "published_label_primary_continuous_response_secondary",
+    "binary_threshold": null,
+    "classification_primary_metric": "average_precision",
+    "continuous_primary_metric": "spearman",
+    "bootstrap_unit": "sequence_family",
+    "top_k": 10,
+    "supervised_design": "fixed_label_blind_family_test_set_same_test_ids_random_diagnostic",
+    "assay_test_family_fraction": 0.5,
+    "random_diagnostic": "matched_exact_sequence_holdout_on_primary_test_ids",
+    "naive_random_arm": "independent_sequence_hash_partition",
+    "naive_random_arm_declaration": "added_after_first_local_run_to_correct_diagnostic_definition_no_seed_or_metric_selection",
+    "subsampling": {
+      "reads": "all",
+      "training_pool": 2500,
+      "seed": 1729,
+      "algorithm": "smallest_sha256_seed_and_sequence_among_late_round_count_at_least_two"
+    },
+    "tertiary_enabled": false
+  },
+  "code": {
+    "common.py": "bff4af1d8aa3008a18c73e173621023b5125120f5260104c98a158c208478f46",
+    "15_evaluate.py": "f253243d352b3d59f5c7bc68f79b6471db702a1f8ccf514932d6a0765fa51a2c"
+  },
+  "time": "2026-10-03T14:23:17.677579+00:00"
+}

@@ -1,0 +1,6 @@
+file	size_bytes
+config/split_manifest.tsv	5619033
+results/family_assignments.tsv	5619033
+results/secondary_structure.tsv	1413652
+results/held_out_predictions.tsv	548324
+results/baseline_predictions.tsv	361376

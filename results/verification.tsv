@@ -1,0 +1,26 @@
+check	name	status	detail
+1	Clean clone	PASS	Synthetic workflow and Python suite run using provisioned interpreter; no external data or development analysis cache in clone
+2	Core workflow	PASS	Bash core command completed; provider data hashes reused, no FASTQ redownload during final verification
+3	Full workflow state	DOCUMENTED	Full mode refuses absent RaptGen artifacts, AptaDiff licence/adapter blocker and unfinished neural aggregation; no neural metrics
+4	Idempotence	PASS	9 stage manifests validate output contents; completed analyses skip in the recorded core rerun
+5	Shell quality	PASS	shellcheck run on every tracked shell script; no findings
+6	Python tests	PASS	54 passed, 0 failed, 0 skipped
+7	Figures	PASS	8 README figures exist; scripted PNG and PDF outputs
+8	Number traceability	PASS	688 headline claim mappings verified against source rows; prose additionally inspected
+9	Em dash audit	PASS	0 occurrences in tracked text
+10	Emoji audit	PASS	0 occurrences in tracked text
+11	Banned prose	PASS	No unintended banned phrase hits
+12	Unsupported affinity wording	PASS	1 conceptual cautions recorded; no generated candidate receives experimental status
+13	No-selection-data boundary	PASS	Explicit scientific boundary remains in README and methods
+14	Leakage audit	PASS	integrin: exact=0, family=0; tg2: exact=0, family=0
+15	Assay leakage	PASS	No held-out assay in fitting; no test-driven early stopping, seed choice or optimization; source and configuration inspected
+16	Seed audit	PASS	Configured Markov generation seeds [11, 23, 37, 53, 71]; executed by target {'tg2': [11, 23, 37, 53, 71], 'integrin': [11, 23, 37, 53, 71]}; failed seeds []; neural training seeds not executed
+17	Resource audit	PASS	Observed maximum 546058655 bytes; current 483267062 bytes; all stages logged; initial missing RSS rows remain visible
+18	Free-space reserve	PASS	Minimum sampled free space 17384529920 bytes; reserve 1000000000 bytes
+19	Git size audit	PASS	Five largest tracked files: config/split_manifest.tsv=5619033; results/family_assignments.tsv=5619033; results/secondary_structure.tsv=1413652; results/held_out_predictions.tsv=548324; results/baseline_predictions.tsv=361376
+20	Licence audit	PASS	Unclear licences ['aptadiff', 'instructna'] correspond to excluded components; dependencies installed separately; transitive terms recorded
+21	Biological provenance	PASS	DRA inputs verified through primary paper and INSDC metadata; A/B remain IGFBP3/PTK7 and are excluded; C/D inspection supports distinct mapping
+22	Ground truth	PASS	tg2: evaluated=30, retained=30, excluded=0, endpoint=published_binary_label_and_continuous_RU, units=RU, new_threshold=no; integrin: evaluated=48, retained=48, excluded=0, endpoint=published_binary_label_and_continuous_RU, units=RU, new_threshold=no
+23	Reproducibility record	PASS	OS/CPU/RAM/package versions recorded; configuration hash c9337eec30353eb71b5a5642ed2c1a672f8e06b842cfa93c1046b75945ff2fc4; upstream commits/accessions/retrievals retained; remote GPU absent
+24	Scientific discomfort	PASS	TG2 has only one negative test sequence; its SELEX ridge AP is below prevalence. Markov recovers no positive test families. Neural comparison is unrun.
+25	Confidence	PASS	Least confidence: TG2 binary discrimination with one negative and few independent families; canonical RNA is an imperfect proxy for modified molecules

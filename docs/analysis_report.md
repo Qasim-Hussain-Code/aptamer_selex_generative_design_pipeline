@@ -84,17 +84,17 @@ Novelty is measured against the actual filtered training pool. The plotted point
 
 At the sensitivity threshold, an integrin assay-supervised fit lacks both training classes and is excluded in the grouped arm, including its structural variant. Both exclusions are logged. Two optional methods, AptaDiff and InstructNA, have unclear repository licensing. RaptGen is not executed because no hosted result has returned. No tertiary method runs. These unavailable results cannot support an architectural comparison.
 
-The largest observed local footprint stays below the configured ceiling. Initial installation RSS was not captured by the first wrapper version; that row remains marked unavailable. Subsequent stages use the corrected process sampler. [Failure records](logs/failures.tsv) retain the metadata-route failures, test-fixture repair and any failed stage. The largest measured stage RSS is 233.2 MB and the minimum observed free space is 17.385 GB. RSS and disk are sampled, so brief peaks may be missed.
+The largest observed local footprint stays below the configured ceiling. Initial installation RSS was not captured by the first wrapper version; that row remains marked unavailable. Subsequent stages use the corrected process sampler. [Failure records](logs/failures.tsv) retain the metadata-route failures, test-fixture repair and any failed stage. The largest measured stage RSS is 237.1 MB and the minimum observed free space is 17.385 GB. RSS and disk are sampled, so brief peaks may be missed.
 
 ![Resource profile](../figures/08_resources.png)
 
 | Stage | Latest elapsed s | Peak RSS MB | Observed project GB |
 | --- | --- | --- | --- |
-| references | 0.874 | 2.8 | 0.481 |
-| metadata | 1.107 | 28.4 | 0.481 |
+| references | 0.903 | 6.1 | 0.483 |
+| metadata | 0.889 | 6.2 | 0.483 |
 | install | 190.033 | 182.9 | 0.546 |
 | software | 2.413 | 70.8 | 0.481 |
-| ground_truth | 1.101 | 27.8 | 0.481 |
+| ground_truth | 0.908 | 6.2 | 0.483 |
 | preprocess_integrin_3 | 66.264 | 35.8 | 0.468 |
 | preprocess_integrin_4 | 2.545 | 35.1 | 0.464 |
 | preprocess_integrin_5 | 2.140 | 34.3 | 0.462 |
@@ -108,26 +108,27 @@ The largest observed local footprint stays below the configured ceiling. Initial
 | preprocess_tg2_6 | 1.507 | 32.6 | 0.463 |
 | preprocess_tg2_7 | 1.146 | 32.0 | 0.461 |
 | preprocess_tg2_8 | 1.264 | 32.3 | 0.464 |
-| fetch | 1.510 | 27.9 | 0.481 |
-| sources | 2.188 | 35.1 | 0.481 |
-| splits | 1.130 | 31.8 | 0.481 |
+| fetch | 0.921 | 4.1 | 0.483 |
+| sources | 1.731 | 35.5 | 0.483 |
+| splits | 0.897 | 6.1 | 0.483 |
 | inspect_raptgen | 1.504 | 34.0 | 0.466 |
-| baselines | 2.195 | 119.0 | 0.481 |
-| secondary | 1.178 | 6.2 | 0.481 |
-| ablation | 1.163 | 20.8 | 0.481 |
-| candidates | 1.987 | 44.4 | 0.481 |
-| evaluation | 1.761 | 107.4 | 0.481 |
-| tertiary | 0.994 | 6.2 | 0.481 |
-| tests | 3.342 | 137.4 | 0.481 |
-| resolve | 0.913 | 6.2 | 0.481 |
-| gpu_jobs | 1.396 | 63.0 | 0.481 |
-| figures | 6.505 | 233.2 | 0.481 |
+| baselines | 1.974 | 107.4 | 0.483 |
+| secondary | 0.890 | 6.2 | 0.483 |
+| ablation | 0.917 | 6.2 | 0.483 |
+| candidates | 1.315 | 44.6 | 0.483 |
+| evaluation | 1.757 | 112.3 | 0.483 |
+| tertiary | 0.919 | 6.2 | 0.483 |
+| tests | 2.819 | 139.0 | 0.483 |
+| resolve | 0.891 | 6.2 | 0.483 |
+| gpu_jobs | 1.360 | 63.2 | 0.483 |
+| figures | 4.686 | 237.1 | 0.483 |
 | generation_qc | 1.359 | 34.3 | 0.480 |
-| report | 1.282 | 35.1 | 0.481 |
-| configure | 1.366 | 29.5 | 0.481 |
-| bootstrap_sources | 0.913 | 4.1 | 0.481 |
-| full_preflight | 0.950 | 6.2 | 0.481 |
-| clean_clone | 4.983 | 210.1 | 0.482 |
+| report | 0.901 | 6.2 | 0.483 |
+| configure | 1.318 | 29.1 | 0.483 |
+| bootstrap_sources | 0.907 | 6.2 | 0.483 |
+| full_preflight | 0.946 | 6.2 | 0.483 |
+| clean_clone | 5.485 | 198.3 | 0.501 |
+| verification | 6.007 | 84.2 | 0.483 |
 
 ## Repository structure
 

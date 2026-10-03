@@ -1,0 +1,64 @@
+assay_endpoint: published_label_primary_continuous_response_secondary
+assay_test_family_fraction: 0.5
+baselines:
+- frequency
+- enrichment
+- kmer_ridge
+- markov
+binary_threshold: null
+bootstrap_replicates: 2000
+bootstrap_unit: sequence_family
+classification_primary_metric: average_precision
+continuous_primary_metric: spearman
+enrichment_pseudocount: 0.5
+family_method: exact_connected_components
+family_threshold: 0.8
+family_threshold_rationale: arbitrary_preregistered_short_RNA_edit_identity_includes_indels
+folding_context: full_assay_construct_without_polyA_tail
+folding_parameters: canonical_RNA_Turner_2004_proxy
+folding_temperature_c: 37.0
+generation_budget: 10000
+generation_curve_budgets:
+- 100
+- 500
+- 1000
+- 5000
+- 10000
+generation_max_draws: 1000000
+generation_seeds:
+- 11
+- 23
+- 37
+- 53
+- 71
+identity_metric: one_minus_global_levenshtein_over_max_length
+kmer_sizes:
+- 1
+- 2
+- 3
+master_seed: 1729
+models:
+- raptgen
+- aptadiff
+naive_random_arm: independent_sequence_hash_partition
+naive_random_arm_declaration: added_after_first_local_run_to_correct_diagnostic_definition_no_seed_or_metric_selection
+random_diagnostic: matched_exact_sequence_holdout_on_primary_test_ids
+reverse_complement_equivalence: false
+ridge_alpha: 10.0
+structural_features:
+- mfe_kcal_mol
+- base_pair_count
+- paired_fraction
+- ensemble_diversity
+subsampling:
+  algorithm: smallest_sha256_seed_and_sequence_among_late_round_count_at_least_two
+  reads: all
+  seed: 1729
+  training_pool: 2500
+supervised_design: fixed_label_blind_family_test_set_same_test_ids_random_diagnostic
+tertiary_enabled: false
+threshold_sensitivity:
+- 0.7
+- 0.8
+- 0.9
+top_k: 10

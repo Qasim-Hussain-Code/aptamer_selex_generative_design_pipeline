@@ -1,0 +1,106 @@
+{
+  "inputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\split_manifest.tsv": "2303aa5a81fdc1919b8fc43c98206f769e0c81e900cc2780954170b48af1755c",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\benchmark.yml": "e0d42d0453a94f66bc5eff4a7f3e634c6e38bb88bb030bd00e8533956096b3f0",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\ground_truth_manifest.tsv": "f7adc5f68a869ae0f23b91b0ed1f35b625d2f3620128869635268112905a21ed",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\3.counts.tsv.gz": "a01de56781dea4419d98f91babffb7b30687e2bc1f30c5c0484e580dfcfcd149",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\4.counts.tsv.gz": "f6f046625640a9275f9edb84febd05de71bc30f76a8885b76ca12740689c3b3b",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\5.counts.tsv.gz": "fb789fef7f80d81c5b3816df18e2ec91e1a1171c7e19ed4aaae1f7ca4d449259",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\6.counts.tsv.gz": "d172ea6bd68286bdaf1d4a7954c71f623ecc226ff7c4024382ecdf9eb11582ba",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\0.counts.tsv.gz": "d38ee0629a9c889d9ab08fbda74068ea9075ecd6ccb45944a810536a02ab0617",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\1.counts.tsv.gz": "c1c1ac50c7243084bf89245fe2f42a3891bc99bb3e1714ecd8dc7834ac3b0db7",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\2.counts.tsv.gz": "858110863b4559a26ab3be81c000e5ffbbe95a6e1b92e2ce5bd88a2e03b0414e",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\3.counts.tsv.gz": "23068d1acc116a4c086bfee5e4fcdbb40d12cfc14380abff83dcfd89cfdefcda",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\4.counts.tsv.gz": "e3bf4556fdf4c86dd6bde8464f49b355a0ebab128a5d08f79832571f073c8404",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\5.counts.tsv.gz": "f2922425c047b73284f1459468ef4883f265a788a15dd7603983e90fadda8780",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\6.counts.tsv.gz": "fcb80fd53b013a414b0802942c46801cd39a5b5ffdfe091abe1606726f8a563c",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\7.counts.tsv.gz": "eaf6481e4402c1c03b8e2feaed4b1e8ce730617dc02c3b5e087eeace79503e1f",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\8.counts.tsv.gz": "fadc7404a6041d3069aada31afe452842c71878ec5f0118e5fe9b4fbf37ca47b"
+  },
+  "outputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\baseline_predictions.tsv": "0173b21820f0ea45238e6c0c44240de1c1656112d380046879200c646ac68259"
+  },
+  "configuration": {
+    "master_seed": 1729,
+    "family_threshold": 0.8,
+    "threshold_sensitivity": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "identity_metric": "one_minus_global_levenshtein_over_max_length",
+    "family_method": "exact_connected_components",
+    "family_threshold_rationale": "arbitrary_preregistered_short_RNA_edit_identity_includes_indels",
+    "reverse_complement_equivalence": false,
+    "generation_budget": 10000,
+    "generation_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "generation_max_draws": 1000000,
+    "generation_curve_budgets": [
+      100,
+      500,
+      1000,
+      5000,
+      10000
+    ],
+    "bootstrap_replicates": 2000,
+    "models": [
+      "raptgen",
+      "aptadiff"
+    ],
+    "baselines": [
+      "frequency",
+      "enrichment",
+      "kmer_ridge",
+      "markov"
+    ],
+    "kmer_sizes": [
+      1,
+      2,
+      3
+    ],
+    "ridge_alpha": 10.0,
+    "logistic_c": 0.1,
+    "logistic_max_iter": 2000,
+    "enrichment_pseudocount": 0.5,
+    "structural_features": [
+      "mfe_kcal_mol",
+      "base_pair_count",
+      "paired_fraction",
+      "ensemble_diversity"
+    ],
+    "folding_temperature_c": 37.0,
+    "folding_context": "full_assay_construct_without_polyA_tail",
+    "folding_parameters": "canonical_RNA_Turner_2004_proxy",
+    "assay_endpoint": "published_label_primary_continuous_response_secondary",
+    "binary_threshold": null,
+    "classification_primary_metric": "average_precision",
+    "continuous_primary_metric": "spearman",
+    "bootstrap_unit": "sequence_family",
+    "top_k": 10,
+    "supervised_design": "fixed_label_blind_family_test_set_same_test_ids_random_diagnostic",
+    "assay_test_family_fraction": 0.5,
+    "random_diagnostic": "matched_exact_sequence_holdout_on_primary_test_ids",
+    "naive_random_arm": "independent_sequence_hash_partition",
+    "naive_random_arm_declaration": "added_after_first_local_run_to_correct_diagnostic_definition_no_seed_or_metric_selection",
+    "subsampling": {
+      "reads": "all",
+      "training_pool": 2500,
+      "seed": 1729,
+      "algorithm": "smallest_sha256_seed_and_sequence_among_late_round_count_at_least_two"
+    },
+    "tertiary_enabled": false
+  },
+  "code": {
+    "common.py": "bff4af1d8aa3008a18c73e173621023b5125120f5260104c98a158c208478f46",
+    "08_baselines.py": "5466ffe55c00910dd2969d7e4edc8bedf20d9a667151db890549422b1dec2ad1",
+    "07_build_splits.py": "fca272e0df5eb0f3aa1b9d48604ab0031a9f07dd71e5f865805b55ce2acedebb",
+    "model_utils.py": "940c8b492508090e9a8f8e89e19924f8634722577f91a837aca5d4e117dcacbb"
+  },
+  "time": "2026-10-03T14:21:03.146696+00:00"
+}

@@ -1,0 +1,131 @@
+{
+  "inputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\benchmark.yml": "e0d42d0453a94f66bc5eff4a7f3e634c6e38bb88bb030bd00e8533956096b3f0",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\config\\split_manifest.tsv": "2303aa5a81fdc1919b8fc43c98206f769e0c81e900cc2780954170b48af1755c",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\3.counts.tsv.gz": "a01de56781dea4419d98f91babffb7b30687e2bc1f30c5c0484e580dfcfcd149",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\4.counts.tsv.gz": "f6f046625640a9275f9edb84febd05de71bc30f76a8885b76ca12740689c3b3b",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\5.counts.tsv.gz": "fb789fef7f80d81c5b3816df18e2ec91e1a1171c7e19ed4aaae1f7ca4d449259",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\6.counts.tsv.gz": "d172ea6bd68286bdaf1d4a7954c71f623ecc226ff7c4024382ecdf9eb11582ba",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\0.counts.tsv.gz": "d38ee0629a9c889d9ab08fbda74068ea9075ecd6ccb45944a810536a02ab0617",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\1.counts.tsv.gz": "c1c1ac50c7243084bf89245fe2f42a3891bc99bb3e1714ecd8dc7834ac3b0db7",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\2.counts.tsv.gz": "858110863b4559a26ab3be81c000e5ffbbe95a6e1b92e2ce5bd88a2e03b0414e",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\3.counts.tsv.gz": "23068d1acc116a4c086bfee5e4fcdbb40d12cfc14380abff83dcfd89cfdefcda",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\4.counts.tsv.gz": "e3bf4556fdf4c86dd6bde8464f49b355a0ebab128a5d08f79832571f073c8404",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\5.counts.tsv.gz": "f2922425c047b73284f1459468ef4883f265a788a15dd7603983e90fadda8780",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\6.counts.tsv.gz": "fcb80fd53b013a414b0802942c46801cd39a5b5ffdfe091abe1606726f8a563c",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\7.counts.tsv.gz": "eaf6481e4402c1c03b8e2feaed4b1e8ce730617dc02c3b5e087eeace79503e1f",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\8.counts.tsv.gz": "fadc7404a6041d3069aada31afe452842c71878ec5f0118e5fe9b4fbf37ca47b"
+  },
+  "outputs": {
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\generation_statistics.tsv": "ea6fc119fe29115710d9a1f8bd295a8efd5d3c6260fedf7e5c4b87ff37406187",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\generation_budget_curves.tsv": "3315f49cf35b5049cf9c18d51678b444bcdc192d460eb58c9703a16980619098",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\markov_predictions.tsv": "15eeeea9192a3f900d208bfe17ae2ac4245bd06cdb5293c374d8c99051ba2ad8",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\generator_metadata.tsv": "b94bd5981282cb7f6c4c784d73b189cfbc355b46c741c3139522791a9e8b8e59",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\results\\novelty_distribution.tsv": "adac86872a914cb85ab9906fc258ca257598c20be02fba80d68de1072d2eeed9",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\tg2\\markov.json": "c81b2824e6cbf8b85422964995e05fdf6b0650c2ba34d47b63e2eb2700eed0a8",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_11.tsv.gz": "7431dff06f0c544088ddf8885f001c281c8719162e0289018f1c3ebf43b05942",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_11.novelty.tsv.gz": "e38156d67776093eea7c75a07186005792ca990168bfa98cc48b2904f7b5164c",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_23.tsv.gz": "e8b487897fce73d0aff8704392848e9acfc964fbe9e2f253d6b9218c59c1f0d6",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_23.novelty.tsv.gz": "c2235b3c413b38098fac4063469ec36ba0d911a39ff236327c6f3e33a47f8682",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_37.tsv.gz": "4b722501c971bc6290baf0c151d61eee3560b70d42c818a6b299daa0aff26601",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_37.novelty.tsv.gz": "98a467b47ad5c6c0ae56625e5e10058cf9a5c306ffde02f383e4218f6610fa22",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_53.tsv.gz": "3eae6f4d4e3dfdd7ddef90a1c2e9255f07b01a3adb88487f4085a267645df42e",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_53.novelty.tsv.gz": "9cb3344bf65d57f0568a7127b211cb32f31c4fe42c63f329c5c75fa17c338cb8",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_71.tsv.gz": "50332d83edf6481c33422546d68bd823a4f69980a9c893acb326d183789576d3",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\tg2\\markov_71.novelty.tsv.gz": "a3a16eb0be0485601b846bdf86409df6bfc4ebfcd10d86c73a40f2b6d9b253fb",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\processed\\integrin\\markov.json": "1b3a48f71ce0c5287fc1967c90789360c43a06ef04d9f14f13b5bc5c09aae42d",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_11.tsv.gz": "8e091e011e27ff8b4b530ff84006efc0e2c530962b2a7af25bb2e6f6b16b4dea",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_11.novelty.tsv.gz": "005651df1a6f83b10d479844199ff467cabcf5611ec0cf4d28e98e7c9ae338b7",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_23.tsv.gz": "184eb1987dc6ee0a6d985ccaf2e8546c7808ffd87bd8f9aea4424172dfd710e0",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_23.novelty.tsv.gz": "14ea3162620e9b1d22a786a832e5b00bc59930802650368dd8d03a3f4049405e",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_37.tsv.gz": "599f0598c2a0b9633f44bb4252fff013e2dd33da44b054c4dd7611c0292c35f2",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_37.novelty.tsv.gz": "6b8ea5f628fb748606c69f93f2f33726583dd276e94712cae7d25acfa357a6c0",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_53.tsv.gz": "3815de1077328a3f113437f6a8187bb600749e43c33fb6d03e92f82c838a4b04",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_53.novelty.tsv.gz": "43912691c4ad84c61ee4643fa2bbb3bd3fa222a5a695c9afddf9a61ce325ba39",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_71.tsv.gz": "af917e6978ab50701ea25280fa4a3edaa2e4c931294f95fbfa8c13a8851cceca",
+    "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\data\\generated\\integrin\\markov_71.novelty.tsv.gz": "437600f609eb888859f01a023437243b25d552ed0bb944ca8978404ce82ab5ef"
+  },
+  "configuration": {
+    "master_seed": 1729,
+    "family_threshold": 0.8,
+    "threshold_sensitivity": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "identity_metric": "one_minus_global_levenshtein_over_max_length",
+    "family_method": "exact_connected_components",
+    "family_threshold_rationale": "arbitrary_preregistered_short_RNA_edit_identity_includes_indels",
+    "reverse_complement_equivalence": false,
+    "generation_budget": 10000,
+    "generation_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "generation_max_draws": 1000000,
+    "generation_curve_budgets": [
+      100,
+      500,
+      1000,
+      5000,
+      10000
+    ],
+    "bootstrap_replicates": 2000,
+    "models": [
+      "raptgen",
+      "aptadiff"
+    ],
+    "baselines": [
+      "frequency",
+      "enrichment",
+      "kmer_ridge",
+      "markov"
+    ],
+    "kmer_sizes": [
+      1,
+      2,
+      3
+    ],
+    "ridge_alpha": 10.0,
+    "logistic_c": 0.1,
+    "logistic_max_iter": 2000,
+    "enrichment_pseudocount": 0.5,
+    "structural_features": [
+      "mfe_kcal_mol",
+      "base_pair_count",
+      "paired_fraction",
+      "ensemble_diversity"
+    ],
+    "folding_temperature_c": 37.0,
+    "folding_context": "full_assay_construct_without_polyA_tail",
+    "folding_parameters": "canonical_RNA_Turner_2004_proxy",
+    "assay_endpoint": "published_label_primary_continuous_response_secondary",
+    "binary_threshold": null,
+    "classification_primary_metric": "average_precision",
+    "continuous_primary_metric": "spearman",
+    "bootstrap_unit": "sequence_family",
+    "top_k": 10,
+    "supervised_design": "fixed_label_blind_family_test_set_same_test_ids_random_diagnostic",
+    "assay_test_family_fraction": 0.5,
+    "random_diagnostic": "matched_exact_sequence_holdout_on_primary_test_ids",
+    "naive_random_arm": "independent_sequence_hash_partition",
+    "naive_random_arm_declaration": "added_after_first_local_run_to_correct_diagnostic_definition_no_seed_or_metric_selection",
+    "subsampling": {
+      "reads": "all",
+      "training_pool": 2500,
+      "seed": 1729,
+      "algorithm": "smallest_sha256_seed_and_sequence_among_late_round_count_at_least_two"
+    },
+    "tertiary_enabled": false
+  },
+  "code": {
+    "common.py": "bff4af1d8aa3008a18c73e173621023b5125120f5260104c98a158c208478f46",
+    "generation.py": "9660fbdca599db82fbf681290a4944c973441e6673411a879e1bd0b904854f1a",
+    "07_build_splits.py": "fca272e0df5eb0f3aa1b9d48604ab0031a9f07dd71e5f865805b55ce2acedebb",
+    "sequences.py": "a8ae0c8b384886b591207d561d31d2edafd3b50cdc09005a02ded7a41bef230a"
+  },
+  "time": "2026-10-03T14:22:50.149081+00:00"
+}

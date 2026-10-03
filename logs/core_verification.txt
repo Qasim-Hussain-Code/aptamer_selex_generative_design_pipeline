@@ -1,0 +1,49 @@
+Configured budget 13000000000 bytes, free 17672740864 bytes, reserve 1000000000 bytes
+ViennaRNA 2.7.2 None Disclaimer and Copyright
+        
+        The programs, library and source code 
+numpy 2.5.3 BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 None
+scipy 1.18.1 None Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.
+         All rig
+scikit-learn 1.9.1 BSD-3-Clause None
+matplotlib 3.11.2 None License agreement for matplotlib versions 1.3.0 and later
+         =============
+PyYAML 6.0.3 None MIT
+pytest 9.1.1 MIT None
+psutil 7.2.2 None BSD-3-Clause
+pypdf 6.19.0 BSD-3-Clause None
+rapidfuzz 3.14.6 MIT None
+shellcheck_py 0.11.0.1 None MIT
+raptgen c4986ca9fa439b9389916c05829da4ff9c30d6f3 {'key': 'mit', 'name': 'MIT License', 'spdx_id': 'MIT', 'url': 'https://api.github.com/licenses/mit', 'node_id': 'MDc6TGljZW5zZTEz'}
+aptadiff ff2719c7840c18d2b912fd9fa4953ca5bd0f5602 None
+instructna 89b1e68e130620f5fe76458683d7f5f98404f81a None
+Primary references, licence exclusions and biological provenance recorded
+Validated metadata for 13 FASTQ files; no sequence download yet
+fetch integrin round 3: counts and input metadata validated, skipping
+fetch integrin round 4: counts and input metadata validated, skipping
+fetch integrin round 5: counts and input metadata validated, skipping
+fetch integrin round 6: counts and input metadata validated, skipping
+fetch tg2 round 0: counts and input metadata validated, skipping
+fetch tg2 round 1: counts and input metadata validated, skipping
+fetch tg2 round 2: counts and input metadata validated, skipping
+fetch tg2 round 3: counts and input metadata validated, skipping
+fetch tg2 round 4: counts and input metadata validated, skipping
+fetch tg2 round 5: counts and input metadata validated, skipping
+fetch tg2 round 6: counts and input metadata validated, skipping
+fetch tg2 round 7: counts and input metadata validated, skipping
+fetch tg2 round 8: counts and input metadata validated, skipping
+ground_truth: hashes validated, skipping
+splits: hashes validated, skipping
+baselines: hashes validated, skipping
+secondary: hashes validated, skipping
+Prepared hashed GPU inputs without assay labels or responses; no GPU model run claimed
+ablation: hashes validated, skipping
+generation: hashes validated, skipping
+scores: hashes validated, skipping
+Optional tertiary arm disabled by preregistered configuration
+evaluation: hashes validated, skipping
+......................................................                   [100%]
+54 passed in 1.50s
+Rendered eight figures; neural methods are absent because no artifacts have returned
+README and executed report written from actual outputs; no neural result invented
+Completed core workflow. Run bash scripts/18_verify.sh for the independent audit.
