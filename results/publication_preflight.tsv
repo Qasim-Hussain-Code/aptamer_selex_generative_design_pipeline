@@ -1,7 +1,7 @@
 check	status	detail
-historical_blob_size	PASS	236 historical blobs; largest 5619033 bytes
+historical_blob_size	PASS	270 historical blobs; largest 5619033 bytes
 historical_data_exclusions	PASS	0 prohibited environment, sequencing or weight paths
 credential_pattern_scan	PASS	0 recognized credential or private-key patterns in historical blobs
-commit_subjects	PASS	18 subjects checked against required naming convention
-current_file_size	PASS	185 tracked files; largest 5619033 bytes
+commit_subjects	PASS	20 subjects checked against required naming convention
+current_file_size	PASS	191 tracked files; largest 5619033 bytes
 github_topics	PASS	15 lowercase scientific topics

@@ -12,10 +12,10 @@ check	name	status	detail
 11	Banned prose	PASS	No unintended banned phrase hits
 12	Unsupported affinity wording	PASS	1 conceptual cautions recorded; no generated candidate receives experimental status
 13	No-selection-data boundary	PASS	Explicit scientific boundary remains in README and methods
-14	Leakage audit	PASS	integrin: exact=0, family=0; tg2: exact=0, family=0
+14	Leakage audit	PASS	tg2: exact=0, family=0; integrin: exact=0, family=0
 15	Assay leakage	PASS	No held-out assay in fitting; no test-driven early stopping, seed choice or optimization; source and configuration inspected
 16	Seed audit	PASS	Configured Markov generation seeds [11, 23, 37, 53, 71]; executed by target {'tg2': [11, 23, 37, 53, 71], 'integrin': [11, 23, 37, 53, 71]}; failed seeds []; neural training seeds not executed
-17	Resource audit	PASS	Observed maximum 546058655 bytes; current 483864053 bytes; all stages logged; initial missing RSS rows remain visible
+17	Resource audit	PASS	Observed maximum 546058655 bytes; current 484438368 bytes; all stages logged; initial missing RSS rows remain visible
 18	Free-space reserve	PASS	Minimum sampled free space 16167313408 bytes; reserve 1000000000 bytes
 19	Git size audit	PASS	Five largest tracked files: config/split_manifest.tsv=5619033; results/family_assignments.tsv=5619033; results/secondary_structure.tsv=1413652; results/held_out_predictions.tsv=548324; results/baseline_predictions.tsv=361376
 20	Licence audit	PASS	Unclear licences ['aptadiff', 'instructna'] correspond to excluded components; dependencies installed separately; transitive terms recorded
