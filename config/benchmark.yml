@@ -1,0 +1,34 @@
+master_seed: 1729
+family_threshold: 0.80
+threshold_sensitivity: [0.70, 0.80, 0.90]
+identity_metric: one_minus_global_levenshtein_over_max_length
+family_method: exact_connected_components
+family_threshold_rationale: arbitrary_preregistered_short_RNA_edit_identity_includes_indels
+reverse_complement_equivalence: false
+generation_budget: 10000
+generation_seeds: [11, 23, 37, 53, 71]
+generation_max_draws: 1000000
+generation_curve_budgets: [100, 500, 1000, 5000, 10000]
+bootstrap_replicates: 2000
+models: [raptgen, aptadiff]
+baselines: [frequency, enrichment, kmer_ridge, markov]
+kmer_sizes: [1, 2, 3]
+ridge_alpha: 10.0
+enrichment_pseudocount: 0.5
+structural_features: [mfe_kcal_mol, base_pair_count, paired_fraction, ensemble_diversity]
+folding_temperature_c: 37.0
+folding_context: full_assay_construct_without_polyA_tail
+folding_parameters: canonical_RNA_Turner_2004_proxy
+assay_endpoint: published_label_primary_continuous_response_secondary
+binary_threshold: null
+classification_primary_metric: average_precision
+continuous_primary_metric: spearman
+bootstrap_unit: sequence_family
+top_k: 10
+supervised_design: outer_leave_one_family_out_and_leave_one_sequence_out
+subsampling:
+  reads: all
+  training_pool: all
+  seed: 1729
+  algorithm: none
+tertiary_enabled: false
