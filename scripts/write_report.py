@@ -3,12 +3,46 @@ import argparse
 from collections import defaultdict
 import html
 import json
+import re
 from pathlib import Path
 from common import ROOT, rows, table, atomic_text, settings, sha256
 
 
 def markdown_table(headers, data):
     return "| " + " | ".join(headers) + " |\n| " + " | ".join(["---"]*len(headers)) + " |\n" + "\n".join("| "+" | ".join(map(str,r))+" |" for r in data)
+
+
+def report_html(markdown):
+    def href(url):
+        return url if url.startswith(("https://","http://")) else "../"+url
+    def inline(value):
+        value=html.escape(value)
+        value=re.sub(r'!\[([^]]*)\]\(([^)]+)\)',lambda m:f'<img src="{href(m[2])}" alt="{m[1]}">',value)
+        value=re.sub(r'(?<!!)\[([^]]*)\]\(([^)]+)\)',lambda m:f'<a href="{href(m[2])}">{m[1]}</a>',value)
+        value=re.sub(r'`([^`]+)`',r'<code>\1</code>',value)
+        return re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',value)
+    output=[];lines=markdown.splitlines();i=0
+    while i<len(lines):
+        line=lines[i]
+        if not line.strip():i+=1;continue
+        if line.startswith("```"):
+            block=[];i+=1
+            while i<len(lines) and not lines[i].startswith("```"):
+                block.append(lines[i]);i+=1
+            output.append("<pre><code>"+html.escape("\n".join(block))+"</code></pre>");i+=1;continue
+        if line.startswith("|"):
+            block=[]
+            while i<len(lines) and lines[i].startswith("|"):
+                block.append([c.strip() for c in lines[i].strip("|").split("|")]);i+=1
+            output.append('<div class="table"><table><thead><tr>'+''.join('<th>'+inline(c)+'</th>' for c in block[0])+"</tr></thead><tbody>"+''.join('<tr>'+''.join('<td>'+inline(c)+'</td>' for c in row)+'</tr>' for row in block[2:])+"</tbody></table></div>");continue
+        heading=re.match(r"^(#{1,6}) (.+)",line)
+        if heading:
+            level=len(heading[1]);output.append(f"<h{level}>"+inline(heading[2])+f"</h{level}>");i+=1;continue
+        paragraph=[line];i+=1
+        while i<len(lines) and lines[i].strip() and not lines[i].startswith(("#","|","```")):
+            paragraph.append(lines[i]);i+=1
+        output.append("<p>"+inline(" ".join(paragraph))+"</p>")
+    return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Executed local analysis</title><style>body{max-width:1100px;margin:40px auto;padding:0 20px;font:16px/1.6 system-ui;color:#182c3b}img{max-width:100%}pre{overflow:auto;background:#edf2f5;padding:16px}code{font-size:13px}.table{overflow:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #ccd8df;padding:8px}h2{margin-top:40px}a{color:#286181}</style>'+"\n".join(output)+"</html>"
 
 
 def main():
@@ -52,6 +86,10 @@ def main():
              peak_project_bytes=peak,peak_measured_rss_bytes=rss,minimum_free_bytes=minfree,resource_snapshot_rows=len(resources)))
     table(ROOT/"results/summary.tsv",summary)
     table(ROOT/"results/dataset_design.tsv",list(rows(ROOT/"config/datasets.tsv")))
+    run_summary=dict(run="executed_core",unique_markov_candidates=total_candidates,exact_test_recovery=exact_recovery,positive_test_family_recovery=family_recovery,
+                     primary_family_threshold=primary,bootstrap_replicates=cfg["bootstrap_replicates"],generation_budget=cfg["generation_budget"],
+                     generation_seeds=",".join(map(str,cfg["generation_seeds"])),folding_temperature_c=cfg["folding_temperature_c"],resource_snapshot_rows=len(resources))
+    table(ROOT/"results/run_summary.tsv",[run_summary])
     sources=[]
     for r in summary:
         for k,v in r.items():
@@ -63,6 +101,16 @@ def main():
         if float(r["threshold"])==primary:
             for col in ["difference","lower_95","upper_95"]:
                 sources.append(dict(claim_id=f'{r["target"]}_{r["strategy"]}_{r["method"]}_{r["comparison"]}_{col}',value=r[col],source_file="results/paired_differences.tsv",source_row=f'target={r["target"]};strategy={r["strategy"]};method={r["method"]};comparison={r["comparison"]};threshold={primary}',source_column=col,scope="measured"))
+    for k,v in run_summary.items():
+        if k!="run":sources.append(dict(claim_id=k,value=v,source_file="results/run_summary.tsv",source_row="run=executed_core",source_column=k,scope="aggregate_or_configured"))
+    for r in intervals:
+        if float(r["threshold"])==primary:
+            for col in ["lower_95","upper_95"]:
+                sources.append(dict(claim_id=f'{r["target"]}_{r["strategy"]}_{r["method"]}_ap_{col}',value=r[col],source_file="results/bootstrap_intervals.tsv",source_row=f'target={r["target"]};strategy={r["strategy"]};method={r["method"]};threshold={primary}',source_column=col,scope="measured_family_bootstrap"))
+    latest_resources={r["stage"]:r for r in resources}
+    for stage,r in latest_resources.items():
+        for col in ["elapsed_seconds","peak_rss_bytes","peak_observed_disk_bytes"]:
+            sources.append(dict(claim_id=f'resource_{stage}_{col}',value=r[col],source_file="logs/resource_usage.tsv",source_row=f'stage={stage};start_timestamp={r["start_timestamp"]}',source_column=col,scope="raw_units; prose_MB_and_GB_use_decimal_divisors"))
     table(ROOT/"results/readme_traceability.tsv",sources)
     definitions=[
         ("relative_frequency","count/retained_round_depth","fraction","higher","selection readout, not experimental affinity"),
@@ -234,7 +282,7 @@ The RaptRanker article and supplement have their own CC-BY-NC terms. The origina
     atomic_text(ROOT/"README.md",readme)
     report=readme.replace("# Measured selection baselines; neural comparison remains blocked", "# Executed local analysis report",1).replace("figures/","../figures/")
     atomic_text(ROOT/"docs/analysis_report.md",report)
-    atomic_text(ROOT/"results/report.html",'<!doctype html><html lang="en"><meta charset="utf-8"><title>Executed local analysis</title><style>body{max-width:1100px;margin:40px auto;font:16px/1.6 system-ui;color:#182c3b}pre{white-space:pre-wrap;font:inherit}img{max-width:100%}</style><h1>Executed local analysis</h1><pre>'+html.escape(readme)+'</pre>'+''.join(f'<figure><img src="../figures/{name}.png" alt="{name}"></figure>' for name in ["03_random_vs_family","07_structure_ablation","08_resources"])+"</html>")
+    atomic_text(ROOT/"results/report.html",report_html(readme))
     atomic_text(ROOT/"HANDOVER.md",'''# Remaining external work
 
 The public sequencing processing, primary assay reconstruction, local baselines, leakage audits, Markov generation, secondary-structure ablation, statistics and figures are real outputs. No RaptGen or AptaDiff model has trained in this run. No neural ranking, neural recovery or tertiary result exists.
