@@ -52,7 +52,8 @@ def main():
                 if point:
                     interval=next(r for r in intervals if r["target"]==target and r["strategy"]==strategy and r["method"]==method and float(r["threshold"])==cfg["family_threshold"])
                     value=float(point["value"])
-                    ax.plot(i+offset,value,"o",color=color,label=strategy if i==0 else None)
+                    legend={"naive_sequence_random":"Independent sequence split","random":"Matched exact-only exclusion","family":"Family exclusion"}
+                    ax.plot(i+offset,value,"o",color=color,label=legend[strategy] if i==0 else None)
                     ax.vlines(i+offset,float(interval["lower_95"]),float(interval["upper_95"]),color=color)
         ax.set(xticks=range(len(methods)),xticklabels=["Enrichment\nridge","Markov","Assay\nlogistic","Observed\nfrequency","Observed\nenrichment"],ylim=(0,1.04),ylabel="Average precision",title=target)
         ax.legend(frameon=False)

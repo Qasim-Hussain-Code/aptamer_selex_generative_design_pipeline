@@ -87,7 +87,7 @@ def main():
          dict(item="DDBJ direct metadata endpoint", reason="Resource .xml route returned HTML; guessed FTP route returned 404", action="Use DDBJ-submitted study/experiment records from INSDC ENA mirror; record failures"),
          dict(item="RaptGen remote execution", reason="No hosted GPU run or CUDA compatibility test performed", action="Provide pinned job and validate returned outputs; no neural result claimed")])
     table(ROOT / "results/data_terms.tsv", [dict(component="RaptRanker article and supplement", terms="CC-BY-NC-4.0", source="https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7641312/fullTextXML", redistribution="primary PDF not redistributed; factual derived assay fields attributed; terms retained", checked_date="2026-10-03"),
-         dict(component="DDBJ/ENA reads", terms="INSDC public archival data; no repository-specific licence inferred", source="https://www.ebi.ac.uk/ena/browser/about/terms-of-use", redistribution="raw and compact reads ignored; regenerate from accession manifests", checked_date="2026-10-03"),
+         dict(component="DDBJ/ENA reads", terms="EMBL-EBI imposes no additional contributed-data restriction; original-owner terms may apply; no repository-specific licence inferred", source="https://www.ebi.ac.uk/about/terms-of-use/", redistribution="raw and compact reads ignored; regenerate from accession manifests", checked_date="2026-10-03"),
          dict(component="AptaDiff repository datasets", terms="unclear separate dataset terms", source="https://github.com/wz-create/AptaDiff", redistribution="not redistributed; inspection summaries only", checked_date="2026-10-03")])
     print("Primary references, licence exclusions and biological provenance recorded")
     stamp("sources",inputs,outputs)
