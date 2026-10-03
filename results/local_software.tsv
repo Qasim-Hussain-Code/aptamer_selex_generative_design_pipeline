@@ -1,0 +1,14 @@
+tool	role	version	source	source_commit	licence	licence_url_or_source	licence_checked_date	execution	redistributable	notes
+numpy	local core	2.3.5	https://pypi.org/project/numpy/2.3.5/		BSD-3-Clause plus bundled dependency terms	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+scipy	local core	1.16.3	https://pypi.org/project/scipy/1.16.3/		BSD-3-Clause plus bundled dependency terms	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+scikit-learn	local core	1.7.1	https://pypi.org/project/scikit-learn/1.7.1/		BSD-3-Clause	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+matplotlib	local core	3.10.8	https://pypi.org/project/matplotlib/3.10.8/		PSF-derived Matplotlib licence	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+PyYAML	local core	6.0.3	https://pypi.org/project/PyYAML/6.0.3/		MIT	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+psutil	local core	7.0.0	https://pypi.org/project/psutil/7.0.0/		BSD-3-Clause	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+pypdf	local core	6.12.2	https://pypi.org/project/pypdf/6.12.2/		BSD-3-Clause	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+rapidfuzz	local core	3.14.3	https://pypi.org/project/rapidfuzz/3.14.3/		MIT	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+ViennaRNA	local core	2.7.2	https://pypi.org/project/ViennaRNA/2.7.2/		ViennaRNA custom licence	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+pytest	local core	9.0.2	https://pypi.org/project/pytest/9.0.2/		MIT	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+shellcheck_py	local core	0.11.0.1	https://pypi.org/project/shellcheck_py/0.11.0.1/		MIT	installed distribution METADATA and licence files	2026-10-03	local	yes	Installed separately; no dependency source vendored
+Python	interpreter	3.13.11	https://www.python.org/		PSF-2.0	https://docs.python.org/3/license.html	2026-10-03	local	yes	project venv
+Bash	orchestration	5.2.37(1)-release	https://www.gnu.org/software/bash/		GPL-3.0-or-later	https://www.gnu.org/software/bash/	2026-10-03	local	yes	separately installed executable

@@ -1,0 +1,29 @@
+tool	version	licence	source	installed_separately	checked_date	licence_evidence
+cloudpickle	3.1.2	BSD-3-Clause	https://pypi.org/project/cloudpickle/3.1.2/	yes	2026-10-03	cloudpickle-3.1.2.dist-info/licenses/LICENSE
+colorama	0.4.6	License :: OSI Approved :: BSD License	https://pypi.org/project/colorama/0.4.6/	yes	2026-10-03	colorama-0.4.6.dist-info/licenses/LICENSE.txt
+contourpy	1.4.0	BSD-3-Clause	https://pypi.org/project/contourpy/1.4.0/	yes	2026-10-03	contourpy-1.4.0.dist-info/licenses/LICENSE
+cycler	0.12.1	BSD-3-Clause	https://pypi.org/project/cycler/0.12.1/	yes	2026-10-03	cycler-0.12.1.dist-info/LICENSE
+fonttools	4.66.1	MIT	https://pypi.org/project/fonttools/4.66.1/	yes	2026-10-03	fonttools-4.66.1.dist-info/licenses/LICENSE
+iniconfig	2.3.0	MIT	https://pypi.org/project/iniconfig/2.3.0/	yes	2026-10-03	iniconfig-2.3.0.dist-info/licenses/LICENSE
+joblib	1.6.0	BSD-3-Clause	https://pypi.org/project/joblib/1.6.0/	yes	2026-10-03	joblib-1.6.0.dist-info/licenses/LICENSE.txt
+kiwisolver	1.5.1	BSD-3-Clause	https://pypi.org/project/kiwisolver/1.5.1/	yes	2026-10-03	kiwisolver-1.5.1.dist-info/licenses/LICENSE
+matplotlib	3.10.8	PSF-derived Matplotlib licence	https://pypi.org/project/matplotlib/3.10.8/	yes	2026-10-03	matplotlib-3.10.8.dist-info/LICENSE
+numpy	2.3.5	BSD-3-Clause plus bundled dependency terms	https://pypi.org/project/numpy/2.3.5/	yes	2026-10-03	numpy-2.3.5.dist-info/LICENSE.txt;numpy/_core/include/numpy/random/LICENSE.txt;numpy/ma/LICENSE
+packaging	26.3	Apache-2.0 OR BSD-2-Clause	https://pypi.org/project/packaging/26.3/	yes	2026-10-03	packaging-26.3.dist-info/licenses/LICENSE
+pillow	12.3.0	MIT-CMU	https://pypi.org/project/pillow/12.3.0/	yes	2026-10-03	pillow-12.3.0.dist-info/licenses/LICENSE
+pip	25.3	MIT	https://pypi.org/project/pip/25.3/	yes	2026-10-03	pip-25.3.dist-info/licenses/LICENSE.txt;pip-25.3.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt;pip-25.3.dist-info/licenses/src/pip/_vendor/certifi/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/dependency_groups/LICENSE.txt;pip-25.3.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt;pip-25.3.dist-info/licenses/src/pip/_vendor/distro/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/packaging/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/pkg_resources/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/platformdirs/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/pygments/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/pyproject_hooks/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/requests/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/resolvelib/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/rich/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/tomli/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/tomli_w/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/truststore/LICENSE;pip-25.3.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt;pip/_vendor/cachecontrol/LICENSE.txt;pip/_vendor/certifi/LICENSE;pip/_vendor/dependency_groups/LICENSE.txt;pip/_vendor/distlib/LICENSE.txt;pip/_vendor/distro/LICENSE;pip/_vendor/packaging/LICENSE;pip/_vendor/pkg_resources/LICENSE;pip/_vendor/platformdirs/LICENSE;pip/_vendor/pygments/LICENSE;pip/_vendor/pyproject_hooks/LICENSE;pip/_vendor/requests/LICENSE;pip/_vendor/resolvelib/LICENSE;pip/_vendor/rich/LICENSE;pip/_vendor/tomli/LICENSE;pip/_vendor/tomli_w/LICENSE;pip/_vendor/truststore/LICENSE;pip/_vendor/urllib3/LICENSE.txt
+pluggy	1.6.0	MIT	https://pypi.org/project/pluggy/1.6.0/	yes	2026-10-03	pluggy-1.6.0.dist-info/licenses/LICENSE
+psutil	7.0.0	BSD-3-Clause	https://pypi.org/project/psutil/7.0.0/	yes	2026-10-03	psutil-7.0.0.dist-info/LICENSE
+Pygments	2.21.0	BSD-2-Clause	https://pypi.org/project/Pygments/2.21.0/	yes	2026-10-03	pygments-2.21.0.dist-info/licenses/LICENSE
+pyparsing	3.3.3	MIT	https://pypi.org/project/pyparsing/3.3.3/	yes	2026-10-03	pyparsing-3.3.3.dist-info/licenses/LICENSE
+pypdf	6.12.2	BSD-3-Clause	https://pypi.org/project/pypdf/6.12.2/	yes	2026-10-03	pypdf-6.12.2.dist-info/licenses/LICENSE
+pytest	9.0.2	MIT	https://pypi.org/project/pytest/9.0.2/	yes	2026-10-03	pytest-9.0.2.dist-info/licenses/LICENSE
+python-dateutil	2.9.0.post0	Apache-2.0 and BSD-3-Clause contributions	https://pypi.org/project/python-dateutil/2.9.0.post0/	yes	2026-10-03	python_dateutil-2.9.0.post0.dist-info/LICENSE
+PyYAML	6.0.3	MIT	https://pypi.org/project/PyYAML/6.0.3/	yes	2026-10-03	pyyaml-6.0.3.dist-info/licenses/LICENSE
+RapidFuzz	3.14.3	MIT	https://pypi.org/project/RapidFuzz/3.14.3/	yes	2026-10-03	rapidfuzz-3.14.3.dist-info/licenses/LICENSE
+scikit-learn	1.7.1	BSD-3-Clause	https://pypi.org/project/scikit-learn/1.7.1/	yes	2026-10-03	sklearn/externals/array_api_compat/LICENSE;sklearn/externals/array_api_extra/LICENSE
+scipy	1.16.3	BSD-3-Clause plus bundled dependency terms	https://pypi.org/project/scipy/1.16.3/	yes	2026-10-03	scipy-1.16.3.dist-info/LICENSE.txt;scipy/_lib/_uarray/LICENSE
+shellcheck_py	0.11.0.1	MIT	https://pypi.org/project/shellcheck_py/0.11.0.1/	yes	2026-10-03	shellcheck_py-0.11.0.1.dist-info/licenses/LICENSE
+six	1.17.0	MIT	https://pypi.org/project/six/1.17.0/	yes	2026-10-03	six-1.17.0.dist-info/LICENSE
+threadpoolctl	3.7.0	BSD-3-Clause	https://pypi.org/project/threadpoolctl/3.7.0/	yes	2026-10-03	threadpoolctl-3.7.0.dist-info/licenses/LICENSE
+ViennaRNA	2.7.2	ViennaRNA custom licence	https://pypi.org/project/ViennaRNA/2.7.2/	yes	2026-10-03	

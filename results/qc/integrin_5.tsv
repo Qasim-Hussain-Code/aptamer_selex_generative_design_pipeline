@@ -1,0 +1,2 @@
+target	round	raw_reads	retained_reads	unique_sequences	duplicate_fraction	ambiguous_base_count	discarded_reads	primer_mismatch	primer_order_or_multiple	length_outside_published_range	constant_region_remnant	reverse_orientation_reads	compressed_raw_bytes	compact_bytes	sqlite_peak_bytes	counts_sha256
+integrin	5	116917	80114	24940	0.688693611603465	0	36803	31600	0	5203	0	0	7399524	247859	1286144	fb789fef7f80d81c5b3816df18e2ec91e1a1171c7e19ed4aaae1f7ca4d449259

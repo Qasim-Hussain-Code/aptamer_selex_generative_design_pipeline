@@ -1,0 +1,23 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "physical_ram_bytes": 16786583552,
+  "logical_cpus": 16,
+  "python": "C:\\Users\\User\\Documents\\Structural_Biology\\aptamer_selex_generative_design_pipeline\\.venv\\Scripts\\python.exe",
+  "timestamp": "2026-10-03T14:20:09.707018+00:00",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.1",
+    "matplotlib": "3.10.8",
+    "PyYAML": "6.0.3",
+    "psutil": "7.0.0",
+    "pypdf": "6.12.2",
+    "rapidfuzz": "3.14.3",
+    "ViennaRNA": "2.7.2",
+    "pytest": "9.0.2",
+    "shellcheck_py": "0.11.0.1",
+    "Python": "3.13.11",
+    "Bash": "5.2.37(1)-release"
+  }
+}

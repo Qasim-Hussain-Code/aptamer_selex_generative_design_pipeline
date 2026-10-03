@@ -1,0 +1,9 @@
+target	method	quantity	configured_seeds	executed_seeds	failed_seeds	mean	standard_deviation	minimum	maximum	variance_type
+integrin	markov	exact_test_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+integrin	markov	test_family_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+integrin	markov	positive_test_family_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+integrin	markov	mean_training_identity	11,23,37,53,71	11,23,37,53,71		0.6009992785212164	0.00039885336405819625	0.6004698848294733	0.601483965297334	generation_seed_only; single_fixed_training_model
+tg2	markov	exact_test_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+tg2	markov	test_family_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+tg2	markov	positive_test_family_recovery	11,23,37,53,71	11,23,37,53,71		0.0	0.0	0.0	0.0	generation_seed_only; single_fixed_training_model
+tg2	markov	mean_training_identity	11,23,37,53,71	11,23,37,53,71		0.6119610889401457	0.0003688896040339116	0.6116446433300036	0.6125934962603455	generation_seed_only; single_fixed_training_model

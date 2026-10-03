@@ -1,0 +1,3 @@
+method	reason	source_commit	checked_date	status
+aptadiff	No explicit repository software licence at inspected commit; paper Code availability declares MIT but repository contains no licence; excluded pending clarification	ff2719c7840c18d2b912fd9fa4953ca5bd0f5602	2026-10-03	excluded_no_code_or_weights_vendored
+instructna	No explicit repository software licence at inspected commit	89b1e68e130620f5fe76458683d7f5f98404f81a	2026-10-03	excluded_no_code_or_weights_vendored

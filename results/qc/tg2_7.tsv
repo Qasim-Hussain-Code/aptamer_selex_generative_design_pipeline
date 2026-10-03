@@ -1,0 +1,2 @@
+target	round	raw_reads	retained_reads	unique_sequences	duplicate_fraction	ambiguous_base_count	discarded_reads	primer_mismatch	primer_order_or_multiple	length_outside_published_range	constant_region_remnant	reverse_orientation_reads	compressed_raw_bytes	compact_bytes	sqlite_peak_bytes	counts_sha256
+tg2	7	49469	40352	5093	0.873785685963521	0	9117	9061	0	56	0	0	2623965	35842	217088	eaf6481e4402c1c03b8e2feaed4b1e8ce730617dc02c3b5e087eeace79503e1f

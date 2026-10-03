@@ -1,0 +1,4 @@
+component	terms	source	redistribution	checked_date
+RaptRanker article and supplement	CC-BY-NC-4.0	https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7641312/fullTextXML	primary PDF not redistributed; factual derived assay fields attributed; terms retained	2026-10-03
+DDBJ/ENA reads	EMBL-EBI imposes no additional contributed-data restriction; original-owner terms may apply; no repository-specific licence inferred	https://www.ebi.ac.uk/about/terms-of-use/	raw and compact reads ignored; regenerate from accession manifests	2026-10-03
+AptaDiff repository datasets	unclear separate dataset terms	https://github.com/wz-create/AptaDiff	not redistributed; inspection summaries only	2026-10-03

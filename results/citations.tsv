@@ -1,0 +1,5 @@
+method	doi	title	source	verification	checked_date
+RaptRanker	10.1093/nar/gkaa484	RaptRanker: in silico RNA aptamer selection from HT-SELEX experiment based on local sequence and structure information	https://academic.oup.com/nar/article/48/14/e82/5855635	primary fullTextXML and supplementary PDF	2026-10-03
+RaptGen	10.1038/s43588-022-00249-6	Generative aptamer discovery using RaptGen	https://www.nature.com/articles/s43588-022-00249-6	primary publisher article inspected	2026-10-03
+AptaDiff	10.1093/bib/bbae517	AptaDiff: de novo design and optimization of aptamers based on diffusion models	https://pmc.ncbi.nlm.nih.gov/articles/PMC11491854/	primary fullTextXML and publisher article	2026-10-03
+InstructNA	10.1038/s43588-026-00965-3	De novo design of functional nucleic acids of aptamers	https://www.nature.com/articles/s43588-026-00965-3	primary publisher article inspected; optional code excluded	2026-10-03

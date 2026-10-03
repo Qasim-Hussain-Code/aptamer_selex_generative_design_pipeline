@@ -1,0 +1,2 @@
+run	unique_markov_candidates	exact_test_recovery	positive_test_family_recovery	primary_family_threshold	bootstrap_replicates	generation_budget	generation_seeds	folding_temperature_c	resource_snapshot_rows
+executed_core	100000	0	0	0.8	2000	10000	11,23,37,53,71	37.0	103

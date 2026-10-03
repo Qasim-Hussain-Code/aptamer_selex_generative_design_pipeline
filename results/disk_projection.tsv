@@ -1,0 +1,2 @@
+pilot_target	pilot_round	raw_bytes	compact_bytes	compact_to_raw_ratio	projected_peak_bytes	safety_margin_fraction	policy
+tg2	7	2623965	35842	0.013659480976308754	470779323	0.1	one_raw_file_at_a_time; no_checkpoints

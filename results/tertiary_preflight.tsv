@@ -1,0 +1,2 @@
+method	code_licence	weight_terms	hardware	held_out_endpoint	proceed	reason
+none_selected	not_evaluated	not_evaluated	no_hosted_run	paired_delta_average_precision_on_fixed_assay_test_subset	no	Optional arm disabled; no satisfactory method/licence/hardware preflight; no tertiary score produced

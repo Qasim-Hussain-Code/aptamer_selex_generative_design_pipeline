@@ -1,0 +1,28 @@
+score	definition	units	direction	limitations
+relative_frequency	count/retained_round_depth	fraction	higher	selection readout, not experimental affinity
+log2_enrichment	log2((c_late+a)/(N_late+aV) / ((c_previous+a)/(N_previous+aV)))	dimensionless	higher	amplification and bottleneck biases; a from config
+predicted_log2_enrichment	regularized ridge prediction using training SELEX enrichment	dimensionless	higher	not SPR or KD prediction
+decision_function	regularized logistic decision function fitted on training published labels	dimensionless	higher	uncalibrated ranking score
+per_nt_log_probability	first-order Markov natural log sequence probability / sequence length	nats/nt	higher	training distribution likelihood, not activity
+posterior_mean_conditional_PHMM_log_probability_per_nt	RaptGen conditional reconstruction PHMM log probability / length	nats/nt	higher	registered but no neural scores generated
+AptaDiff	unregistered; method excluded	not_available	not_available	no diffusion objective is interpreted as activity
+SPR_response	source end-of-injection SPR response	RU	higher	experimental response, not KD
+published_label	original Positive/Negative (1/0)	binary	1_positive	published designation preserved
+KD_strength	-log10(KD)	log_units	higher	direction tested; no KD used in current evaluation
+mfe_kcal_mol	ViennaRNA intramolecular MFE	kcal/mol	no_binding_direction	canonical-RNA secondary-structure proxy
+base_pair_count	opening parentheses in MFE dot-bracket	pairs	no_binding_direction	intramolecular structure
+paired_fraction	2*base_pair_count/construct_length	fraction	no_binding_direction	full assay construct excluding polyA tether
+ensemble_diversity	partition-function mean base-pair distance	pairs	no_binding_direction	canonical RNA ensemble proxy
+average_precision	sum precision at distinct score thresholds * recall increment	fraction	higher	primary; compare prevalence and test class count
+auroc	probability a positive is ranked above a negative with half credit to ties	fraction	higher	secondary; undefined with one class
+spearman	rank correlation of model score and source RU	correlation	higher	undefined for constant scores
+kendall	Kendall tau of model score and source RU	correlation	higher	secondary; ties included
+precision_top_k	positive fraction among top k with fractional tied boundary	fraction	higher	k fixed before evaluation
+prevalence	test positives / test sequences	fraction	not_a_model_score	constant-score AP reference
+maximum_identity	max training (1 - global edit distance / max lengths)	fraction	no_binding_direction	not an alignment matches percentage
+edit_distance	minimum global Levenshtein edits to training	edits	no_binding_direction	insertions and deletions included
+family_recovery	test family with identity edge from at least one generated candidate	families	higher_coverage	no untested candidate is established as a binder
+gc_fraction	G+C nucleotide count / total nucleotides	fraction	no_binding_direction	generation composition
+duplicate_fraction	1 - unique/retained reads	fraction	not_a_binding_score	within-round count redundancy
+paired_difference	metric_left - metric_right on identical test sequences	metric_units	context_specific	family bootstrap; excludes training uncertainty
+seed_standard_deviation	sample standard deviation across all fixed generation seeds	quantity_units	not_a_binding_score	does not estimate training-seed variance

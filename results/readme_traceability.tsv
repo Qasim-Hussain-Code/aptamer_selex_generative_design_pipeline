@@ -1,0 +1,686 @@
+claim_id	value	source_file	source_row	source_column	scope
+tg2_raw_reads	840620	results/summary.tsv	target=tg2	raw_reads	measured_or_manifest_count
+tg2_retained_reads	650294	results/summary.tsv	target=tg2	retained_reads	measured_or_manifest_count
+tg2_discarded_reads	190326	results/summary.tsv	target=tg2	discarded_reads	measured_or_manifest_count
+tg2_rounds	9	results/summary.tsv	target=tg2	rounds	measured_or_manifest_count
+tg2_test_sequences	15	results/summary.tsv	target=tg2	test_sequences	measured_or_manifest_count
+tg2_test_positives	14	results/summary.tsv	target=tg2	test_positives	measured_or_manifest_count
+tg2_test_negatives	1	results/summary.tsv	target=tg2	test_negatives	measured_or_manifest_count
+tg2_test_families	6	results/summary.tsv	target=tg2	test_families	measured_or_manifest_count
+tg2_training_sequences	1810	results/summary.tsv	target=tg2	training_sequences	measured_or_manifest_count
+tg2_selected_pool	1893	results/summary.tsv	target=tg2	selected_pool	measured_or_manifest_count
+tg2_pool_cap_exclusions	0	results/summary.tsv	target=tg2	pool_cap_exclusions	measured_or_manifest_count
+tg2_family_exclusions	83	results/summary.tsv	target=tg2	family_exclusions	measured_or_manifest_count
+tg2_ridge_ap	0.9260788814360241	results/summary.tsv	target=tg2	ridge_ap	measured_or_manifest_count
+tg2_observed_enrichment_ap	0.9571162964020106	results/summary.tsv	target=tg2	observed_enrichment_ap	measured_or_manifest_count
+tg2_assays_retained	30	results/summary.tsv	target=tg2	assays_retained	measured_or_manifest_count
+tg2_assays_excluded	0	results/summary.tsv	target=tg2	assays_excluded	measured_or_manifest_count
+tg2_peak_project_bytes	546058655	results/summary.tsv	target=tg2	peak_project_bytes	measured_or_manifest_count
+tg2_peak_measured_rss_bytes	233213952	results/summary.tsv	target=tg2	peak_measured_rss_bytes	measured_or_manifest_count
+tg2_minimum_free_bytes	17384529920	results/summary.tsv	target=tg2	minimum_free_bytes	measured_or_manifest_count
+tg2_resource_snapshot_rows	103	results/summary.tsv	target=tg2	resource_snapshot_rows	measured_or_manifest_count
+integrin_raw_reads	467095	results/summary.tsv	target=integrin	raw_reads	measured_or_manifest_count
+integrin_retained_reads	306561	results/summary.tsv	target=integrin	retained_reads	measured_or_manifest_count
+integrin_discarded_reads	160534	results/summary.tsv	target=integrin	discarded_reads	measured_or_manifest_count
+integrin_rounds	4	results/summary.tsv	target=integrin	rounds	measured_or_manifest_count
+integrin_test_sequences	25	results/summary.tsv	target=integrin	test_sequences	measured_or_manifest_count
+integrin_test_positives	15	results/summary.tsv	target=integrin	test_positives	measured_or_manifest_count
+integrin_test_negatives	10	results/summary.tsv	target=integrin	test_negatives	measured_or_manifest_count
+integrin_test_families	24	results/summary.tsv	target=integrin	test_families	measured_or_manifest_count
+integrin_training_sequences	2202	results/summary.tsv	target=integrin	training_sequences	measured_or_manifest_count
+integrin_selected_pool	2500	results/summary.tsv	target=integrin	selected_pool	measured_or_manifest_count
+integrin_pool_cap_exclusions	59	results/summary.tsv	target=integrin	pool_cap_exclusions	measured_or_manifest_count
+integrin_family_exclusions	298	results/summary.tsv	target=integrin	family_exclusions	measured_or_manifest_count
+integrin_ridge_ap	0.7436846486846487	results/summary.tsv	target=integrin	ridge_ap	measured_or_manifest_count
+integrin_observed_enrichment_ap	0.8748836001696414	results/summary.tsv	target=integrin	observed_enrichment_ap	measured_or_manifest_count
+integrin_assays_retained	48	results/summary.tsv	target=integrin	assays_retained	measured_or_manifest_count
+integrin_assays_excluded	0	results/summary.tsv	target=integrin	assays_excluded	measured_or_manifest_count
+integrin_peak_project_bytes	546058655	results/summary.tsv	target=integrin	peak_project_bytes	measured_or_manifest_count
+integrin_peak_measured_rss_bytes	233213952	results/summary.tsv	target=integrin	peak_measured_rss_bytes	measured_or_manifest_count
+integrin_minimum_free_bytes	17384529920	results/summary.tsv	target=integrin	minimum_free_bytes	measured_or_manifest_count
+integrin_resource_snapshot_rows	103	results/summary.tsv	target=integrin	resource_snapshot_rows	measured_or_manifest_count
+tg2_family_kmer_ridge_average_precision	0.9260788814360241	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_family_kmer_ridge_auroc	0.2857142857142857	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_family_kmer_ridge_spearman	-0.08214285714285713	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_family_kmer_ridge_kendall	-0.028571428571428574	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_family_kmer_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_kmer_ridge_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_family_frequency_average_precision	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=average_precision;threshold=0.8	value	measured
+tg2_family_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=auroc;threshold=0.8	value	measured
+tg2_family_frequency_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=spearman;threshold=0.8	value	measured
+tg2_family_frequency_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=kendall;threshold=0.8	value	measured
+tg2_family_frequency_precision_top_k	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_frequency_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency;metric=prevalence;threshold=0.8	value	measured
+tg2_family_enrichment_average_precision	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+tg2_family_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=auroc;threshold=0.8	value	measured
+tg2_family_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=spearman;threshold=0.8	value	measured
+tg2_family_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=kendall;threshold=0.8	value	measured
+tg2_family_enrichment_precision_top_k	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_enrichment_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+tg2_family_frequency_observed_average_precision	0.9549783549783549	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_family_frequency_observed_auroc	0.42857142857142855	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+tg2_family_frequency_observed_spearman	-0.181848241863327	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+tg2_family_frequency_observed_kendall	-0.11131573579846799	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+tg2_family_frequency_observed_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_frequency_observed_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_family_enrichment_observed_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_family_enrichment_observed_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+tg2_family_enrichment_observed_spearman	-0.3571428571428571	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+tg2_family_enrichment_observed_kendall	-0.20000000000000004	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+tg2_family_enrichment_observed_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_enrichment_observed_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_family_kmer_logistic_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_family_kmer_logistic_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_family_kmer_logistic_spearman	0.3607142857142856	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_family_kmer_logistic_kendall	0.2761904761904762	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_family_kmer_logistic_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_kmer_logistic_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+tg2_random_kmer_ridge_average_precision	0.9117931671503099	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_random_kmer_ridge_auroc	0.21428571428571427	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_random_kmer_ridge_spearman	-0.017857142857142853	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_random_kmer_ridge_kendall	-0.06666666666666668	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_random_kmer_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_kmer_ridge_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_random_frequency_average_precision	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=average_precision;threshold=0.8	value	measured
+tg2_random_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=auroc;threshold=0.8	value	measured
+tg2_random_frequency_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=spearman;threshold=0.8	value	measured
+tg2_random_frequency_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=kendall;threshold=0.8	value	measured
+tg2_random_frequency_precision_top_k	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_frequency_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency;metric=prevalence;threshold=0.8	value	measured
+tg2_random_enrichment_average_precision	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+tg2_random_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=auroc;threshold=0.8	value	measured
+tg2_random_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=spearman;threshold=0.8	value	measured
+tg2_random_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=kendall;threshold=0.8	value	measured
+tg2_random_enrichment_precision_top_k	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_enrichment_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+tg2_random_frequency_observed_average_precision	0.9549783549783549	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_random_frequency_observed_auroc	0.42857142857142855	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+tg2_random_frequency_observed_spearman	-0.181848241863327	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+tg2_random_frequency_observed_kendall	-0.11131573579846799	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+tg2_random_frequency_observed_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_frequency_observed_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_random_enrichment_observed_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_random_enrichment_observed_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+tg2_random_enrichment_observed_spearman	-0.3571428571428571	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+tg2_random_enrichment_observed_kendall	-0.20000000000000004	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+tg2_random_enrichment_observed_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_enrichment_observed_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_random_kmer_logistic_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_random_kmer_logistic_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_random_kmer_logistic_spearman	0.3607142857142856	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_random_kmer_logistic_kendall	0.2761904761904762	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_random_kmer_logistic_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_kmer_logistic_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_average_precision	0.7385521885521886	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_auroc	0.36111111111111116	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_spearman	-0.1607142857142857	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_kendall	-0.10476190476190476	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_ridge_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_average_precision	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_average_precision	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_average_precision	0.8352640415140415	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_auroc	0.44444444444444453	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_spearman	-0.29623409926579763	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_kendall	-0.19518001458970663	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_precision_top_k	0.7	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_frequency_observed_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_average_precision	0.7207103082103083	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_auroc	0.3055555555555556	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_spearman	-0.42857142857142855	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_kendall	-0.2571428571428572	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_enrichment_observed_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_average_precision	0.9295676545676547	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_auroc	0.7222222222222223	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_spearman	0.5821428571428571	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_kendall	0.40952380952380957	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_logistic_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_family_kmer_ridge_average_precision	0.7436846486846487	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_family_kmer_ridge_auroc	0.72	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_family_kmer_ridge_spearman	0.35230769230769227	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_family_kmer_ridge_kendall	0.2933333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_family_kmer_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_kmer_ridge_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_family_frequency_average_precision	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=average_precision;threshold=0.8	value	measured
+integrin_family_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=auroc;threshold=0.8	value	measured
+integrin_family_frequency_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=spearman;threshold=0.8	value	measured
+integrin_family_frequency_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=kendall;threshold=0.8	value	measured
+integrin_family_frequency_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_frequency_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency;metric=prevalence;threshold=0.8	value	measured
+integrin_family_enrichment_average_precision	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+integrin_family_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=auroc;threshold=0.8	value	measured
+integrin_family_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=spearman;threshold=0.8	value	measured
+integrin_family_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=kendall;threshold=0.8	value	measured
+integrin_family_enrichment_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_enrichment_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+integrin_family_frequency_observed_average_precision	0.7648707773707774	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_family_frequency_observed_auroc	0.6633333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+integrin_family_frequency_observed_spearman	0.45316407839620126	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+integrin_family_frequency_observed_kendall	0.32387357319767623	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+integrin_family_frequency_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_frequency_observed_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_family_enrichment_observed_average_precision	0.8748836001696414	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_family_enrichment_observed_auroc	0.7933333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+integrin_family_enrichment_observed_spearman	0.6107692307692307	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+integrin_family_enrichment_observed_kendall	0.4266666666666666	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+integrin_family_enrichment_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_enrichment_observed_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_family_kmer_logistic_average_precision	0.5675049577135995	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_family_kmer_logistic_auroc	0.4866666666666667	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_family_kmer_logistic_spearman	-0.05615384615384616	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_family_kmer_logistic_kendall	-0.03999999999999999	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_family_kmer_logistic_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_kmer_logistic_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_random_kmer_ridge_average_precision	0.789397103870788	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_random_kmer_ridge_auroc	0.74	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_random_kmer_ridge_spearman	0.41000000000000003	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_random_kmer_ridge_kendall	0.3133333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_random_kmer_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_kmer_ridge_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_random_frequency_average_precision	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=average_precision;threshold=0.8	value	measured
+integrin_random_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=auroc;threshold=0.8	value	measured
+integrin_random_frequency_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=spearman;threshold=0.8	value	measured
+integrin_random_frequency_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=kendall;threshold=0.8	value	measured
+integrin_random_frequency_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_frequency_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency;metric=prevalence;threshold=0.8	value	measured
+integrin_random_enrichment_average_precision	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+integrin_random_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=auroc;threshold=0.8	value	measured
+integrin_random_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=spearman;threshold=0.8	value	measured
+integrin_random_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=kendall;threshold=0.8	value	measured
+integrin_random_enrichment_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_enrichment_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+integrin_random_frequency_observed_average_precision	0.7648707773707774	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_random_frequency_observed_auroc	0.6633333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+integrin_random_frequency_observed_spearman	0.45316407839620126	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+integrin_random_frequency_observed_kendall	0.32387357319767623	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+integrin_random_frequency_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_frequency_observed_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_random_enrichment_observed_average_precision	0.8748836001696414	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_random_enrichment_observed_auroc	0.7933333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+integrin_random_enrichment_observed_spearman	0.6107692307692307	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+integrin_random_enrichment_observed_kendall	0.4266666666666666	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+integrin_random_enrichment_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_enrichment_observed_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_random_kmer_logistic_average_precision	0.5675049577135995	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_random_kmer_logistic_auroc	0.4866666666666667	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_random_kmer_logistic_spearman	-0.05615384615384616	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_random_kmer_logistic_kendall	-0.03999999999999999	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_random_kmer_logistic_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_kmer_logistic_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_average_precision	0.8977327050791963	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_auroc	0.6851851851851851	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_spearman	0.468695652173913	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_kendall	0.34782608695652173	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_ridge_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_average_precision	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_precision_top_k	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_average_precision	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_auroc	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_spearman	nan	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_kendall	nan	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_precision_top_k	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_average_precision	0.8736754351885933	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_auroc	0.6759259259259259	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_spearman	0.4861926620696934	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_kendall	0.3520876941907044	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_frequency_observed_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_average_precision	0.884911276326395	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_auroc	0.6851851851851851	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_spearman	0.5426086956521738	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_kendall	0.391304347826087	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_precision_top_k	0.9	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_enrichment_observed_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_average_precision	0.8227686554785874	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_auroc	0.6203703703703703	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_spearman	0.2756521739130435	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_kendall	0.18840579710144928	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_logistic_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_average_precision	0.7467402620263032	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_auroc	0.7333333333333334	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_spearman	0.37538461538461537	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_kendall	0.3133333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_kmer_structure_ridge_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_average_precision	0.5741806877333193	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_auroc	0.48000000000000004	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_spearman	-0.07538461538461538	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_kendall	-0.07333333333333332	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_precision_top_k	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_kmer_structure_logistic_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_average_precision	0.7859050403787246	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_auroc	0.7333333333333333	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_spearman	0.40230769230769226	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_kendall	0.3066666666666666	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_kmer_structure_ridge_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_average_precision	0.5741806877333193	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_auroc	0.48000000000000004	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_spearman	-0.07538461538461538	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_kendall	-0.07333333333333332	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_precision_top_k	0.5	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_kmer_structure_logistic_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_average_precision	0.8950774763210263	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_auroc	0.6759259259259259	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_spearman	0.47130434782608693	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_kendall	0.34782608695652173	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_ridge_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_average_precision	0.8089804456377458	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_auroc	0.6203703703703703	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_spearman	0.2252173913043478	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_kendall	0.15217391304347824	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_precision_top_k	0.8	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_kmer_structure_logistic_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_average_precision	0.9260788814360241	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_auroc	0.2857142857142857	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_spearman	-0.07142857142857141	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_kendall	-0.009523809523809525	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_kmer_structure_ridge_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_spearman	0.3607142857142856	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_kendall	0.2761904761904762	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_kmer_structure_logistic_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_average_precision	0.8939360242931671	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_auroc	0.14285714285714285	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_spearman	-0.021428571428571425	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_kendall	-0.04761904761904762	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_kmer_structure_ridge_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_average_precision	0.9571162964020106	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_auroc	0.5	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_spearman	0.3607142857142856	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_kendall	0.2761904761904762	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_kmer_structure_logistic_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_average_precision	0.7385521885521886	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_auroc	0.36111111111111116	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_spearman	-0.1964285714285714	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_kendall	-0.14285714285714288	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_ridge_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_average_precision	0.9191509879009879	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_auroc	0.6944444444444444	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_spearman	0.5285714285714286	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_kendall	0.3904761904761905	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_precision_top_k	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_kmer_structure_logistic_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;metric=prevalence;threshold=0.8	value	measured
+integrin_family_markov_average_precision	0.7452940134054685	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=average_precision;threshold=0.8	value	measured
+integrin_family_markov_auroc	0.6066666666666667	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=auroc;threshold=0.8	value	measured
+integrin_family_markov_spearman	0.09615384615384616	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=spearman;threshold=0.8	value	measured
+integrin_family_markov_kendall	0.06666666666666665	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=kendall;threshold=0.8	value	measured
+integrin_family_markov_precision_top_k	0.7	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+integrin_family_markov_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=family;method=markov;metric=prevalence;threshold=0.8	value	measured
+integrin_random_markov_average_precision	0.7476599807714359	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=average_precision;threshold=0.8	value	measured
+integrin_random_markov_auroc	0.6066666666666667	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=auroc;threshold=0.8	value	measured
+integrin_random_markov_spearman	0.09999999999999999	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=spearman;threshold=0.8	value	measured
+integrin_random_markov_kendall	0.07999999999999997	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=kendall;threshold=0.8	value	measured
+integrin_random_markov_precision_top_k	0.7	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+integrin_random_markov_prevalence	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=random;method=markov;metric=prevalence;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_average_precision	0.7017141391381418	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=average_precision;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_auroc	0.36111111111111116	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=auroc;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_spearman	-0.38	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=spearman;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_kendall	-0.2681159420289855	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=kendall;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_precision_top_k	0.6	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+integrin_naive_sequence_random_markov_prevalence	0.75	results/evaluation_metrics.tsv	target=integrin;strategy=naive_sequence_random;method=markov;metric=prevalence;threshold=0.8	value	measured
+tg2_family_markov_average_precision	0.8701265004836434	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=average_precision;threshold=0.8	value	measured
+tg2_family_markov_auroc	0.07142857142857142	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=auroc;threshold=0.8	value	measured
+tg2_family_markov_spearman	-0.38928571428571423	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=spearman;threshold=0.8	value	measured
+tg2_family_markov_kendall	-0.29523809523809524	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=kendall;threshold=0.8	value	measured
+tg2_family_markov_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+tg2_family_markov_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=family;method=markov;metric=prevalence;threshold=0.8	value	measured
+tg2_random_markov_average_precision	0.8701265004836434	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=average_precision;threshold=0.8	value	measured
+tg2_random_markov_auroc	0.07142857142857142	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=auroc;threshold=0.8	value	measured
+tg2_random_markov_spearman	-0.37499999999999994	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=spearman;threshold=0.8	value	measured
+tg2_random_markov_kendall	-0.2571428571428572	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=kendall;threshold=0.8	value	measured
+tg2_random_markov_precision_top_k	0.9	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+tg2_random_markov_prevalence	0.9333333333333333	results/evaluation_metrics.tsv	target=tg2;strategy=random;method=markov;metric=prevalence;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_average_precision	0.6662760850260849	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=average_precision;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_auroc	0.11111111111111112	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=auroc;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_spearman	-0.46071428571428563	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=spearman;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_kendall	-0.33333333333333337	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=kendall;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_precision_top_k	0.7	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=precision_top_k;threshold=0.8	value	measured
+tg2_naive_sequence_random_markov_prevalence	0.8	results/evaluation_metrics.tsv	target=tg2;strategy=naive_sequence_random;method=markov;metric=prevalence;threshold=0.8	value	measured
+tg2_random_kmer_ridge_random_minus_family_difference	-0.014285714285714235	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_kmer_ridge_random_minus_family_lower_95	-0.06632653061224492	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_kmer_ridge_random_minus_family_upper_95	0.11111111111111116	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_frequency_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_frequency_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_frequency_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_enrichment_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_enrichment_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_enrichment_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_frequency_observed_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_frequency_observed_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_frequency_observed_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_enrichment_observed_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_enrichment_observed_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_enrichment_observed_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_kmer_logistic_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_kmer_logistic_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_kmer_logistic_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_kmer_ridge_random_minus_family_difference	0.04571245518613931	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_kmer_ridge_random_minus_family_lower_95	-0.06115682722364311	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_kmer_ridge_random_minus_family_upper_95	0.12919298372881052	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_ridge;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_frequency_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_frequency_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_frequency_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_enrichment_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_enrichment_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_enrichment_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_frequency_observed_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_frequency_observed_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_frequency_observed_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=frequency_observed;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_enrichment_observed_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_enrichment_observed_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_enrichment_observed_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=enrichment_observed;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_kmer_logistic_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_kmer_logistic_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_kmer_logistic_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_logistic;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_family_kmer_structure_ridge_structure_minus_sequence_difference	0.003055613341654495	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_family_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.020697830667354665	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_family_kmer_structure_ridge_structure_minus_sequence_upper_95	0.02593020080232341	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_family_kmer_structure_logistic_structure_minus_sequence_difference	0.006675730019719772	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_family_kmer_structure_logistic_structure_minus_sequence_lower_95	-0.041390675469426555	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_family_kmer_structure_logistic_structure_minus_sequence_upper_95	0.08660907650463547	results/paired_differences.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_random_kmer_structure_ridge_random_minus_family_difference	0.03916477835242138	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_kmer_structure_ridge_random_minus_family_lower_95	-0.07109877566533912	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_kmer_structure_ridge_random_minus_family_upper_95	0.12118523206591383	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_kmer_structure_ridge_structure_minus_sequence_difference	-0.0034920634920634352	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_random_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.02048677884615383	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_random_kmer_structure_ridge_structure_minus_sequence_upper_95	0.0005807434309755819	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_random_kmer_structure_logistic_random_minus_family_difference	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_kmer_structure_logistic_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_kmer_structure_logistic_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	upper_95	measured
+integrin_random_kmer_structure_logistic_structure_minus_sequence_difference	0.006675730019719772	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_random_kmer_structure_logistic_structure_minus_sequence_lower_95	-0.041390675469426555	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_random_kmer_structure_logistic_structure_minus_sequence_upper_95	0.08660907650463547	results/paired_differences.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_difference	-0.0026552287581700362	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.015648253761338313	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_upper_95	0.0	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_difference	-0.013788209840841503	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+integrin_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_lower_95	-0.062254694715767375	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+integrin_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_upper_95	0.03134088563655127	results/paired_differences.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_family_kmer_structure_ridge_structure_minus_sequence_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_family_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.007407407407407529	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_family_kmer_structure_ridge_structure_minus_sequence_upper_95	0.008437499999999924	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_family_kmer_structure_logistic_structure_minus_sequence_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_family_kmer_structure_logistic_structure_minus_sequence_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_family_kmer_structure_logistic_structure_minus_sequence_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_random_kmer_structure_ridge_random_minus_family_difference	-0.03214285714285703	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_kmer_structure_ridge_random_minus_family_lower_95	-0.11712541135335242	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_kmer_structure_ridge_random_minus_family_upper_95	0.11111111111111116	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_kmer_structure_ridge_structure_minus_sequence_difference	-0.017857142857142794	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_random_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.05263157894736836	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_random_kmer_structure_ridge_structure_minus_sequence_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_random_kmer_structure_logistic_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_kmer_structure_logistic_random_minus_family_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_kmer_structure_logistic_random_minus_family_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_kmer_structure_logistic_structure_minus_sequence_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_random_kmer_structure_logistic_structure_minus_sequence_lower_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_random_kmer_structure_logistic_structure_minus_sequence_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_lower_95	-0.0014880952380952328	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_naive_sequence_random_kmer_structure_ridge_structure_minus_sequence_upper_95	0.001984126984126977	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+tg2_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_difference	-0.01041666666666674	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	difference	measured
+tg2_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_lower_95	-0.06086889301175015	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	lower_95	measured
+tg2_naive_sequence_random_kmer_structure_logistic_structure_minus_sequence_upper_95	0.0	results/paired_differences.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;comparison=structure_minus_sequence;threshold=0.8	upper_95	measured
+integrin_random_markov_random_minus_family_difference	0.002365967365967392	results/paired_differences.tsv	target=integrin;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	difference	measured
+integrin_random_markov_random_minus_family_lower_95	-0.01666666666666661	results/paired_differences.tsv	target=integrin;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	lower_95	measured
+integrin_random_markov_random_minus_family_upper_95	0.0263304172679172	results/paired_differences.tsv	target=integrin;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	upper_95	measured
+tg2_random_markov_random_minus_family_difference	0.0	results/paired_differences.tsv	target=tg2;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	difference	measured
+tg2_random_markov_random_minus_family_lower_95	-0.0023809523809524835	results/paired_differences.tsv	target=tg2;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	lower_95	measured
+tg2_random_markov_random_minus_family_upper_95	0.000894438894438864	results/paired_differences.tsv	target=tg2;strategy=random;method=markov;comparison=random_minus_family;threshold=0.8	upper_95	measured
+unique_markov_candidates	100000	results/run_summary.tsv	run=executed_core	unique_markov_candidates	aggregate_or_configured
+exact_test_recovery	0	results/run_summary.tsv	run=executed_core	exact_test_recovery	aggregate_or_configured
+positive_test_family_recovery	0	results/run_summary.tsv	run=executed_core	positive_test_family_recovery	aggregate_or_configured
+primary_family_threshold	0.8	results/run_summary.tsv	run=executed_core	primary_family_threshold	aggregate_or_configured
+bootstrap_replicates	2000	results/run_summary.tsv	run=executed_core	bootstrap_replicates	aggregate_or_configured
+generation_budget	10000	results/run_summary.tsv	run=executed_core	generation_budget	aggregate_or_configured
+generation_seeds	11,23,37,53,71	results/run_summary.tsv	run=executed_core	generation_seeds	aggregate_or_configured
+folding_temperature_c	37.0	results/run_summary.tsv	run=executed_core	folding_temperature_c	aggregate_or_configured
+resource_snapshot_rows	103	results/run_summary.tsv	run=executed_core	resource_snapshot_rows	aggregate_or_configured
+tg2_family_kmer_ridge_ap_lower_95	0.6388888888888888	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_kmer_ridge_ap_upper_95	0.9652375438888595	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_frequency_ap_lower_95	0.6923076923076923	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_frequency_ap_upper_95	0.9565217391304348	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_enrichment_ap_lower_95	0.6923076923076923	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_enrichment_ap_upper_95	0.9565217391304348	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_frequency_observed_ap_lower_95	0.8249158249158248	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_frequency_observed_ap_upper_95	0.9819624819624819	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_enrichment_observed_ap_lower_95	0.8437351074851075	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_enrichment_observed_ap_upper_95	0.9825248624690843	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_kmer_logistic_ap_lower_95	0.7483834347470711	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_kmer_logistic_ap_upper_95	0.9917740384615383	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_kmer_ridge_ap_lower_95	0.6946911653161653	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_kmer_ridge_ap_upper_95	0.9456183436446595	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_frequency_ap_lower_95	0.6923076923076923	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_frequency_ap_upper_95	0.9565217391304348	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_enrichment_ap_lower_95	0.6923076923076923	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_enrichment_ap_upper_95	0.9565217391304348	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_frequency_observed_ap_lower_95	0.8249158249158248	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_frequency_observed_ap_upper_95	0.9819624819624819	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_enrichment_observed_ap_lower_95	0.8437351074851075	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_enrichment_observed_ap_upper_95	0.9825248624690843	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_kmer_logistic_ap_lower_95	0.7483834347470711	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_kmer_logistic_ap_upper_95	0.9917740384615383	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_ridge_ap_lower_95	0.4710103586889301	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_ridge_ap_upper_95	0.9913888888888889	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_frequency_ap_lower_95	0.5	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_frequency_ap_upper_95	0.9425653594771239	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_enrichment_ap_lower_95	0.5	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_enrichment_ap_upper_95	0.9425653594771239	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_frequency_observed_ap_lower_95	0.495292809042809	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_frequency_observed_ap_upper_95	0.9777777777777779	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_enrichment_observed_ap_lower_95	0.4168121263656978	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_enrichment_observed_ap_upper_95	0.9834111721611721	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_logistic_ap_lower_95	0.790651472107438	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_logistic_ap_upper_95	1.0	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_kmer_ridge_ap_lower_95	0.5258699168051348	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_kmer_ridge_ap_upper_95	0.9710350915989665	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_frequency_ap_lower_95	0.4	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_frequency_ap_upper_95	0.7916666666666666	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_enrichment_ap_lower_95	0.4	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_enrichment_ap_upper_95	0.7916666666666666	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_frequency_observed_ap_lower_95	0.5488114648033126	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_frequency_observed_ap_upper_95	0.9447989453933747	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_enrichment_observed_ap_lower_95	0.702372251604231	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_enrichment_observed_ap_upper_95	0.9773730003510356	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_kmer_logistic_ap_lower_95	0.3804032685971188	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_kmer_logistic_ap_upper_95	0.862251254400366	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_kmer_ridge_ap_lower_95	0.5602074789245842	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_kmer_ridge_ap_upper_95	0.9698285358974046	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_frequency_ap_lower_95	0.4	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_frequency_ap_upper_95	0.7916666666666666	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_enrichment_ap_lower_95	0.4	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_enrichment_ap_upper_95	0.7916666666666666	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_frequency_observed_ap_lower_95	0.5488114648033126	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_frequency_observed_ap_upper_95	0.9447989453933747	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_enrichment_observed_ap_lower_95	0.702372251604231	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_enrichment_observed_ap_upper_95	0.9773730003510356	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_kmer_logistic_ap_lower_95	0.3804032685971188	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_kmer_logistic_ap_upper_95	0.862251254400366	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_ridge_ap_lower_95	0.7634439511162856	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_ridge_ap_upper_95	0.9826544278759854	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_frequency_ap_lower_95	0.5833333333333334	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_frequency_ap_upper_95	0.9166666666666665	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=frequency;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_enrichment_ap_lower_95	0.5833333333333334	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_enrichment_ap_upper_95	0.9166666666666665	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_frequency_observed_ap_lower_95	0.7078857688256875	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_frequency_observed_ap_upper_95	0.9879790382361644	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=frequency_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_enrichment_observed_ap_lower_95	0.7352080247968407	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_enrichment_observed_ap_upper_95	0.9857951908390504	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=enrichment_observed;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_logistic_ap_lower_95	0.6226126645580105	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_logistic_ap_upper_95	0.9816939374564055	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_kmer_structure_ridge_ap_lower_95	0.5333582144979204	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_kmer_structure_ridge_ap_upper_95	0.973936518686422	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_kmer_structure_logistic_ap_lower_95	0.3823556368453815	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_kmer_structure_logistic_ap_upper_95	0.8603473583949591	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_kmer_structure_ridge_ap_lower_95	0.5563392081774435	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_kmer_structure_ridge_ap_upper_95	0.9675462240753454	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_kmer_structure_logistic_ap_lower_95	0.3823556368453815	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_kmer_structure_logistic_ap_upper_95	0.8603473583949591	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_structure_ridge_ap_lower_95	0.7562058080808081	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_structure_ridge_ap_upper_95	0.9809224766461608	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_structure_logistic_ap_lower_95	0.6090167766152373	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_kmer_structure_logistic_ap_upper_95	0.9853977272727272	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_kmer_structure_ridge_ap_lower_95	0.6416666666666667	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_kmer_structure_ridge_ap_upper_95	0.965227831379147	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_kmer_structure_logistic_ap_lower_95	0.7483834347470711	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_kmer_structure_logistic_ap_upper_95	0.9917740384615383	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_kmer_structure_ridge_ap_lower_95	0.687025012025012	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_kmer_structure_ridge_ap_upper_95	0.9282627865961199	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_kmer_structure_logistic_ap_lower_95	0.7483834347470711	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_kmer_structure_logistic_ap_upper_95	0.9917740384615383	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_structure_ridge_ap_lower_95	0.4704594413522985	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_structure_ridge_ap_upper_95	0.9913888888888889	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_ridge;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_structure_logistic_ap_lower_95	0.7571345198011865	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_kmer_structure_logistic_ap_upper_95	1.0	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=kmer_structure_logistic;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_family_markov_ap_lower_95	0.5237022669899386	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_family_markov_ap_upper_95	0.9204161695748831	results/bootstrap_intervals.tsv	target=integrin;strategy=family;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_random_markov_ap_lower_95	0.5247327519825163	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_random_markov_ap_upper_95	0.9238711802122809	results/bootstrap_intervals.tsv	target=integrin;strategy=random;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+integrin_naive_sequence_random_markov_ap_lower_95	0.515390668438795	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+integrin_naive_sequence_random_markov_ap_upper_95	0.9371196707427909	results/bootstrap_intervals.tsv	target=integrin;strategy=naive_sequence_random;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_family_markov_ap_lower_95	0.7822631072631072	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_family_markov_ap_upper_95	0.9104020396037203	results/bootstrap_intervals.tsv	target=tg2;strategy=family;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_random_markov_ap_lower_95	0.7822631072631072	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_random_markov_ap_upper_95	0.9104020396037203	results/bootstrap_intervals.tsv	target=tg2;strategy=random;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+tg2_naive_sequence_random_markov_ap_lower_95	0.42524486921808347	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=markov;threshold=0.8	lower_95	measured_family_bootstrap
+tg2_naive_sequence_random_markov_ap_upper_95	0.903350192070933	results/bootstrap_intervals.tsv	target=tg2;strategy=naive_sequence_random;method=markov;threshold=0.8	upper_95	measured_family_bootstrap
+resource_references_elapsed_seconds	0.874	logs/resource_usage.tsv	stage=references;start_timestamp=2026-10-03T14:28:44.944450+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_references_peak_rss_bytes	2760704	logs/resource_usage.tsv	stage=references;start_timestamp=2026-10-03T14:28:44.944450+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_references_peak_observed_disk_bytes	481093578	logs/resource_usage.tsv	stage=references;start_timestamp=2026-10-03T14:28:44.944450+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_metadata_elapsed_seconds	1.107	logs/resource_usage.tsv	stage=metadata;start_timestamp=2026-10-03T14:28:48.817624+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_metadata_peak_rss_bytes	28393472	logs/resource_usage.tsv	stage=metadata;start_timestamp=2026-10-03T14:28:48.817624+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_metadata_peak_observed_disk_bytes	481094549	logs/resource_usage.tsv	stage=metadata;start_timestamp=2026-10-03T14:28:48.817624+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_install_elapsed_seconds	190.033	logs/resource_usage.tsv	stage=install;start_timestamp=2026-10-03T13:05:33.724936+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_install_peak_rss_bytes	182882304	logs/resource_usage.tsv	stage=install;start_timestamp=2026-10-03T13:05:33.724936+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_install_peak_observed_disk_bytes	546058655	logs/resource_usage.tsv	stage=install;start_timestamp=2026-10-03T13:05:33.724936+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_software_elapsed_seconds	2.413	logs/resource_usage.tsv	stage=software;start_timestamp=2026-10-03T14:20:07.744843+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_software_peak_rss_bytes	70823936	logs/resource_usage.tsv	stage=software;start_timestamp=2026-10-03T14:20:07.744843+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_software_peak_observed_disk_bytes	480942765	logs/resource_usage.tsv	stage=software;start_timestamp=2026-10-03T14:20:07.744843+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ground_truth_elapsed_seconds	1.101	logs/resource_usage.tsv	stage=ground_truth;start_timestamp=2026-10-03T14:28:52.424223+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ground_truth_peak_rss_bytes	27828224	logs/resource_usage.tsv	stage=ground_truth;start_timestamp=2026-10-03T14:28:52.424223+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ground_truth_peak_observed_disk_bytes	481096257	logs/resource_usage.tsv	stage=ground_truth;start_timestamp=2026-10-03T14:28:52.424223+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_3_elapsed_seconds	66.264	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_3_peak_rss_bytes	35794944	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_3_peak_observed_disk_bytes	468169203	logs/resource_usage.tsv	stage=preprocess_integrin_3;start_timestamp=2026-10-03T13:11:24.902602+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_4_elapsed_seconds	2.545	logs/resource_usage.tsv	stage=preprocess_integrin_4;start_timestamp=2026-10-03T13:13:06.740185+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_4_peak_rss_bytes	35078144	logs/resource_usage.tsv	stage=preprocess_integrin_4;start_timestamp=2026-10-03T13:13:06.740185+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_4_peak_observed_disk_bytes	464105341	logs/resource_usage.tsv	stage=preprocess_integrin_4;start_timestamp=2026-10-03T13:13:06.740185+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_5_elapsed_seconds	2.140	logs/resource_usage.tsv	stage=preprocess_integrin_5;start_timestamp=2026-10-03T13:13:39.413133+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_5_peak_rss_bytes	34258944	logs/resource_usage.tsv	stage=preprocess_integrin_5;start_timestamp=2026-10-03T13:13:39.413133+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_5_peak_observed_disk_bytes	461672366	logs/resource_usage.tsv	stage=preprocess_integrin_5;start_timestamp=2026-10-03T13:13:39.413133+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_6_elapsed_seconds	1.267	logs/resource_usage.tsv	stage=preprocess_integrin_6;start_timestamp=2026-10-03T13:14:07.040586+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_6_peak_rss_bytes	33157120	logs/resource_usage.tsv	stage=preprocess_integrin_6;start_timestamp=2026-10-03T13:14:07.040586+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_integrin_6_peak_observed_disk_bytes	459188470	logs/resource_usage.tsv	stage=preprocess_integrin_6;start_timestamp=2026-10-03T13:14:07.040586+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_0_elapsed_seconds	39.352	logs/resource_usage.tsv	stage=preprocess_tg2_0;start_timestamp=2026-10-03T13:14:42.782972+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_0_peak_rss_bytes	35315712	logs/resource_usage.tsv	stage=preprocess_tg2_0;start_timestamp=2026-10-03T13:14:42.782972+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_0_peak_observed_disk_bytes	469200935	logs/resource_usage.tsv	stage=preprocess_tg2_0;start_timestamp=2026-10-03T13:14:42.782972+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_1_elapsed_seconds	11.075	logs/resource_usage.tsv	stage=preprocess_tg2_1;start_timestamp=2026-10-03T13:15:50.228961+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_1_peak_rss_bytes	35545088	logs/resource_usage.tsv	stage=preprocess_tg2_1;start_timestamp=2026-10-03T13:15:50.228961+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_1_peak_observed_disk_bytes	464082469	logs/resource_usage.tsv	stage=preprocess_tg2_1;start_timestamp=2026-10-03T13:15:50.228961+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_2_elapsed_seconds	1.685	logs/resource_usage.tsv	stage=preprocess_tg2_2;start_timestamp=2026-10-03T13:16:25.845303+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_2_peak_rss_bytes	34566144	logs/resource_usage.tsv	stage=preprocess_tg2_2;start_timestamp=2026-10-03T13:16:25.845303+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_2_peak_observed_disk_bytes	459179248	logs/resource_usage.tsv	stage=preprocess_tg2_2;start_timestamp=2026-10-03T13:16:25.845303+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_3_elapsed_seconds	3.211	logs/resource_usage.tsv	stage=preprocess_tg2_3;start_timestamp=2026-10-03T13:16:47.734875+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_3_peak_rss_bytes	35573760	logs/resource_usage.tsv	stage=preprocess_tg2_3;start_timestamp=2026-10-03T13:16:47.734875+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_3_peak_observed_disk_bytes	465122651	logs/resource_usage.tsv	stage=preprocess_tg2_3;start_timestamp=2026-10-03T13:16:47.734875+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_4_elapsed_seconds	2.235	logs/resource_usage.tsv	stage=preprocess_tg2_4;start_timestamp=2026-10-03T13:17:02.025560+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_4_peak_rss_bytes	35434496	logs/resource_usage.tsv	stage=preprocess_tg2_4;start_timestamp=2026-10-03T13:17:02.025560+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_4_peak_observed_disk_bytes	462390457	logs/resource_usage.tsv	stage=preprocess_tg2_4;start_timestamp=2026-10-03T13:17:02.025560+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_5_elapsed_seconds	2.198	logs/resource_usage.tsv	stage=preprocess_tg2_5;start_timestamp=2026-10-03T13:17:28.406183+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_5_peak_rss_bytes	34136064	logs/resource_usage.tsv	stage=preprocess_tg2_5;start_timestamp=2026-10-03T13:17:28.406183+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_5_peak_observed_disk_bytes	464016316	logs/resource_usage.tsv	stage=preprocess_tg2_5;start_timestamp=2026-10-03T13:17:28.406183+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_6_elapsed_seconds	1.507	logs/resource_usage.tsv	stage=preprocess_tg2_6;start_timestamp=2026-10-03T13:17:42.324283+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_6_peak_rss_bytes	32645120	logs/resource_usage.tsv	stage=preprocess_tg2_6;start_timestamp=2026-10-03T13:17:42.324283+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_6_peak_observed_disk_bytes	463253212	logs/resource_usage.tsv	stage=preprocess_tg2_6;start_timestamp=2026-10-03T13:17:42.324283+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_7_elapsed_seconds	1.146	logs/resource_usage.tsv	stage=preprocess_tg2_7;start_timestamp=2026-10-03T13:17:52.353282+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_7_peak_rss_bytes	31981568	logs/resource_usage.tsv	stage=preprocess_tg2_7;start_timestamp=2026-10-03T13:17:52.353282+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_7_peak_observed_disk_bytes	460694556	logs/resource_usage.tsv	stage=preprocess_tg2_7;start_timestamp=2026-10-03T13:17:52.353282+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_8_elapsed_seconds	1.264	logs/resource_usage.tsv	stage=preprocess_tg2_8;start_timestamp=2026-10-03T13:18:06.621236+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_8_peak_rss_bytes	32337920	logs/resource_usage.tsv	stage=preprocess_tg2_8;start_timestamp=2026-10-03T13:18:06.621236+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_preprocess_tg2_8_peak_observed_disk_bytes	463788457	logs/resource_usage.tsv	stage=preprocess_tg2_8;start_timestamp=2026-10-03T13:18:06.621236+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_fetch_elapsed_seconds	1.510	logs/resource_usage.tsv	stage=fetch;start_timestamp=2026-10-03T14:28:50.518595+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_fetch_peak_rss_bytes	27930624	logs/resource_usage.tsv	stage=fetch;start_timestamp=2026-10-03T14:28:50.518595+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_fetch_peak_observed_disk_bytes	481095798	logs/resource_usage.tsv	stage=fetch;start_timestamp=2026-10-03T14:28:50.518595+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_sources_elapsed_seconds	2.188	logs/resource_usage.tsv	stage=sources;start_timestamp=2026-10-03T14:28:46.224726+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_sources_peak_rss_bytes	35143680	logs/resource_usage.tsv	stage=sources;start_timestamp=2026-10-03T14:28:46.224726+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_sources_peak_observed_disk_bytes	481094104	logs/resource_usage.tsv	stage=sources;start_timestamp=2026-10-03T14:28:46.224726+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_splits_elapsed_seconds	1.130	logs/resource_usage.tsv	stage=splits;start_timestamp=2026-10-03T14:28:53.930391+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_splits_peak_rss_bytes	31772672	logs/resource_usage.tsv	stage=splits;start_timestamp=2026-10-03T14:28:53.930391+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_splits_peak_observed_disk_bytes	481096672	logs/resource_usage.tsv	stage=splits;start_timestamp=2026-10-03T14:28:53.930391+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_inspect_raptgen_elapsed_seconds	1.504	logs/resource_usage.tsv	stage=inspect_raptgen;start_timestamp=2026-10-03T13:20:41.724274+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_inspect_raptgen_peak_rss_bytes	34004992	logs/resource_usage.tsv	stage=inspect_raptgen;start_timestamp=2026-10-03T13:20:41.724274+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_inspect_raptgen_peak_observed_disk_bytes	465916281	logs/resource_usage.tsv	stage=inspect_raptgen;start_timestamp=2026-10-03T13:20:41.724274+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_baselines_elapsed_seconds	2.195	logs/resource_usage.tsv	stage=baselines;start_timestamp=2026-10-03T14:28:55.473390+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_baselines_peak_rss_bytes	119005184	logs/resource_usage.tsv	stage=baselines;start_timestamp=2026-10-03T14:28:55.473390+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_baselines_peak_observed_disk_bytes	481097078	logs/resource_usage.tsv	stage=baselines;start_timestamp=2026-10-03T14:28:55.473390+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_secondary_elapsed_seconds	1.178	logs/resource_usage.tsv	stage=secondary;start_timestamp=2026-10-03T14:28:58.060610+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_secondary_peak_rss_bytes	6152192	logs/resource_usage.tsv	stage=secondary;start_timestamp=2026-10-03T14:28:58.060610+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_secondary_peak_observed_disk_bytes	481097485	logs/resource_usage.tsv	stage=secondary;start_timestamp=2026-10-03T14:28:58.060610+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ablation_elapsed_seconds	1.163	logs/resource_usage.tsv	stage=ablation;start_timestamp=2026-10-03T14:29:01.494847+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ablation_peak_rss_bytes	20848640	logs/resource_usage.tsv	stage=ablation;start_timestamp=2026-10-03T14:29:01.494847+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_ablation_peak_observed_disk_bytes	481098402	logs/resource_usage.tsv	stage=ablation;start_timestamp=2026-10-03T14:29:01.494847+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_candidates_elapsed_seconds	1.987	logs/resource_usage.tsv	stage=candidates;start_timestamp=2026-10-03T14:29:03.131455+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_candidates_peak_rss_bytes	44376064	logs/resource_usage.tsv	stage=candidates;start_timestamp=2026-10-03T14:29:03.131455+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_candidates_peak_observed_disk_bytes	481098853	logs/resource_usage.tsv	stage=candidates;start_timestamp=2026-10-03T14:29:03.131455+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_evaluation_elapsed_seconds	1.761	logs/resource_usage.tsv	stage=evaluation;start_timestamp=2026-10-03T14:29:06.923734+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_evaluation_peak_rss_bytes	107376640	logs/resource_usage.tsv	stage=evaluation;start_timestamp=2026-10-03T14:29:06.923734+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_evaluation_peak_observed_disk_bytes	481099704	logs/resource_usage.tsv	stage=evaluation;start_timestamp=2026-10-03T14:29:06.923734+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tertiary_elapsed_seconds	0.994	logs/resource_usage.tsv	stage=tertiary;start_timestamp=2026-10-03T14:29:05.532194+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tertiary_peak_rss_bytes	6152192	logs/resource_usage.tsv	stage=tertiary;start_timestamp=2026-10-03T14:29:05.532194+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tertiary_peak_observed_disk_bytes	481099291	logs/resource_usage.tsv	stage=tertiary;start_timestamp=2026-10-03T14:29:05.532194+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tests_elapsed_seconds	3.342	logs/resource_usage.tsv	stage=tests;start_timestamp=2026-10-03T14:29:09.099254+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tests_peak_rss_bytes	137449472	logs/resource_usage.tsv	stage=tests;start_timestamp=2026-10-03T14:29:09.099254+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_tests_peak_observed_disk_bytes	481114047	logs/resource_usage.tsv	stage=tests;start_timestamp=2026-10-03T14:29:09.099254+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_resolve_elapsed_seconds	0.913	logs/resource_usage.tsv	stage=resolve;start_timestamp=2026-10-03T14:29:23.746384+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_resolve_peak_rss_bytes	6152192	logs/resource_usage.tsv	stage=resolve;start_timestamp=2026-10-03T14:29:23.746384+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_resolve_peak_observed_disk_bytes	481108993	logs/resource_usage.tsv	stage=resolve;start_timestamp=2026-10-03T14:29:23.746384+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_gpu_jobs_elapsed_seconds	1.396	logs/resource_usage.tsv	stage=gpu_jobs;start_timestamp=2026-10-03T14:28:59.666782+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_gpu_jobs_peak_rss_bytes	62955520	logs/resource_usage.tsv	stage=gpu_jobs;start_timestamp=2026-10-03T14:28:59.666782+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_gpu_jobs_peak_observed_disk_bytes	481097991	logs/resource_usage.tsv	stage=gpu_jobs;start_timestamp=2026-10-03T14:28:59.666782+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_figures_elapsed_seconds	6.505	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T14:29:12.889954+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_figures_peak_rss_bytes	233213952	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T14:29:12.889954+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_figures_peak_observed_disk_bytes	481107641	logs/resource_usage.tsv	stage=figures;start_timestamp=2026-10-03T14:29:12.889954+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_generation_qc_elapsed_seconds	1.359	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_generation_qc_peak_rss_bytes	34299904	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_generation_qc_peak_observed_disk_bytes	479636930	logs/resource_usage.tsv	stage=generation_qc;start_timestamp=2026-10-03T13:55:46.863632+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_elapsed_seconds	1.282	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T14:29:19.812359+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_peak_rss_bytes	35131392	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T14:29:19.812359+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_report_peak_observed_disk_bytes	481108070	logs/resource_usage.tsv	stage=report;start_timestamp=2026-10-03T14:29:19.812359+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_configure_elapsed_seconds	1.366	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T14:29:21.922065+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_configure_peak_rss_bytes	29483008	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T14:29:21.922065+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_configure_peak_observed_disk_bytes	481108605	logs/resource_usage.tsv	stage=configure;start_timestamp=2026-10-03T14:29:21.922065+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_bootstrap_sources_elapsed_seconds	0.913	logs/resource_usage.tsv	stage=bootstrap_sources;start_timestamp=2026-10-03T14:28:37.984849+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_bootstrap_sources_peak_rss_bytes	4100096	logs/resource_usage.tsv	stage=bootstrap_sources;start_timestamp=2026-10-03T14:28:37.984849+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_bootstrap_sources_peak_observed_disk_bytes	481091126	logs/resource_usage.tsv	stage=bootstrap_sources;start_timestamp=2026-10-03T14:28:37.984849+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_full_preflight_elapsed_seconds	0.950	logs/resource_usage.tsv	stage=full_preflight;start_timestamp=2026-10-03T14:29:25.060537+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_full_preflight_peak_rss_bytes	6152192	logs/resource_usage.tsv	stage=full_preflight;start_timestamp=2026-10-03T14:29:25.060537+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_full_preflight_peak_observed_disk_bytes	481111707	logs/resource_usage.tsv	stage=full_preflight;start_timestamp=2026-10-03T14:29:25.060537+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_clean_clone_elapsed_seconds	4.983	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T14:30:44.996972+00:00	elapsed_seconds	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_clean_clone_peak_rss_bytes	210132992	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T14:30:44.996972+00:00	peak_rss_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors
+resource_clean_clone_peak_observed_disk_bytes	481663355	logs/resource_usage.tsv	stage=clean_clone;start_timestamp=2026-10-03T14:30:44.996972+00:00	peak_observed_disk_bytes	raw_units; prose_MB_and_GB_use_decimal_divisors

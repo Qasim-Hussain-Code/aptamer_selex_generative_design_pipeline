@@ -1,0 +1,2 @@
+timestamp	free_bytes	requested_disk_bytes	effective_budget_bytes	reserve_bytes	project_bytes	ram_limit_bytes	threads
+2026-10-03T14:29:22.749730+00:00	18999926784	13000000000	13000000000	1000000000	481108518	14000000000	1

@@ -1,0 +1,6 @@
+item	reason	action
+AptaDiff accession sentence	A/B refer to IGFBP3/PTK7; DRA records identify TG2/integrin; paper Table 1 labels the public data C/D	Keep targets distinct; exclude ambiguous accession mapping
+AptaDiff licence	Paper states MIT; repository has no licence file	No upstream source used, modified or redistributed; remote job refuses
+InstructNA licence and weights	No repository licence at inspected commit; weight terms and footprint not established	Excluded before code use
+DDBJ direct metadata endpoint	Resource .xml route returned HTML; guessed FTP route returned 404	Use DDBJ-submitted study/experiment records from INSDC ENA mirror; record failures
+RaptGen remote execution	No hosted GPU run or CUDA compatibility test performed	Provide pinned job and validate returned outputs; no neural result claimed
