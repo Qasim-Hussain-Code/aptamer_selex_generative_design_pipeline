@@ -16,6 +16,7 @@ if [[ -f project.conf ]]; then
 fi
 export PYTHONPATH="$ROOT/scripts${PYTHONPATH:+:$PYTHONPATH}"
 export OMP_NUM_THREADS=${THREADS:-1} OPENBLAS_NUM_THREADS=${THREADS:-1} MKL_NUM_THREADS=${THREADS:-1}
+export PIPELINE_BASH_VERSION="$BASH_VERSION"
 stage() {
     local label=$1
     shift

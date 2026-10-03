@@ -25,10 +25,11 @@ classification_primary_metric: average_precision
 continuous_primary_metric: spearman
 bootstrap_unit: sequence_family
 top_k: 10
-supervised_design: outer_leave_one_family_out_and_leave_one_sequence_out
+supervised_design: fixed_label_blind_family_test_set_same_test_ids_random_diagnostic
+assay_test_family_fraction: 0.5
 subsampling:
   reads: all
-  training_pool: all
+  training_pool: 2500
   seed: 1729
-  algorithm: none
+  algorithm: smallest_sha256_seed_and_sequence_among_late_round_count_at_least_two
 tertiary_enabled: false

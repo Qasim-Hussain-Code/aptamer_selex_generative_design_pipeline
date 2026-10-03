@@ -24,10 +24,20 @@ def main():
     note = "RSS sums sampled process tree at 0.2 s; disk sampled at 1 s; short peaks may be missed"
     last_disk = 0
     stopped = False
+    rss_errors = set()
     while proc.poll() is None:
         try:
-            family = [root_proc] + root_proc.children(recursive=True)
-            rss = sum(q.memory_info().rss for q in family if q.is_running())
+            family = [root_proc]
+            try:
+                family += root_proc.children(recursive=True)
+            except psutil.Error as e:
+                rss_errors.add(f"children:{type(e).__name__}")
+            rss = 0
+            for q in family:
+                try:
+                    rss += q.memory_info().rss
+                except psutil.Error as e:
+                    rss_errors.add(f"memory:{type(e).__name__}")
             peak_rss = max(peak_rss, rss)
             if time.monotonic() - last_disk >= 1:
                 peak_disk = max(peak_disk, disk_bytes())
@@ -51,6 +61,8 @@ def main():
         proc.kill()
         status = proc.wait()
     after = disk_bytes()
+    if rss_errors:
+        note += "; RSS sampling errors=" + ",".join(sorted(rss_errors))
     append(ROOT / "logs/resource_usage.tsv", dict(stage=a.stage, command=shlex.join(command),
            start_timestamp=start, end_timestamp=now(), elapsed_seconds=f"{time.monotonic()-wall:.3f}",
            exit_status=status, peak_rss_bytes=peak_rss, disk_bytes_before=before,
