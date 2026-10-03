@@ -16,7 +16,7 @@ def main():
     path=Path(tempfile.mkdtemp(prefix="clean_clone_",dir=cache)).resolve()
     if not path.is_relative_to(cache):raise ValueError("Unsafe clone path")
     try:
-        subprocess.run(["git","-c",f"safe.directory={ROOT.as_posix()}","clone","--no-hardlinks","--local",str(ROOT),str(path)],check=True)
+        subprocess.run(["git","-c",f"safe.directory={ROOT.as_posix()}","-c",f"safe.directory={(ROOT/'.git').as_posix()}","clone","--no-hardlinks","--local",str(ROOT),str(path)],check=True)
         env=os.environ.copy()
         env["PYTHON"]=sys.executable
         env.pop("PYTHONPATH",None)
