@@ -16,7 +16,7 @@ def main():
     predictions = []
     for t in sorted({r["target"] for r in splits}):
         for threshold in cfg["threshold_sensitivity"]:
-            for strategy in ["family", "random"]:
+            for strategy in ["family", "random", "naive_sequence_random"]:
                 group = [r for r in splits if r["target"] == t and float(r["threshold"]) == threshold and r["strategy"] == strategy]
                 predictions += importlib.import_module("08_baselines").predict_group(t, threshold, strategy, group, cfg, structures)
     table(out, predictions)

@@ -20,7 +20,8 @@ def main():
     out = ROOT / "config/ground_truth_manifest.tsv"
     inputs = [a.pdf, ROOT / "config/datasets.tsv"]
     audit = ROOT / "results/ground_truth_audit.tsv"
-    if completed("ground_truth", inputs, [out, audit]):
+    outputs=[out,audit,ROOT / "results/experimental_ground_truth.tsv"]
+    if completed("ground_truth", inputs, outputs):
         return
     from pypdf import PdfReader
     text = "\n".join(page.extract_text() for page in PdfReader(a.pdf).pages)
@@ -44,7 +45,7 @@ def main():
            positives=sum(r["target"] == t and r["original_experimental_label"] == "1" for r in records),
            endpoint="published_binary_label_and_continuous_RU", units="RU", binary_threshold_introduced="no",
            original_label_criterion="response>25_RU_in_primary_paper_Table_1", exclusion_reasons="none") for t in ["tg2", "integrin"]])
-    stamp("ground_truth", inputs, [out, audit])
+    stamp("ground_truth", inputs, outputs)
     print(f"Reconstructed {len(records)} experimental rows directly from primary supplement")
 
 

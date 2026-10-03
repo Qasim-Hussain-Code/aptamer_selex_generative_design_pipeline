@@ -14,6 +14,8 @@ models: [raptgen, aptadiff]
 baselines: [frequency, enrichment, kmer_ridge, markov]
 kmer_sizes: [1, 2, 3]
 ridge_alpha: 10.0
+logistic_c: 0.1
+logistic_max_iter: 2000
 enrichment_pseudocount: 0.5
 structural_features: [mfe_kcal_mol, base_pair_count, paired_fraction, ensemble_diversity]
 folding_temperature_c: 37.0
@@ -27,6 +29,9 @@ bootstrap_unit: sequence_family
 top_k: 10
 supervised_design: fixed_label_blind_family_test_set_same_test_ids_random_diagnostic
 assay_test_family_fraction: 0.5
+random_diagnostic: matched_exact_sequence_holdout_on_primary_test_ids
+naive_random_arm: independent_sequence_hash_partition
+naive_random_arm_declaration: added_after_first_local_run_to_correct_diagnostic_definition_no_seed_or_metric_selection
 subsampling:
   reads: all
   training_pool: 2500

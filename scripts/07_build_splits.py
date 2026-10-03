@@ -31,23 +31,25 @@ def build(target, cfg, root=ROOT):
     ntest = max(1, min(len(assay_families)-1, round(len(assay_families)*cfg["assay_test_family_fraction"])))
     test_families = set(sorted(assay_families, key=lambda f: hashlib.sha256(f'{cfg["master_seed"]}:{f}'.encode()).digest())[:ntest])
     test = {s for s in assay_sequences if assignment_primary[s] in test_families}
+    naive_test = set(deterministic_subset(assay_sequences,max(1,round(len(assay_sequences)*cfg["assay_test_family_fraction"])),cfg["master_seed"]))
     records, audits = [], []
     for threshold in cfg["threshold_sensitivity"]:
         assign = assignment_primary if threshold == cfg["family_threshold"] else families(pool + list(assay_sequences), threshold)
         excluded_families = {assign[s] for s in test}
-        for strategy in ["family", "random"]:
-            train = {s for s in pool if s not in test and (strategy == "random" or assign[s] not in excluded_families)}
+        for strategy in ["family", "random", "naive_sequence_random"]:
+            current_test = naive_test if strategy == "naive_sequence_random" else test
+            train = {s for s in pool if s not in current_test and (strategy != "family" or assign[s] not in excluded_families)}
             if strategy == "family":
-                assert_no_leakage(train, test, assign)
+                assert_no_leakage(train, current_test, assign)
             for s in sorted(set(pool) | assay_sequences):
-                split = "test" if s in test else "train" if s in train else "excluded"
+                split = "test" if s in current_test else "train" if s in train else "excluded"
                 records.append(dict(target=target, threshold=threshold, strategy=strategy, sequence=s,
                      family_id=assign[s], split=split, experimental_label_status="measured" if s in assay_sequences else "unmeasured",
                      reason_for_assignment="fixed_primary_test_family" if split == "test" else "held_out_family_or_not_in_training_pool" if split == "excluded" else "eligible_late_round_training_sequence",
-                     assay_training_allowed=str(s in assay_sequences and s not in test and (strategy == "random" or assign[s] not in excluded_families)).lower()))
+                     assay_training_allowed=str(s in assay_sequences and s not in current_test and (strategy != "family" or assign[s] not in excluded_families)).lower()))
             audits.append(dict(target=target, threshold=threshold, strategy=strategy,
-                 training_sequences=len(train), test_sequences=len(test), test_families=len({assign[s] for s in test}),
-                 exact_overlaps=len(train & test), family_overlaps=len({assign[s] for s in train} & {assign[s] for s in test}),
+                 training_sequences=len(train), test_sequences=len(current_test), test_families=len({assign[s] for s in current_test}),
+                 exact_overlaps=len(train & current_test), family_overlaps=len({assign[s] for s in train} & {assign[s] for s in current_test}),
                  excluded_training_sequences=len(pool)-len(train), late_round_eligible=len(eligible), selected_pool=len(pool),
                  excluded_from_pool=len(eligible)-len(pool)))
     return records, audits
@@ -60,7 +62,7 @@ def main():
     cfg = settings()
     targets = ["tg2", "integrin"] if a.target == "all" else [a.target]
     inputs = [ROOT / "config/benchmark.yml", ROOT / "config/ground_truth_manifest.tsv"] + list((ROOT / "data/processed").glob("*/*.counts.tsv.gz"))
-    outputs = [ROOT / "config/split_manifest.tsv", ROOT / "results/leakage_audit.tsv"]
+    outputs = [ROOT / "config/split_manifest.tsv", ROOT / "results/leakage_audit.tsv", ROOT / "results/family_assignments.tsv", ROOT / "results/exclusions.tsv"]
     if completed("splits", inputs, outputs):
         return
     recs, audits = [], []

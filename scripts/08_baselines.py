@@ -43,11 +43,13 @@ def predict_group(target, threshold, strategy, split, cfg, structures=None):
         preds["frequency_observed"] = np.asarray([cl.get(s, 0)/nl for s in test])
         preds["enrichment_observed"] = np.asarray([enrichment(cl.get(s,0), nl, ce.get(s,0), ne, vocab, cfg["enrichment_pseudocount"]) for s in test])
     assay_train = sorted(r["sequence"] for r in split if r["assay_training_allowed"] == "true")
+    if set(assay_train) & set(test):
+        raise AssertionError("Held-out assay sequence would enter supervised fitting")
     if len(assay_train) >= 2 and len({truth[s]["original_experimental_label"] for s in assay_train}) == 2:
         xa = kmer_features(assay_train, cfg["kmer_sizes"])
         if structures is not None:
             xa = np.column_stack([xa, [[float(structures[(target,s)][f]) for f in cfg["structural_features"]] for s in assay_train]])
-        classifier = make_pipeline(StandardScaler(), LogisticRegression(C=0.1, random_state=cfg["master_seed"], max_iter=2000))
+        classifier = make_pipeline(StandardScaler(), LogisticRegression(C=cfg["logistic_c"], random_state=cfg["master_seed"], max_iter=cfg["logistic_max_iter"]))
         classifier.fit(xa, [int(truth[s]["original_experimental_label"]) for s in assay_train])
         preds["kmer_structure_logistic" if structures is not None else "kmer_logistic"] = classifier.decision_function(xt)
     else:
@@ -79,7 +81,7 @@ def main():
     predictions = []
     for t in ["tg2", "integrin"] if a.target == "all" else [a.target]:
         for threshold in cfg["threshold_sensitivity"]:
-            for strategy in ["family", "random"]:
+            for strategy in ["family", "random", "naive_sequence_random"]:
                 group = [r for r in splits if r["target"] == t and float(r["threshold"]) == threshold and r["strategy"] == strategy]
                 predictions += predict_group(t, threshold, strategy, group, cfg)
     table(out, predictions)
