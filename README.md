@@ -1,4 +1,4 @@
-# No positive test-family recovery at 10,000 Markov candidates per run
+  # No positive test-family recovery at 10,000 Markov candidates per run
 
 ## Summary
 
@@ -150,7 +150,7 @@ Figure 6. The first 500 candidates from each seed, or 2,500 points per target, p
 
 ### Secondary structure
 
-ViennaRNA 2.7.2 folds the assay construct, including constant regions and excluding the poly(A) tether, at 37 C. Sequence-only models are compared with the same models plus MFE, base-pair count, paired fraction and ensemble diversity. The primary ridge AP changes are +0.0000 for TG2 (95% interval -0.0074 to +0.0084) and +0.0031 for integrin (-0.0207 to +0.0259). These fixed fits show no clear AP improvement. They do not test whether structure is biologically irrelevant.
+ViennaRNA (2.7.2) folds the assay construct, including constant regions and excluding the poly(A) tether, at 37 C. Sequence-only models are compared with the same models plus MFE, base-pair count, paired fraction and ensemble diversity. The primary ridge AP changes are +0.0000 for TG2 (95% interval -0.0074 to +0.0084) and +0.0031 for integrin (-0.0207 to +0.0259). These fixed fits show no clear AP improvement. They do not test whether structure is biologically irrelevant.
 
 Adding structure changes primary ridge AP by +0.0000 for TG2 and +0.0031 for integrin, without a resolved paired improvement ([ablation comparisons](results/paired_differences.tsv)).
 
